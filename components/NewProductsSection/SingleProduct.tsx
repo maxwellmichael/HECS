@@ -24,7 +24,7 @@ const SingleProduct = ({ feature }: { feature: Product }) => {
         whileInView="visible"
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
-        className="animate_top relative z-40 cursor-pointer rounded-2xl sm:overflow-hidden md:overflow-visible h-auto"
+        className="animate_top relative z-40 cursor-pointer rounded-2xl sm:overflow-hidden md:overflow-visible h-auto w-full"
       >
         <article className="relative m-5 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
           <a
