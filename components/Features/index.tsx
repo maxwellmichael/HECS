@@ -15,7 +15,9 @@ const Feature = () => {
             headerInfo={{
               title: "OUR FEATURES",
               subtitle: "Why Choose Us",
-              description: `At HECS, we possess the knowledge and proven expertise to support the Electrical and Mechanical industries at every stage, from design to after-sales support. We partner with the world’s leading power electronics, electrical, and mechanical component brands to provide you with cutting-edge technology, high-quality products, and expert services.`,
+              description: `At HECS, we possess the knowledge and proven expertise to support the Automation , Electrical and Mechanical Spares  from  every stage  to after-sales support. 
+We supply a wide range of well-known manufacturers such as:  Allen Bradley, Omron, Siemens, Mitsubishi, ABB, GE Speedtronics ,Ge Excitations , G FANUC, Schneider , Bently Nevada , Woodwards, Emerson  and  more  brands to provide you with cutting-edge technology, high-quality products, and expert services.
+`,
             }}
           />
           {/* <!-- Section Title End --> */}

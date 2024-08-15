@@ -86,7 +86,7 @@ const Footer = () => {
                   <ul>
                     <li>
                       <a
-                        href="#"
+                        href="/"
                         className="mb-3 inline-block hover:text-primary"
                       >
                         Home
@@ -94,28 +94,36 @@ const Footer = () => {
                     </li>
                     <li>
                       <a
-                        href="#"
+                        href="/products"
                         className="mb-3 inline-block hover:text-primary"
                       >
-                        Product
+                        Products
                       </a>
                     </li>
                     <li>
+                      <a
+                        href="/terms"
+                        className="mb-3 inline-block hover:text-primary"
+                      >
+                        Terms & Conditions
+                      </a>
+                    </li>
+                    {/* <li>
                       <a
                         href="#"
                         className="mb-3 inline-block hover:text-primary"
                       >
                         Careers
                       </a>
-                    </li>
-                    <li>
+                    </li> */}
+                    {/* <li>
                       <a
                         href="#"
                         className="mb-3 inline-block hover:text-primary"
                       >
                         Pricing
                       </a>
-                    </li>
+                    </li> */}
                   </ul>
                 </motion.div>
 

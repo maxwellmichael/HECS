@@ -3,33 +3,39 @@ import { Feature } from "@/types/feature";
 const featuresData: Feature[] = [
   {
     id: 1,
-    icon: "/images/icon/icon-01.svg",
-    title: "Best In Industry",
+    icon: "/images/icon/products.svg",
+    title: "Wide range of products",
     description:
-      "We understand that the backbone of any successful project lies in the reliability of its components.",
+      "Our extensive range of  spare parts from the Industry’s top manufacturers enable us to significantly increase business's bottom line maintaining and minimizing operational costs",
   },
   {
     id: 2,
-    icon: "/images/icon/icon-02.svg",
-    title: "Professional Staff",
+    icon: "/images/icon/services.svg",
+    title: "Excellent service",
     description:
-      "Our team comprises seasoned professionals with a wealth of experience.",
+      "Company has a team of dedicated professionals who are available to help clients with any questions or concerns they may have.",
   },
-  // {
-  //   id: 3,
-  //   icon: "/images/icon/icon-03.svg",
-  //   title: "Award Winning",
-  //   description:
-  //     "Excellence is not just a goal – it's our standard.",
-  // },
+  {
+    id: 3,
+    icon: "/images/icon/cost.svg",
+    title: "Reasonable Cost",
+    description:
+      "Offering  the best price and  helping customers save money and reduce downtime.",
+  },
   {
     id: 4,
-    icon: "/images/icon/icon-04.svg",
-    title: "24/7 Support",
+    icon: "/images/icon/quality.svg",
+    title: "High quality products",
     description:
-      "Our 24x7 call support is more than just a service; it's a commitment to being there for you whenever you need us.",
+      "We provide Brand New , Unused , Refurbished and Used Spare Parts  with  warranty.",
   },
-
+  {
+    id: 5,
+    icon: "/images/icon/inventory.svg",
+    title: "Adequate inventory",
+    description:
+      "In stock facilities and swift Shipping with  minimum lead time.",
+  },
 ];
 
 export default featuresData;

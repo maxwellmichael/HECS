@@ -14,13 +14,13 @@ const Feature = () => {
           <SectionHeader
             headerInfo={{
               title: "OUR SERVICES",
-              subtitle: "Best in Automation",
+              subtitle: "Industries We Serve",
               description: `Our team of experts is highly trained and experienced in a variety of fields, including VFD repair, PCB repair, PLC programming, and more. Explore our services below to learn more about how we can help you optimize your operations and increase efficiency.`,
             }}
           />
           {/* <!-- Section Title End --> */}
 
-          <div className="mt-12.5 grid grid-cols-1 gap-7.5 md:grid-cols-2 lg:mt-15 lg:grid-cols-3 xl:mt-20 xl:gap-12.5">
+          <div className="mt-12.5 grid grid-cols-2 gap-7.5 md:grid-cols-2 lg:mt-15 lg:grid-cols-4 xl:mt-20 xl:gap-12.5">
             {/* <!-- Features item Start --> */}
 
             {featuresData.map((feature, key) => (

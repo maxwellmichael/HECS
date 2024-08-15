@@ -32,10 +32,10 @@ const SingleFeature = ({ feature }: { feature: Service }) => {
         {/* <div className="relative flex h-16 w-16 items-center justify-center rounded-[4px] bg-primary">
           <Image src={icon} width={36} height={36} alt="title" />
         </div> */}
-        <h3 className="mb-5 mt-7.5 text-xl font-semibold text-white dark:text-white xl:text-itemtitle z-10 relative">
+        <h3 className="mb-5 mt-7.5 text-metatitle2 font-semibold text-white z-10 relative">
           {title}
         </h3>
-        <p className="z-10 relative text-zumthor">{description}</p>
+        {/* <p className="z-10 relative text-zumthor">{description}</p> */}
         </article>
       </motion.div>
     </>

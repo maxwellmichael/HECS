@@ -25,7 +25,7 @@ const Hero = () => {
                 At HECS, we excel in acquiring essential, hard-to-find
                 Mechanical, Electrical, Hydraulic, and Automation components
                 vital for perpetuating the continuous operation of the
-                industrial World.
+                industrial World
               </p>
 
               <div className="mt-10">
@@ -40,7 +40,7 @@ const Hero = () => {
                     /> */}
                     <button
                       aria-label="get started button"
-                      className="flex rounded-full border-2 bg-primary px-7.5 py-2.5 text-white duration-300 ease-in-out hover:bg-white hover:text-primary hover:border-primary"
+                      className="flex rounded-full border-2 bg-primary px-7.5 py-2.5 text-white duration-300 ease-in-out hover:border-primary hover:bg-white hover:text-primary"
                     >
                       Get Started
                     </button>
@@ -84,7 +84,7 @@ const Hero = () => {
                     fill
                   /> */}
                   <Image
-                    className="shadow-solid-l rounded-md"
+                    className="rounded-md shadow-solid-l"
                     src="/images/hero/electric_banner_1.jpg"
                     alt="Hero"
                     fill
