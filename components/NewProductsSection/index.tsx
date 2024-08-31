@@ -15,7 +15,7 @@ const NewProductsSection = () => {
             headerInfo={{
               title: "NEW PRODUCTS",
               subtitle: "Leading-Edge Technology for Industrial Advancement",
-              description: `HECS proudly presents a comprehensive range of new products tailored to the demands of modern industry.`,
+              description: `Heliac Energii Controls Solutions  proudly presents a comprehensive range of new products tailored to the demands of modern industry.`,
             }}
           />
           {/* <!-- Section Title End --> */}
@@ -47,7 +47,7 @@ const NewProductsSection = () => {
                 <span className="absolute left-0 top-0 m-2 rounded-full bg-primary px-2 text-center text-sm font-medium text-white">
                   {product.category}
                 </span>
-                <div className="aspect-h-1 aspect-w-1 xl:aspect-h-8 xl:aspect-w-7 group h-[180px] overflow-hidden bg-primaryLight md:h-[180px] xl:h-[320px]">
+                <div className="aspect-h-1 aspect-w-1 xl:aspect-h-8 xl:aspect-w-7 group h-[180px] overflow-hidden bg-titlebg2Light md:h-[180px] xl:h-[320px]">
                   <img
                     alt={product.image}
                     src={product.image}

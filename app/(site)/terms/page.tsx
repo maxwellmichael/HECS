@@ -3,7 +3,7 @@ import React from "react";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Terms & Conditions Page - Heliacenergii",
+  title: "Terms & Conditions Page - Heliac Energii Controls Solutions",
   // description: "This is Docs page for Solid Pro",
   // other metadata
 };
@@ -11,16 +11,16 @@ export const metadata: Metadata = {
 const TermsAndConditions = () => {
   return (
     <section className="flex w-full flex-col items-center justify-start pb-16 pt-24 md:pb-20 md:pt-28 lg:pb-24 lg:pt-32">
-      <div className="w-full px-4 lg:w-3/4">
-        <h1 className="mb-6 text-center text-hero font-bold text-black">
+      <div className="w-full px-4 lg:w-3/4 text-black">
+        <h1 className="mb-4 text-3xl font-bold">
           Terms & Conditions
         </h1>
-        <p className="para2 text-center font-bold text-black">
-          Welcome to Heliacenergii. Our website, offers 100% digital products
+        <p className="para2 text-left text-black">
+          Welcome to Heliac Energii Controls Solutions. Our website, offers 100% digital products
           and services under these terms and conditions. By accessing or using
           our site, you agree to be bound by these terms.
         </p>
-        <section className="mt-8">
+        <section className="">
           <h2 className="mt-7.5 line-clamp-2 inline-block text-lg font-medium text-black duration-300 hover:text-primary dark:text-white dark:hover:text-primary xl:text-itemtitle2">
             Quotes
           </h2>

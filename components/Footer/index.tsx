@@ -26,13 +26,13 @@ const Footer = () => {
                 whileInView="visible"
                 transition={{ duration: 1, delay: 0.5 }}
                 viewport={{ once: true }}
-                className="animate_top w-1/2 lg:w-1/4"
+                className="animate_top w-3/4 lg:w-1/4"
               >
                 <a href="index.html" className="relative">
                   <Image
                     width={110}
                     height={80}
-                    src="/images/logo/logo-light.svg"
+                    src="/images/logo/logo.svg"
                     alt="Logo"
                     className="dark:hidden"
                   />
@@ -45,7 +45,11 @@ const Footer = () => {
                   />
                 </a>
 
-                <p className="mb-10 mt-5">
+                <h4 className="mt-5 mb-1.5 text-itemtitle2 text-black font-bold">
+                  Heliac Energii Controls Solutions
+                </h4>
+
+                <p className="mb-10">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                 </p>
 
@@ -184,7 +188,7 @@ const Footer = () => {
                     </li>
                   </ul>
                 </motion.div>
-
+{/* 
                 <motion.div
                   variants={{
                     hidden: {
@@ -245,7 +249,7 @@ const Footer = () => {
                       </button>
                     </div>
                   </form>
-                </motion.div>
+                </motion.div> */}
               </div>
             </div>
           </div>
@@ -272,13 +276,13 @@ const Footer = () => {
               className="animate_top"
             >
               <ul className="flex items-center gap-8">
-                <li>
+                {/* <li>
                   <a href="#" className="hover:text-primary">
                     English
                   </a>
-                </li>
+                </li> */}
                 <li>
-                  <a href="#" className="hover:text-primary">
+                  <a href="/privacy-policy" className="hover:text-primary">
                     Privacy Policy
                   </a>
                 </li>
@@ -309,7 +313,7 @@ const Footer = () => {
               className="animate_top"
             >
               <p>
-                &copy; {new Date().getFullYear()} Solid. All rights reserved
+                &copy; {new Date().getFullYear()} Heliac Energii Controls Solutions. All rights reserved
               </p>
             </motion.div>
 

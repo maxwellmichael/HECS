@@ -38,10 +38,10 @@ const FunFact = () => {
               Trusted by Global Companies.
             </h2>
             <p className="mx-auto lg:w-11/12">
-              At HECS, we pride ourselves on building strong relationships with
+              At Heliac Energii Controls Solutions, we pride ourselves on building strong relationships with
               our partners. Our commitment to excellence and reliability has
               earned the trust of leading brands and clients in the industrial
-              sector. Discover why our partners choose HECS for their critical
+              sector. Discover why our partners choose Heliac Energii Controls Solutions for their critical
               component needs and exceptional service.
             </p>
           </motion.div>

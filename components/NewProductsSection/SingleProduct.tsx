@@ -32,7 +32,7 @@ const SingleProduct = ({ feature }: { feature: Product }) => {
             href="#"
           >
             <img className="object-cover" src={image} alt="product image" />
-            <span className="absolute left-0 top-0 m-2 rounded-full bg-primary px-2 text-center text-sm font-medium text-white">
+            <span className="absolute left-0 top-0 m-2 rounded-full bg-titlebg2 px-2 text-center text-sm font-medium text-white">
               {category}
             </span>
           </a>
