@@ -58,7 +58,7 @@ export default function SliderImage({
             <p className="regular text-black md:text-para2">{description}</p>
           </motion.div>
 
-          <div className="mt-8 flex flex-wrap gap-4 text-center">
+          {/* <div className="mt-8 flex flex-wrap gap-4 text-center">
             <button
               type="button"
               className="inline-flex items-center rounded-lg border-2 border-white bg-primary text-white px-5 py-2.5 text-center text-sm font-medium hover:bg-white hover:text-primary  hover:border-primary focus:outline-none focus:ring-4 focus:ring-blue-300"
@@ -80,7 +80,7 @@ export default function SliderImage({
                 />
               </svg>
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

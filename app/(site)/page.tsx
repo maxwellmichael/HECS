@@ -15,11 +15,12 @@ import Testimonial from "@/components/Testimonial";
 import Caurosel1 from "@/components/Caurosel1";
 import ServicesSection from "@/components/ServicesSection";
 import NewProductsSection from "@/components/NewProductsSection";
+import BrandSlider from "@/components/BrandSlider";
+import BrandsSection from "@/components/BrandsSection";
 
 export const metadata: Metadata = {
-  title: "Next.js Starter Template for SaaS Startups - Solid SaaS Boilerplate",
-  description: "This is Home for Solid Pro",
-  // other metadata
+  title: "Heliac Energii | Controls Solutions",
+  description: "Powering the Future of Electric Innovation",
 };
 
 export default function Home() {
@@ -27,8 +28,9 @@ export default function Home() {
     <main>
       <Caurosel1 />
       <Hero />
-      <Brands />
-      <NewProductsSection />
+      {/* <Brands /> */}
+      <BrandsSection/>
+      {/* <NewProductsSection /> */}
       <Feature />
       <ServicesSection />
       {/* <About /> */}
