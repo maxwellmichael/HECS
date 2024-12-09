@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="mx-auto max-w-c-1390 px-4 md:px-8 2xl:px-0">
           {/* <!-- Footer Top --> */}
           <div className="py-20 lg:py-25">
-            <div className="flex flex-wrap gap-8 lg:justify-between lg:gap-0">
+            <div className="mb-8 gap-8">
               <motion.div
                 variants={{
                   hidden: {
@@ -44,8 +44,29 @@ const Footer = () => {
                     className="hidden dark:block"
                   />
                 </a>
+              </motion.div>
+            </div>
 
-                <h4 className="mt-5 mb-1.5 text-itemtitle2 text-black font-bold">
+            <div className="flex flex-wrap gap-8 lg:justify-between lg:gap-0">
+              <motion.div
+                variants={{
+                  hidden: {
+                    opacity: 0,
+                    y: -20,
+                  },
+
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                  },
+                }}
+                initial="hidden"
+                whileInView="visible"
+                transition={{ duration: 1, delay: 0.5 }}
+                viewport={{ once: true }}
+                className="animate_top w-3/4 lg:w-1/4"
+              >
+                <h4 className="mb-1.5 mt-0 text-itemtitle2 font-bold text-black">
                   Heliac Energii Controls Solutions
                 </h4>
 
@@ -188,7 +209,7 @@ const Footer = () => {
                     </li>
                   </ul>
                 </motion.div>
-{/* 
+                {/* 
                 <motion.div
                   variants={{
                     hidden: {
@@ -313,7 +334,8 @@ const Footer = () => {
               className="animate_top"
             >
               <p>
-                &copy; {new Date().getFullYear()} Heliac Energii Controls Solutions. All rights reserved
+                &copy; {new Date().getFullYear()} Heliac Energii Controls
+                Solutions. All rights reserved
               </p>
             </motion.div>
 
