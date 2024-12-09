@@ -41,6 +41,7 @@ export default function BrandSlider() {
             const brand = { name: b.name, index: i };
             return (
               <SingleBrand
+                key={i}
                 brand={brand}
                 selected={selected}
                 setSelected={handleSelectedClick}

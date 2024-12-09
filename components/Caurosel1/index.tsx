@@ -19,7 +19,7 @@ const slides = [
     {
         id:1,
         title:'Trouble Shooting , Servicing  and supply of spares for  Hydraulics & Pneumatics',
-        description:'Heliac Energii specializes in comprehensive servicing and maintenance of hydraulic and pneumatic systems. Our expertise spans a variety of industries, including Marine, Oil & Gas, Construction Machinery, Drilling Rigs, Ready-Mix and Concrete Mixers, Industrial Equipment, and Power Plants. We provide end-to-end solutions, from diagnostics and troubleshooting to routine servicing and the supply of high-quality spare parts, ensuring optimal performance and minimal downtime for your critical machinery.',
+        description:'Heliac Energii excels in troubleshooting, servicing, and supplying spares for hydraulic and pneumatic systems across industries like Marine, Oil & Gas, Construction, and Power Plants. We offer end-to-end solutions to ensure optimal performance and reduced downtime for your machinery.',
         imagePath:'/images/caurousel/slide_1.jpg',
     },
     {
@@ -31,7 +31,7 @@ const slides = [
     {
         id:3,
         title:'Asset Recovery',
-        description:'Maximize the value of your obsolete or surplus control system assets with our comprehensive asset recovery services. We specialize in reclaiming, refurbishing, and reselling industrial control system components, helping you reduce waste, recover costs, and ensure the availability of critical spares. Whether upgrading, decommissioning, or optimizing your systems, we provide a seamless solution for managing your valuable assets.',
+        description:'Maximize the value of surplus control system assets with our recovery services, including reclaiming, refurbishing, and reselling components. Reduce waste, recover costs, and maintain critical spares with our seamless asset management solutions.',
         imagePath:'/images/caurousel/slide_3.jpg',
     },
     // {
