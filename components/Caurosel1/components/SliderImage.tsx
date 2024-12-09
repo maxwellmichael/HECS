@@ -55,7 +55,7 @@ export default function SliderImage({
                 {title}
               </strong>
             </h1>
-            <p className="regular text-black md:text-para2">{description}</p>
+            <p className="text-metatitle sm:text-metatitle text-black md:text-para2">{description}</p>
           </motion.div>
 
           {/* <div className="mt-8 flex flex-wrap gap-4 text-center">

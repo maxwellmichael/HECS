@@ -157,13 +157,23 @@ export const brandData = [
     ],
   },
   {
-    name: "Bently Nevada 3300 , 3500",
+    name: "Bently Nevada",
     logoImagepath: "",
     products: [
       {
-        name: "Parker",
+        name: "3300",
         imagePath: "",
       },
+      {
+        name: "3500",
+        imagePath: "",
+      },
+    ],
+  },
+  {
+    name: "Parker",
+    logoImagepath: "",
+    products: [
       {
         name: "Fluid Connectors",
         imagePath: "",
