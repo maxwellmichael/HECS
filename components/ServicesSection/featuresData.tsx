@@ -72,13 +72,13 @@ const featuresData: Service[] = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor.",
   },
-  {
-    id: 11,
-    image: "/images/services/semiconductor.png",
-    title: "Semiconductor",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor.",
-  },
+  // {
+  //   id: 11,
+  //   image: "/images/services/semiconductor.png",
+  //   title: "Semiconductor",
+  //   description:
+  //     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor.",
+  // },
   {
     id: 12,
     image: "/images/services/process.png",

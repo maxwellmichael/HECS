@@ -172,28 +172,30 @@ const Contact = () => {
               whileInView="visible"
               transition={{ duration: 2, delay: 0.1 }}
               viewport={{ once: true }}
-              className="animate_top w-full md:w-2/5 md:p-7.5 lg:w-[26%] xl:pt-15"
+              className="animate_top w-full md:w-2/5 md:p-5.5 lg:w-[40%] xl:pt-15"
             >
               <h2 className="mb-12.5 text-3xl font-semibold text-black dark:text-white xl:text-sectiontitle2">
                 Find us
               </h2>
 
-              <div className="5 mb-7">
+              <div className="w-4/5 mb-7">
                 <h3 className="mb-4 text-metatitle3 font-medium text-black dark:text-white">
                   Our Loaction
                 </h3>
                 <p>
-                  Heliac Energii Controls Solutions No :184 ,<br />
+                  Heliac Energii Controls Solutions,<br />
+                  H.No.184,<br/>
                   Opposite Miracles School Pangulna ,<br />
-                  Sanguem Goa - 403704, India.
+                  Sanguem Goa - 403704,<br />
+                  India.
                 </p>
               </div>
-              <div className="5 mb-7">
+              <div className="w-4/5 mb-7">
                 <h3 className="mb-4 text-metatitle3 font-medium text-black dark:text-white">
                   Email Address
                 </h3>
                 <p>
-                  <a href="#">inquiry@HeliacEnergii.com</a>
+                  <a href="mailto: inquiry@heliacenergii.com">inquiry@heliacenergii.com</a>
                 </p>
               </div>
               <div>
@@ -201,10 +203,10 @@ const Contact = () => {
                   Phone Number
                 </h4>
                 <p>
-                  <a href="#">0091 - 8411981840</a>
+                  <a href="tel://+00918411981840">0091 - 8411981840</a>
                 </p>
                 <p>
-                  <a href="#">0091 - 8793823181</a>
+                  <a href="tel://+00918793823181">0091 - 8793823181</a>
                 </p>
               </div>
             </motion.div>

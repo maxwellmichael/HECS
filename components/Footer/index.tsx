@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { MdOutlineEmail, MdOutlinePhone } from "react-icons/md";
 
 const Footer = () => {
   return (
@@ -71,21 +72,50 @@ const Footer = () => {
                 </h4>
 
                 <p className="mb-10">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Powering the Future of Electric Innovation.
                 </p>
 
                 <p className="mb-1.5 text-sectiontitle uppercase tracking-[5px]">
                   contact
                 </p>
-                <a
-                  href="#"
-                  className="text-itemtitle font-medium text-black dark:text-white"
-                >
-                  hello@solid.com
-                </a>
+                <div className="flex w-auto flex-col items-start justify-center gap-3">
+                  <a
+                    href="mailto: inquiry@heliacenergii.com"
+                    className="flex flex-row items-center justify-start"
+                  >
+                    <div className="mr-3">
+                      <MdOutlineEmail color="black" size={20} />
+                    </div>
+                    <span className="text-metatitle3 font-medium text-black dark:text-white">
+                      inquiry@heliacenergii.com
+                    </span>
+                  </a>
+                  <a
+                    href="tel://+00918411981840"
+                    className="flex flex-row items-center justify-start"
+                  >
+                    <div className="mr-3">
+                      <MdOutlinePhone color="black" size={20} />
+                    </div>
+                    <span className="text-metatitle3 font-medium text-black dark:text-white">
+                      0091 - 8411981840
+                    </span>
+                  </a>
+                  <a
+                    href="tel://+00918793823181"
+                    className="flex flex-row items-center justify-start"
+                  >
+                    <div className="mr-3 w-[26px]">
+                     
+                    </div>
+                    <span className="text-metatitle3 font-medium text-black dark:text-white">
+                      0091 - 8793823181
+                    </span>
+                  </a>
+                </div>
               </motion.div>
 
-              <div className="flex w-full flex-col gap-8 md:flex-row md:justify-between md:gap-0 lg:w-2/3 xl:w-7/12">
+              <div className="flex w-full flex-col gap-8 md:flex-row md:justify-center md:gap-20 lg:w-2/3 xl:w-7/12">
                 <motion.div
                   variants={{
                     hidden: {
@@ -123,6 +153,14 @@ const Footer = () => {
                         className="mb-3 inline-block hover:text-primary"
                       >
                         Products
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="/contact"
+                        className="mb-3 inline-block hover:text-primary"
+                      >
+                        Contact
                       </a>
                     </li>
                     <li>
