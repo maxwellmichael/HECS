@@ -72,7 +72,7 @@ const Footer = () => {
                 </h4>
 
                 <p className="mb-10">
-                  Powering the Future of Electric Innovation.
+                  Powering the Future of Industrial Innovation.
                 </p>
 
                 <p className="mb-1.5 text-sectiontitle uppercase tracking-[5px]">
@@ -90,7 +90,7 @@ const Footer = () => {
                       inquiry@heliacenergii.com
                     </span>
                   </a>
-                  <a
+                  {/* <a
                     href="tel://+00918411981840"
                     className="flex flex-row items-center justify-start"
                   >
@@ -105,13 +105,11 @@ const Footer = () => {
                     href="tel://+00918793823181"
                     className="flex flex-row items-center justify-start"
                   >
-                    <div className="mr-3 w-[26px]">
-                     
-                    </div>
+                    <div className="mr-3 w-[26px]"></div>
                     <span className="text-metatitle3 font-medium text-black dark:text-white">
                       0091 - 8793823181
                     </span>
-                  </a>
+                  </a> */}
                 </div>
               </motion.div>
 

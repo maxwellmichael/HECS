@@ -59,7 +59,7 @@ const BuyBackContact = () => {
               <h2 className="mb-2 text-3xl font-semibold text-black dark:text-white xl:text-sectiontitle2">
                 Buy Back
               </h2>
-              <p className="mb-15">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout</p>
+              <p className="mb-15">Transform your industrial surplus into value with our streamlined buyback solutions.</p>
 
               <form
                 action="https://formbold.com/s/unique_form_id"

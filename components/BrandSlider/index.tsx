@@ -50,7 +50,7 @@ export default function BrandSlider() {
           })}
         </Glider>
       </div>
-      <div className="grid h-auto w-full grid-cols-2 gap-x-6 gap-y-4 border border-x-0 border-y-stroke bg-alabaster py-8 px-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+      <div className="grid max-h-[320px] md:max-h-[60vh] overflow-y-auto w-full grid-cols-2 gap-x-6 gap-y-4 border border-x-0 border-y-stroke bg-alabaster py-8 px-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
         {brandData[selected].products.map((product, i) => (
           <a
             key={product.name}

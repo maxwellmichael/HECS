@@ -178,7 +178,7 @@ const Contact = () => {
                 Find us
               </h2>
 
-              <div className="w-4/5 mb-7">
+              {/* <div className="w-4/5 mb-7">
                 <h3 className="mb-4 text-metatitle3 font-medium text-black dark:text-white">
                   Our Loaction
                 </h3>
@@ -189,7 +189,7 @@ const Contact = () => {
                   Sanguem Goa - 403704,<br />
                   India.
                 </p>
-              </div>
+              </div> */}
               <div className="w-4/5 mb-7">
                 <h3 className="mb-4 text-metatitle3 font-medium text-black dark:text-white">
                   Email Address
@@ -198,7 +198,7 @@ const Contact = () => {
                   <a href="mailto: inquiry@heliacenergii.com">inquiry@heliacenergii.com</a>
                 </p>
               </div>
-              <div>
+              {/* <div>
                 <h4 className="mb-4 text-metatitle3 font-medium text-black dark:text-white">
                   Phone Number
                 </h4>
@@ -208,7 +208,7 @@ const Contact = () => {
                 <p>
                   <a href="tel://+00918793823181">0091 - 8793823181</a>
                 </p>
-              </div>
+              </div> */}
             </motion.div>
           </div>
         </div>
