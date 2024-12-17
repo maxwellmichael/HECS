@@ -15,9 +15,7 @@ const Feature = () => {
             headerInfo={{
               title: "OUR FEATURES",
               subtitle: "Why Choose Us",
-              description: `At Heliac Energii Controls Solutions, we possess the knowledge and proven expertise to support the Automation , Electrical and Mechanical Spares  from  every stage  to after-sales support. 
-We supply a wide range of well-known manufacturers such as:  Allen Bradley, Omron, Siemens, Mitsubishi, ABB, GE Speedtronics ,Ge Excitations , G FANUC, Schneider , Bently Nevada , Woodwards, Emerson  and  more  brands to provide you with cutting-edge technology, high-quality products, and expert services.
-`,
+              description: `At Heliac Energii Control Solutions, we specialize in procuring premium hydraulics, instrumentation, automation, electrical, and mechanical spares. Our portfolio includes products from industry-leading brands such as Allen Bradley, Siemens, Mitsubishi, ABB, Schneider, Eaton, Parker, Weidmüller, Beckhoff, and many more. We are committed to delivering innovative solutions, high-quality products, and exceptional expertise to meet your requirements.`,
             }}
           />
           {/* <!-- Section Title End --> */}

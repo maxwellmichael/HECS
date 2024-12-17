@@ -31,10 +31,10 @@ const featuresData: Feature[] = [
   },
   {
     id: 5,
-    icon: "/images/icon/inventory.svg",
-    title: "Adequate inventory",
+    icon: "/images/icon/shipment.svg",
+    title: "Swift and Reliable Shipping",
     description:
-      "In stock facilities and swift Shipping with  minimum lead time.",
+      "Efficient and reliable shipping solutions to ensure your spares arrive on time.",
   },
 ];
 

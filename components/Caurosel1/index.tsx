@@ -31,7 +31,7 @@ const slides = [
     {
         id:3,
         title:'Asset Recovery',
-        description:'Maximize the value of surplus control system assets with our recovery services, including reclaiming, refurbishing, and reselling components. Reduce waste, recover costs, and maintain critical spares with our seamless asset management solutions.',
+        description:'Maximize asset value and secure the highest return on investments with our buy-back solutions.',
         imagePath:'/images/caurousel/slide_3.jpg',
     },
     // {
