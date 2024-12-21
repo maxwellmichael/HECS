@@ -27,7 +27,7 @@
 
 @layer components {
   .dropdown {
-    @apply -left-7.5 mt-2 hidden min-w-max flex-col gap-4 rounded-md border border-stroke bg-white px-8 py-5 shadow-solid-13 duration-300 ease-in dark:border-strokedark dark:bg-black xl:invisible xl:absolute
+    @apply -left-7.5 mt-2 hidden min-w-max flex-col gap-4 rounded-md border border-stroke bg-white px-8 py-5 shadow-solid-13 duration-300 ease-in xl:invisible dark:border-strokedark dark:bg-black xl:absolute
     xl:mt-0 xl:flex xl:w-[250px] xl:translate-y-10 xl:opacity-0
     xl:before:absolute xl:before:-top-1.5 xl:before:left-10 xl:before:h-3 xl:before:w-3 xl:before:rotate-45 xl:before:border-l xl:before:border-t xl:before:border-stroke xl:before:bg-white xl:group-hover:visible xl:group-hover:translate-y-6.5 
     xl:group-hover:opacity-100 xl:dark:before:border-strokedark xl:dark:before:bg-black;
@@ -127,7 +127,7 @@ pre {
 }
 
 .PhoneInputInput {
-  @apply w-full border-none bg-transparent focus:placeholder:text-black focus:border-none;
+  @apply w-full border-none bg-transparent focus:border-none focus:placeholder:text-black;
 }
 
 .PhoneInputInput:focus {
@@ -136,4 +136,24 @@ pre {
 
 .PhoneInputInput::placeholder {
   @apply text-gray-400 focus:text-black;
+}
+
+.loader {
+  width: 24px;
+  height: 24px;
+  border: 5px solid #fff;
+  border-bottom-color: #2b4797;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
