@@ -44,7 +44,7 @@ const slides = [
 
 export default function Component() {
   return (
-    <section className="pb-20 pt-[86px] md:pt-[82px]">
+    <section className="pb-8 md:pb-20 pt-[86px] md:pt-[82px]">
       <div className="h-[368px] md:h-[700px] ">
         <Carousel
           theme={customTheme}

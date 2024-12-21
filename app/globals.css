@@ -125,3 +125,15 @@ pre {
 .active-tab {
   @apply bg-stroke text-black dark:bg-blackho dark:text-white;
 }
+
+.PhoneInputInput {
+  @apply w-full border-none bg-transparent focus:placeholder:text-black focus:border-none;
+}
+
+.PhoneInputInput:focus {
+  @apply border-none outline-none;
+}
+
+.PhoneInputInput::placeholder {
+  @apply text-gray-400 focus:text-black;
+}

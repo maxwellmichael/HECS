@@ -20,9 +20,14 @@ export default function About() {
               alt="Picture of the About page banner"
               priority={true}
             />
-            <div className="absolute inset-0 bg-white/100 sm:bg-transparent sm:bg-gradient-to-b sm:from-white/100 sm:to-white/0"></div>
-            <div className="h-full w-full flex flex-col align-middle justify-center relative">
-              <h1 className="text-3xl relative text-center before:-z-1 font-extrabold text-black before:bg-black dark:before:bg-titlebgdark sm:text-5xl">
+            <div
+              style={{
+                clipPath: "polygon(50% 50%, 100% 50%, 100% 100%, 25% 100%)",
+              }}
+              className="absolute inset-0 bg-transparent bg-gradient-to-b from-primary/100 to-primary/80"
+            ></div>
+            <div className="absolute bottom-0 flex h-2/4 w-full flex-col justify-center align-middle">
+              <h1 className="relative text-end pr-[20%] md:pr-[30%] text-3xl font-extrabold text-white before:-z-1 before:bg-black dark:before:bg-titlebgdark sm:text-5xl">
                 About Us
               </h1>
             </div>

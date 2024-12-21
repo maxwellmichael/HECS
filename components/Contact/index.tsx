@@ -1,24 +1,54 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import React from "react";
+import React, { LegacyRef, useRef } from "react";
+import emailjs from "@emailjs/browser";
+import { useForm, Controller } from "react-hook-form";
+import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
+import "react-phone-number-input/style.css";
 
 const Contact = () => {
-  /**
-   * Source: https://www.joshwcomeau.com/react/the-perils-of-rehydration/
-   * Reason: To fix rehydration error
-   */
-  const [hasMounted, setHasMounted] = React.useState(false);
-  React.useEffect(() => {
-    setHasMounted(true);
-  }, []);
-  if (!hasMounted) {
-    return null;
-  }
+  // const [hasMounted, setHasMounted] = React.useState(false);
+  // React.useEffect(() => {
+  //   setHasMounted(true);
+  // }, []);
+  // if (!hasMounted) {
+  //   return null;
+  // }
+
+  const {
+    register,
+    handleSubmit,
+    watch,
+    control,
+    formState: { errors },
+  } = useForm();
+
+  const handleFormSubmit = (formData: any) => {
+    const newData = { ...formData, current_year: new Date().getFullYear() };
+    console.log(newData);
+
+    emailjs
+      .send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID as string,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID as string,
+        newData,
+        {
+          publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY as string,
+        },
+      )
+      .then(
+        () => {
+          console.log("SUCCESS!");
+        },
+        (error) => {
+          console.log("FAILED...", error);
+        },
+      );
+  };
 
   return (
     <>
-      {/* <!-- ===== Contact Start ===== --> */}
       <section id="support" className="px-4 md:px-8 2xl:px-0">
         <div className="relative mx-auto max-w-c-1390 px-7.5 pt-10 lg:px-15 lg:pt-15 xl:px-20 xl:pt-20">
           <div className="absolute left-0 top-0 -z-1 h-2/3 w-full rounded-lg bg-gradient-to-t from-transparent to-[#dee7ff47] dark:bg-gradient-to-t dark:to-[#252A42]"></div>
@@ -60,36 +90,102 @@ const Contact = () => {
                 Send a message
               </h2>
 
-              <form
-                action="https://formbold.com/s/unique_form_id"
-                method="POST"
-              >
+              <form onSubmit={handleSubmit(handleFormSubmit)}>
                 <div className="mb-7.5 flex flex-col gap-7.5 lg:flex-row lg:justify-between lg:gap-14">
-                  <input
-                    type="text"
-                    placeholder="Full name"
-                    className="w-full border-b border-stroke bg-transparent pb-3.5 focus:border-waterloo focus:placeholder:text-black focus-visible:outline-none dark:border-strokedark dark:focus:border-manatee dark:focus:placeholder:text-white lg:w-1/2"
-                  />
+                  <div className="w-full lg:w-1/2">
+                    <input
+                      type="text"
+                      placeholder="Full name"
+                      className={`w-full border bg-transparent pb-3.5  ${
+                        errors.fullName
+                          ? "focus:placeholder:text-red border-red-500 text-red-900 placeholder-red-700 focus:border-red-500 focus:ring-red-500"
+                          : "border-stroke focus:placeholder:text-black"
+                      }`}
+                      {...register("fullName", { required: true })}
+                    />
+                    {errors.fullName && (
+                      <p className="mt-1 text-sm text-red-600 dark:text-red-500">
+                        Full name is required.
+                      </p>
+                    )}
+                  </div>
 
-                  <input
-                    type="email"
-                    placeholder="Email address"
-                    className="w-full border-b border-stroke bg-transparent pb-3.5 focus:border-waterloo focus:placeholder:text-black focus-visible:outline-none dark:border-strokedark dark:focus:border-manatee dark:focus:placeholder:text-white lg:w-1/2"
-                  />
+                  <div className="w-full lg:w-1/2">
+                    <input
+                      type="email"
+                      placeholder="Email"
+                      className={`w-full border-b bg-transparent pb-3.5 ${
+                        errors.email
+                          ? "focus:placeholder:text-red border-red-500 text-red-900 placeholder-red-700 focus:border-red-500 focus:ring-red-500"
+                          : "border-stroke focus:placeholder:text-black"
+                      }`}
+                      {...register("email", { required: true })}
+                    />
+                    {errors.email && (
+                      <p className="mt-1 text-sm text-red-600 dark:text-red-500">
+                        Email is required.
+                      </p>
+                    )}
+                  </div>
                 </div>
 
                 <div className="mb-12.5 flex flex-col gap-7.5 lg:flex-row lg:justify-between lg:gap-14">
-                  <input
-                    type="text"
-                    placeholder="Subject"
-                    className="w-full border-b border-stroke bg-transparent pb-3.5 focus:border-waterloo focus:placeholder:text-black focus-visible:outline-none dark:border-strokedark dark:focus:border-manatee dark:focus:placeholder:text-white lg:w-1/2"
-                  />
+                  <div className="w-full lg:w-1/2">
+                    <input
+                      type="text"
+                      placeholder="Subject"
+                      className={`w-full border border-stroke bg-transparent pb-3 focus:placeholder:text-black`}
+                      {...register("subject")}
+                    />
+                  </div>
 
-                  <input
-                    type="text"
-                    placeholder="Phone number"
-                    className="w-full border-b border-stroke bg-transparent pb-3.5 focus:border-waterloo focus:placeholder:text-black focus-visible:outline-none dark:border-strokedark dark:focus:border-manatee dark:focus:placeholder:text-white lg:w-1/2"
-                  />
+                  <div className="w-full lg:w-1/2">
+                    <Controller
+                      name="phoneNumber"
+                      control={control}
+                      rules={{
+                        validate: (value: any) => isValidPhoneNumber(value),
+                        required: true,
+                      }}
+                      render={({ field: { onChange, value } }) => (
+                        <PhoneInput
+                          value={value}
+                          onChange={onChange}
+                          autoFormat
+                          defaultCountry="IN"
+                          id="phoneNumber"
+                          placeholder="Phone number"
+                          className={`w-full border border-stroke bg-transparent px-2 focus:placeholder:text-black ${
+                            errors["phoneNumber"]
+                              ? "focus:placeholder:text-red border-red-500 text-red-900 placeholder-red-700 focus:border-red-500 focus:ring-red-500"
+                              : "border-stroke focus:placeholder:text-black"
+                          }`}
+                          inputClassName="bg-transparent w-full focus:outline-none" // Additional styling for input
+                        />
+                      )}
+                    />
+                    {errors["phoneNumber"] && (
+                      <p className="mt-1 text-sm text-red-600 dark:text-red-500">
+                        Phone number is invalid.
+                      </p>
+                    )}
+
+                    {/* <input
+                      type="text"
+                      placeholder="Phone number"
+                      className={`w-full border bg-transparent pb-3.5  ${
+                        errors.mobile
+                          ? "focus:placeholder:text-red border-red-500 text-red-900 placeholder-red-700 focus:border-red-500 focus:ring-red-500"
+                          : "border-stroke focus:placeholder:text-black"
+                      }`}
+                      {...register("mobile", { required: true })}
+                    />
+                    {errors.mobile && (
+                      <p className="mt-1 text-sm text-red-600 dark:text-red-500">
+                        Mobile is required.
+                      </p>
+                    )} */}
+                  </div>
                 </div>
 
                 <div className="mb-11.5 flex">
@@ -97,11 +193,12 @@ const Contact = () => {
                     placeholder="Message"
                     rows={4}
                     className="w-full border-b border-stroke bg-transparent focus:border-waterloo focus:placeholder:text-black focus-visible:outline-none dark:border-strokedark dark:focus:border-manatee dark:focus:placeholder:text-white"
+                    {...register("message")}
                   ></textarea>
                 </div>
 
                 <div className="flex flex-wrap gap-4 xl:justify-between ">
-                  <div className="mb-4 flex md:mb-0">
+                  {/* <div className="mb-4 flex md:mb-0">
                     <input
                       id="default-checkbox"
                       type="checkbox"
@@ -131,7 +228,7 @@ const Contact = () => {
                       By clicking Checkbox, you agree to use our “Form” terms
                       And consent cookie usage in browser.
                     </label>
-                  </div>
+                  </div> */}
 
                   <button
                     aria-label="send message"
@@ -190,12 +287,14 @@ const Contact = () => {
                   India.
                 </p>
               </div> */}
-              <div className="w-4/5 mb-7">
+              <div className="mb-7 w-4/5">
                 <h3 className="mb-4 text-metatitle3 font-medium text-black dark:text-white">
                   Email Address
                 </h3>
                 <p>
-                  <a href="mailto: inquiry@heliacenergii.com">inquiry@heliacenergii.com</a>
+                  <a href="mailto: inquiry@heliacenergii.com">
+                    inquiry@heliacenergii.com
+                  </a>
                 </p>
               </div>
               {/* <div>
