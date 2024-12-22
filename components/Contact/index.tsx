@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import React, { LegacyRef, useRef, useState } from "react";
+import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
 import { useForm, Controller } from "react-hook-form";
 import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
@@ -37,7 +37,7 @@ const Contact = () => {
     emailjs
       .send(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID as string,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID as string,
+        process.env.NEXT_PUBLIC_EMAILJS_CONTACT_TEMPLATE_ID as string,
         newData,
         {
           publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY as string,
