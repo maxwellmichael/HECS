@@ -89,8 +89,8 @@ const BuyBackContact = () => {
   return (
     <>
       {/* <!-- ===== BuyBackContact Start ===== --> */}
-      <section id="support" className="px-4 md:px-8 2xl:px-0">
-        <div className="relative mx-auto max-w-c-1390 px-7.5 pt-10 lg:px-15 lg:pt-15 xl:px-20 xl:pt-20">
+      <section id="support" className="px-4 md:px-8 2xl:px-0 w-full">
+        <div className="relative mx-auto max-w-c-1390 px-1.5 md:px-7.5 pt-10 lg:px-15 lg:pt-15 xl:px-20 xl:pt-20">
           <div className="absolute left-0 top-0 -z-1 h-2/3 w-full rounded-lg bg-gradient-to-t from-transparent to-[#dee7ff47] dark:bg-gradient-to-t dark:to-[#252A42]"></div>
           <div className="absolute bottom-[-255px] left-0 -z-1 h-full w-full">
             <Image
@@ -287,7 +287,11 @@ const BuyBackContact = () => {
                   </div>
                   <label
                     aria-label="fileUpload"
-                    className={`flex h-44 w-full cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed bg-gray-100 hover:bg-zumthor ${errors["fileUpload"]?'border-red-500':'border-primaryho'}`}
+                    className={`flex h-44 w-full cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed bg-gray-100 hover:bg-zumthor ${
+                      errors["fileUpload"]
+                        ? "border-red-500"
+                        : "border-primaryho"
+                    }`}
                   >
                     <div className="flex flex-col items-center justify-center pb-6 pt-5">
                       <svg
@@ -349,15 +353,15 @@ const BuyBackContact = () => {
                     />
                   </label>
                   <div className="w-full">
-                  {errors["fileUpload"] && (
-                    <p className="mt-1 text-start text-sm text-red-600 dark:text-red-500">
-                      Please select a file to continue.
-                    </p>
-                  )}
+                    {errors["fileUpload"] && (
+                      <p className="mt-1 text-start text-sm text-red-600 dark:text-red-500">
+                        Please select a file to continue.
+                      </p>
+                    )}
                   </div>
                 </div>
 
-                <div className="mb-7.5 flex h-auto w-full flex-row items-center justify-between rounded bg-zumthor p-5">
+                <div className="mb-7.5 flex h-auto w-full flex-col md:flex-row items-center justify-between rounded bg-zumthor p-5">
                   <div className="flex w-[70%] flex-col items-start justify-start">
                     <div className="flex w-full items-center justify-start">
                       <Image
@@ -370,7 +374,7 @@ const BuyBackContact = () => {
                         Example File
                       </h5>
                     </div>
-                    <p className="py-1.5">
+                    <p className="py-1.5 text-center md:text-start">
                       You can download the attached example and use that as a
                       starting point for your own file.
                     </p>

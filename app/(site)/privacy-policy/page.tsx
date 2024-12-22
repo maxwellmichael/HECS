@@ -10,22 +10,22 @@ export const metadata: Metadata = {
 export default function PrivacyPolicy() {
   return (
     <section className="flex w-full flex-col items-center justify-start pb-16 pt-24 md:pb-20 md:pt-28 lg:pb-24 lg:pt-32">
-      <div className="w-full px-4 lg:w-3/4 text-black">
+      <div className="w-full px-4 text-black lg:w-3/4">
         <h1 className="mb-4 text-3xl font-bold">Privacy Policy</h1>
-        <p className="mb-2">Last updated: August 31, 2024</p>
+        <p className="mb-2">Last updated: December 22, 2024</p>
         <p className="mb-4">
-          This Privacy Policy describes Our policies and procedures on the
-          collection, use, and disclosure of Your information when You use the
-          Service and tells You about Your privacy rights and how the law
-          protects You.
+          Heliac Energii Controls Solutions makes every effort to ensure the
+          accuracy of the information published in the online catalog on this
+          website. However, Heliacenergii.com does not make any representations
+          or warranties about the accuracy of the information, and all
+          information is provided &quot;as is&quot; without any guarantees.
         </p>
         <p className="mb-8">
-          We use Your Personal data to provide and improve the Service. By using
-          the Service, You agree to the collection and use of information in
-          accordance with this Privacy Policy.
+          The information in the online product catalog is subject to change
+          without notice.
         </p>
 
-        <h2 className="mb-4 text-2xl font-semibold">
+        {/* <h2 className="mb-4 text-2xl font-semibold">
           Interpretation and Definitions
         </h2>
 
@@ -35,68 +35,137 @@ export default function PrivacyPolicy() {
           defined under the following conditions. The following definitions
           shall have the same meaning regardless of whether they appear in
           singular or in plural.
-        </p>
+        </p> */}
 
-        <h3 className="mb-2 text-xl font-semibold">Definitions</h3>
-        <p className="mb-4">For the purposes of this Privacy Policy:</p>
+        <h3 className="mb-2 text-xl font-semibold">
+          What Information Do We Collect?
+        </h3>
+        <p className="mb-4">We collect your information when you:</p>
+        <ul className="mb-4 list-inside list-disc">
+          <li className="mb-2">Register on our website</li>
+          <li className="mb-2">Place an order</li>
+          <li className="mb-2">Fill out a form</li>
+        </ul>
+
+        <p className="mb-4">
+          When ordering or registering, you may be asked to enter personal
+          details such as:
+        </p>
+        <ul className="mb-4 list-inside list-disc">
+          <li className="mb-2">Name</li>
+          <li className="mb-2">Email address</li>
+          <li className="mb-2">Mailing address</li>
+          <li className="mb-2">Phone number</li>
+          <li className="mb-2">Credit card information</li>
+        </ul>
+        <p className="mb-8">However, you can visit our website anonymously.</p>
+
+        <h3 className="mb-2 text-xl font-semibold">
+          What Do We Use Your Information For?
+        </h3>
+        <p className="mb-4">
+          The information we collect from you may be used in the following ways:
+        </p>
         <ul className="mb-8 list-inside list-disc">
           <li className="mb-2">
-            <strong>Account</strong> means a unique account created for You to
-            access our Service or parts of our Service.
+            <strong>Personalize your experience:</strong> To help us better meet
+            your individual needs.
           </li>
           <li className="mb-2">
-            <strong>Affiliate</strong> means an entity that controls, is
-            controlled by or is under common control with a party, where
-            "control" means ownership of 50% or more of the shares, equity
-            interest or other securities entitled to vote for the election of
-            directors or other managing authority.
+            <strong>Improve customer service:</strong> To respond more
+            effectively to your customer service requests and support needs.
           </li>
           <li className="mb-2">
-            <strong>Company</strong> (referred to as either "the Company", "We",
-            "Us" or "Our" in this Agreement) refers to Heliac Energii Controls
-            Solutions, Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            <strong>Process transactions:</strong> Your information will not be
+            sold, exchanged, transferred, or provided to any other company for
+            any reason, except for the express purpose of completing your
+            purchase.
           </li>
           <li className="mb-2">
-            <strong>Cookies</strong> are small files that are placed on Your
-            computer, mobile device or any other device by a website, containing
-            the details of Your browsing history on that website among its many
-            uses.
+            <strong>Send periodic emails:</strong> The email address provided
+            may be used to send updates related to your order or to inform you
+            about company news, product updates, and other information. You may
+            opt-out of non-order related emails at any time.
           </li>
           <li className="mb-2">
-            <strong>Country</strong> refers to: Kerala, India.
+            <strong>Improve our website:</strong> Based on your information and
+            feedback, we continuously strive to improve our website and
+            products.
+          </li>
+        </ul>
+
+        <h3 className="mb-2 text-xl font-semibold">
+          How Do We Protect Your Information?
+        </h3>
+        <p className="mb-4">
+          We implement various security measures to maintain the security of
+          your personal information when you place an order or access your
+          personal details. These measures include:
+        </p>
+        <ul className="mb-4 list-inside list-disc">
+          <li className="mb-2">Using a secure server.</li>
+          <li className="mb-2">
+            Encrypting all sensitive information through Secure Sockets Layer
+            (SSL) technology to protect the transmission of personal data and other confidential content.
           </li>
           <li className="mb-2">
-            <strong>Device</strong> means any device that can access the Service
-            such as a computer, a cellphone or a digital tablet.
+            Ensuring that only authorized personnel can access your personal
+            information.
           </li>
+        </ul>
+        <p className="mb-8">
+          Your personal information (such as credit card details) will not be
+          stored after the transaction is completed.
+        </p>
+
+        <h3 className="mb-2 text-xl font-semibold">
+          Do We Disclose Any Information to Other Parties?
+        </h3>
+        <p className="mb-8">
+          We do not sell, trade, or transfer your personally identifiable
+          information to outside parties, except to trusted third parties who
+          help us operate our website or conduct business, provided they agree
+          to keep this information confidential.
+          <br />
+          <div className="pt-3">
+            We may also disclose your information when required by law, to
+            enforce our website policies, or to protect our rights, property, or
+            the safety of ourselves or others. Non-personally identifiable
+            information may be shared with other parties for marketing,
+            advertising, or other purposes.
+          </div>
+        </p>
+
+        <h3 className="mb-2 text-xl font-semibold">Third-Party Links</h3>
+        <p className="mb-8">
+          Heliac Energii Controls Solutions does not review or control
+          third-party websites linked to or from this website. We are not
+          responsible for their content, and their inclusion does not imply
+          endorsement. Your use of third-party websites is at your own risk and
+          may be subject to their own terms of use.
+        </p>
+
+        <h3 className="mb-2 text-xl font-semibold">Your Consent</h3>
+        <p className="mb-8">
+          By using our website, you agree to this privacy policy.
+        </p>
+
+        <h3 className="mb-2 text-xl font-semibold">
+          Changes to Our Privacy Policy
+        </h3>
+        <p className="mb-8">
+          If we decide to change our privacy policy, we will post those changes
+          on this page.
+        </p>
+
+        <h3 className="mb-2 text-xl font-semibold">Contact Us</h3>
+        <p className="mb-4">
+          If you have any questions regarding this Privacy Policy, feel free to
+          contact us via email:
+        </p>
+        <ul className="mb-4 list-inside list-disc">
           <li className="mb-2">
-            <strong>Personal Data</strong> is any information that relates to an
-            identified or identifiable individual.
-          </li>
-          <li className="mb-2">
-            <strong>Service</strong> refers to the Website.
-          </li>
-          <li className="mb-2">
-            <strong>Service Provider</strong> means any natural or legal person
-            who processes the data on behalf of the Company. It refers to
-            third-party companies or individuals employed by the Company to
-            facilitate the Service, to provide the Service on behalf of the
-            Company, to perform services related to the Service or to assist the
-            Company in analyzing how the Service is used.
-          </li>
-          <li className="mb-2">
-            <strong>Usage Data</strong> refers to data collected automatically,
-            either generated by the use of the Service or from the Service
-            infrastructure itself (for example, the duration of a page visit).
-          </li>
-          <li className="mb-2">
-            <strong>Website</strong> refers to Heliac Energii, accessible from
-            www.heliac.com.
-          </li>
-          <li className="mb-2">
-            <strong>You</strong> means the individual accessing or using the
-            Service, or the company, or other legal entity on behalf of which
-            such individual is accessing or using the Service, as applicable.
+            <strong>Email: </strong>inquiry@heliacenergii.com
           </li>
         </ul>
       </div>
