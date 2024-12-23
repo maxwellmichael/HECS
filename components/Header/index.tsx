@@ -6,6 +6,9 @@ import { useEffect, useState } from "react";
 
 import ThemeToggler from "./ThemeToggler";
 import menuData from "./menuData";
+import { Button } from "flowbite-react";
+import { FaFileDownload } from "react-icons/fa";
+import toast from "react-hot-toast";
 
 const Header = () => {
   const [navigationOpen, setNavigationOpen] = useState(false);
@@ -26,6 +29,20 @@ const Header = () => {
   useEffect(() => {
     window.addEventListener("scroll", handleStickyMenu);
   });
+
+  const handleDownload = () => {
+    // Path to the file in the public folder
+    const fileUrl = "/downloads/brochure.pdf";
+
+    // Create a temporary <a> element and trigger the download
+    const link = document.createElement("a");
+    link.href = fileUrl;
+    link.download = "brochure.pdf"; // Suggested file name
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    toast.success(`File Downloaded Successfully.`);
+  };
 
   return (
     <header
@@ -142,7 +159,7 @@ const Header = () => {
                         pathUrl === menuItem.path
                           ? "bg-primary text-white hover:text-white"
                           : "hover:text-primary"
-                      } duration-800 rounded-full px-6 py-1.5 transition-all ease-in-out hover:bg-[#ffffff1f] hover:text-white`}
+                      } duration-800 rounded-full px-6 py-1.5 transition-all ease-in-out hover:bg-[#526ace] hover:text-white text-black`}
                     >
                       {menuItem.title}
                     </Link>
@@ -164,10 +181,15 @@ const Header = () => {
 
             <Link
               href="/contact"
-              className="flex items-center justify-center rounded-full bg-primary border border-white px-7.5 py-2.5 text-regular text-white duration-300 ease-in-out hover:bg-primaryho"
+              className="flex items-center justify-center rounded-full border border-white bg-primary px-7.5 py-2.5 text-regular text-white duration-300 ease-in-out hover:bg-primaryho"
             >
               Inquiry
             </Link>
+
+            <Button pill gradientDuoTone="purpleToBlue" onClick={handleDownload}>
+              <FaFileDownload className="mr-2 h-5 w-5" />
+               Brochure
+            </Button>
           </div>
         </div>
       </div>

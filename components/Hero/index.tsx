@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 const Hero = () => {
@@ -8,6 +9,7 @@ const Hero = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
   };
+  const router = useRouter()
 
   return (
     <>
@@ -39,6 +41,7 @@ const Hero = () => {
                       className="rounded-full border border-stroke px-6 py-2.5 shadow-solid-2 focus:border-primary focus:outline-none dark:border-strokedark dark:bg-black dark:shadow-none dark:focus:border-primary"
                     /> */}
                     <button
+                    onClick={()=>{router.push('/contact')}}
                       aria-label="get started button"
                       className="flex rounded-full border-2 bg-primary px-7.5 py-2.5 text-white duration-300 ease-in-out hover:border-primary hover:bg-white hover:text-primary"
                     >
