@@ -90,7 +90,7 @@ const Footer = () => {
                       inquiry@heliacenergii.com
                     </span>
                   </a>
-                  {/* <a
+                  <a
                     href="tel://+00918411981840"
                     className="flex flex-row items-center justify-start"
                   >
@@ -105,11 +105,13 @@ const Footer = () => {
                     href="tel://+00918793823181"
                     className="flex flex-row items-center justify-start"
                   >
-                    <div className="mr-3 w-[26px]"></div>
+                    <div className="mr-3">
+                      <MdOutlinePhone color="black" size={20} />
+                    </div>
                     <span className="text-metatitle3 font-medium text-black dark:text-white">
                       0091 - 8793823181
                     </span>
-                  </a> */}
+                  </a>
                 </div>
               </motion.div>
 
