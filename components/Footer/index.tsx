@@ -149,10 +149,26 @@ const Footer = () => {
                     </li>
                     <li>
                       <a
-                        href="/products"
+                        href="/brands"
                         className="mb-3 inline-block hover:text-primary"
                       >
-                        Products
+                        Brands
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="/buyback"
+                        className="mb-3 inline-block hover:text-primary"
+                      >
+                        Buy Back
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="/about"
+                        className="mb-3 inline-block hover:text-primary"
+                      >
+                        About
                       </a>
                     </li>
                     <li>
@@ -215,31 +231,31 @@ const Footer = () => {
                   <ul>
                     <li>
                       <a
-                        href="#"
+                        href="/"
                         className="mb-3 inline-block hover:text-primary"
                       >
                         Company
                       </a>
                     </li>
-                    <li>
+                    {/* <li>
                       <a
                         href="#"
                         className="mb-3 inline-block hover:text-primary"
                       >
                         Press media
                       </a>
-                    </li>
-                    <li>
+                    </li> */}
+                    {/* <li>
                       <a
                         href="#"
                         className="mb-3 inline-block hover:text-primary"
                       >
                         Our Blog
                       </a>
-                    </li>
+                    </li> */}
                     <li>
                       <a
-                        href="#"
+                        href="/contact"
                         className="mb-3 inline-block hover:text-primary"
                       >
                         Contact Us

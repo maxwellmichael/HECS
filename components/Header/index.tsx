@@ -31,7 +31,7 @@ const Header = () => {
     <header
       className={`fixed left-0 top-0 z-999 w-full py-2 ${
         stickyMenu
-          ? "bg-white !py-4 shadow transition duration-100 dark:bg-black"
+          ? "bg-[linear-gradient(#070d13b8,_#070d133d)] bg-clip-padding !py-4 text-white shadow backdrop-blur-[3rem] backdrop-filter  transition-all duration-300 ease-in-out"
           : ""
       }`}
     >
@@ -50,7 +50,7 @@ const Header = () => {
               alt="logo"
               width={63.03}
               height={63}
-              className="w-full dark:hidden relative"
+              className="relative w-full dark:hidden"
             />
           </a>
 
@@ -97,13 +97,14 @@ const Header = () => {
 
         {/* Nav Menu Start   */}
         <div
-          className={`invisible h-0 w-full items-center justify-between xl:visible xl:flex xl:h-auto xl:w-full ${
-            navigationOpen &&
-            "navbar !visible mt-4 h-auto max-h-[400px] rounded-md bg-white p-7.5 shadow-solid-5 dark:bg-blacksection xl:h-auto xl:p-0 xl:shadow-none xl:dark:bg-transparent"
+          className={`${
+            navigationOpen
+              ? "navbar !visible mt-4 h-auto max-h-[400px] rounded-md bg-white p-7.5 shadow-solid-5 dark:bg-blacksection xl:h-auto xl:p-0 xl:shadow-none xl:dark:bg-transparent"
+              : "invisible h-0 w-full items-center justify-between xl:visible xl:flex xl:h-auto xl:w-full"
           }`}
         >
           <nav>
-            <ul className="flex flex-col gap-5 xl:flex-row xl:items-center xl:gap-10">
+            <ul className="flex flex-col gap-5 xl:flex-row xl:items-center xl:gap-3">
               {menuData.map((menuItem, key) => (
                 <li key={key} className={menuItem.submenu && "group relative"}>
                   {menuItem.submenu ? (
@@ -137,11 +138,11 @@ const Header = () => {
                   ) : (
                     <Link
                       href={`${menuItem.path}`}
-                      className={
+                      className={` ${
                         pathUrl === menuItem.path
-                          ? "text-primary hover:text-primary"
+                          ? "bg-primary text-white hover:text-white"
                           : "hover:text-primary"
-                      }
+                      } duration-800 rounded-full px-6 py-1.5 transition-all ease-in-out hover:bg-[#ffffff1f] hover:text-white`}
                     >
                       {menuItem.title}
                     </Link>
@@ -160,13 +161,13 @@ const Header = () => {
             >
               GitHub Repo 🌟
             </Link> */}
-{/* 
+
             <Link
               href="/contact"
-              className="flex items-center justify-center rounded-full bg-primary px-7.5 py-2.5 text-regular text-white duration-300 ease-in-out hover:bg-primaryho"
+              className="flex items-center justify-center rounded-full bg-primary border border-white px-7.5 py-2.5 text-regular text-white duration-300 ease-in-out hover:bg-primaryho"
             >
-              Enquire
-            </Link> */}
+              Inquiry
+            </Link>
           </div>
         </div>
       </div>
