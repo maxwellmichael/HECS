@@ -274,7 +274,7 @@ const BuyBackContact = () => {
                   ></textarea>
                 </div>
 
-                <div className="mb-3.5 flex w-full flex-col items-start items-center justify-start justify-center">
+                {/* <div className="mb-3.5 flex w-full flex-col items-start items-center justify-start justify-center">
                   <div className="flex w-full justify-between">
                     <label
                       className="text-md mb-2 block text-start font-medium text-gray-900 dark:text-white"
@@ -386,7 +386,7 @@ const BuyBackContact = () => {
                       Download
                     </Button>
                   </div>
-                </div>
+                </div> */}
 
                 <div className="flex flex-wrap xl:justify-between ">
                   <div className="mb-0 flex w-full items-start md:mb-0">
