@@ -371,7 +371,7 @@ const Footer = () => {
               viewport={{ once: true }}
               className="animate_top"
             >
-              <p>
+              <p className="text-center">
                 &copy; {new Date().getFullYear()} Heliac Energii Controls
                 Solutions. All rights reserved
               </p>
@@ -468,7 +468,7 @@ const Footer = () => {
                     </svg>
                   </a>
                 </li>
-                <li>
+                {/* <li>
                   <a href="#" aria-label="social icon">
                     <svg
                       className="fill-[#D1D8E0] transition-all duration-300 hover:fill-primary"
@@ -487,7 +487,7 @@ const Footer = () => {
                       </defs>
                     </svg>
                   </a>
-                </li>
+                </li> */}
               </ul>
             </motion.div>
           </div>

@@ -4,7 +4,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Terms & Conditions Page - Heliac Energii Controls Solutions",
-  // description: "This is Docs page for Solid Pro",
+  description: "Terms & Conditions are subject to change",
   // other metadata
 };
 
@@ -13,6 +13,7 @@ const TermsAndConditions = () => {
     <section className="mx-auto flex max-w-c-1390 flex-col items-center justify-start pb-16 pt-24 md:pb-20 md:pt-28 lg:pb-24 lg:pt-32">
       <div className="w-full px-4 text-black lg:w-3/4">
         <h1 className="mb-4 text-3xl font-bold">Terms & Conditions</h1>
+        <p className="mb-2">Last updated: December 22, 2024</p>
         <p className="mb-2 text-left text-black">
           Welcome to HeliacEnergii.com operated by Heliac Energii Controls
           Solutions.
@@ -305,7 +306,9 @@ const TermsAndConditions = () => {
             management for a seamless customer experience.
           </p>
 
-          <h3 className="mb-2 text-lg font-bold underline">Ownership and Risk of Loss</h3>
+          <h3 className="mb-2 text-lg font-bold underline">
+            Ownership and Risk of Loss
+          </h3>
           <h3 className="mb-1 text-lg font-semibold">Shipping Arrangements</h3>
           <p className="mb-2 text-left text-black">
             Unless otherwise specified by the customer, . Heliac Energii
@@ -899,6 +902,11 @@ const TermsAndConditions = () => {
             the jurisdiction of the District Court of Goa , India
           </p>
         </section>
+        <div className="mt-4 w-full flex items-center justify-center">
+          <small className="text-center font-bold">
+            Terms & Conditions are subject to change.
+          </small>
+        </div>
       </div>
     </section>
   );
