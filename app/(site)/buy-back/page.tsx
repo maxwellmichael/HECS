@@ -1,6 +1,12 @@
 import BuyBackContact from "@/components/BuyBackContact";
 import React from "react";
 import Image from "next/image";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Buy Back - Heliac Energii Controls Solutions",
+  // other metadata
+};
 
 export default function BuyBack() {
   return (
