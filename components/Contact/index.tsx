@@ -315,7 +315,7 @@ const Contact = () => {
                 Find us
               </h2>
 
-              {/* <div className="w-4/5 mb-7">
+              <div className="w-4/5 mb-7">
                 <h3 className="mb-4 text-metatitle3 font-medium text-black dark:text-white">
                   Our Loaction
                 </h3>
@@ -326,7 +326,7 @@ const Contact = () => {
                   Sanguem Goa - 403704,<br />
                   India.
                 </p>
-              </div> */}
+              </div>
               <div className="mb-7 w-4/5">
                 <h3 className="mb-4 text-metatitle3 font-medium text-black dark:text-white">
                   Email Address
