@@ -14,7 +14,7 @@ const SupportPage = () => {
 
 
   return (
-    <main className="flex w-full flex-col">
+    <main className="flex w-full flex-col pt-[90px] md:pt-[102px]">
       <section className="w-full">
         <div className="relative h-[360px] w-full md:h-[720px]">
           <Image

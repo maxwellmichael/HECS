@@ -390,7 +390,7 @@ const TermsAndConditions = () => {
           <h3 className="mb-1 text-lg font-semibold">Warranty Coverage</h3>
           <ul className="list-inside list-disc">
             <li className="mb-2">
-              TAs Heliac Energii Controls Solutions is not an authorized
+              As Heliac Energii Controls Solutions is not an authorized
               distributor, manufacturer warranties are not applicable. Customers
               should consult the manufacturer&#39;s website for additional
               details.

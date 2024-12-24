@@ -48,27 +48,29 @@ const Header = () => {
     <header
       className={`fixed left-0 top-0 z-999 w-full py-2 ${
         stickyMenu
-          ? "bg-[linear-gradient(#070d13b8,_#070d133d)] bg-clip-padding !py-4 text-white shadow backdrop-blur-[3rem] backdrop-filter  transition-all duration-300 ease-in-out"
+          ? "bg-[linear-gradient(#070d13b8,#070d133d)] bg-clip-padding text-white shadow backdrop-blur-[3rem] backdrop-filter  transition-all duration-300 ease-in-out"
           : ""
       }`}
     >
       <div className="relative mx-auto max-w-c-1390 items-center justify-between px-4 md:px-8 xl:flex 2xl:px-0">
         <div className="flex w-full items-center justify-between xl:flex xl:w-2/5 xl:justify-center">
           <a href="/">
-            <Image
-              src="/images/logo/logo-dark.svg"
-              alt="logo"
-              width={119.03}
-              height={30}
-              className="hidden w-full dark:block"
-            />
-            <Image
-              src="/images/logo/logo.png"
-              alt="logo"
-              width={63.03}
-              height={63}
-              className="relative w-full dark:hidden"
-            />
+            <div className="h-[74px] w-[74px] md:h-[86px] md:w-[86px] relative">
+              <Image
+                src="/images/logo/logo-dark.svg"
+                alt="logo"
+                width={119.03}
+                height={30}
+                className="hidden w-full dark:block"
+              />
+              <Image
+                src="/images/logo/logo.png"
+                alt="logo"
+                layout="fill" // required
+                objectFit="contain"
+                className="relative dark:hidden"
+              />
+            </div>
           </a>
 
           {/* <!-- Hamburger Toggle BTN --> */}
@@ -159,7 +161,7 @@ const Header = () => {
                         pathUrl === menuItem.path
                           ? "bg-primary text-white hover:text-white"
                           : "hover:text-primary"
-                      } duration-800 rounded-full px-6 py-1.5 transition-all ease-in-out hover:bg-[#526ace] hover:text-white text-black`}
+                      } duration-800 rounded-full px-6 py-1.5 text-black transition-all ease-in-out hover:bg-[#526ace] hover:text-white`}
                     >
                       {menuItem.title}
                     </Link>
@@ -186,9 +188,13 @@ const Header = () => {
               Inquiry
             </Link>
 
-            <Button pill gradientDuoTone="purpleToBlue" onClick={handleDownload}>
+            <Button
+              pill
+              gradientDuoTone="purpleToBlue"
+              onClick={handleDownload}
+            >
               <FaFileDownload className="mr-2 h-5 w-5" />
-               Brochure
+              Brochure
             </Button>
           </div>
         </div>

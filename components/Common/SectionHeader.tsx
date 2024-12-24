@@ -31,8 +31,8 @@ const SectionHeader = ({ headerInfo }: { headerInfo: HeaderInfo }) => {
         viewport={{ once: true }}
         className="animate_top mx-auto text-center"
       >
-        <div className="mb-4 inline-block rounded-full bg-titlebg2 px-4.5 py-1.5 dark:border dark:border-strokedark dark:bg-blacksection">
-          <span className="text-sectiontitle font-medium text-black dark:text-white">
+        <div className="mb-4 inline-block rounded-full bg-primaryho px-4.5 py-1.5 dark:border dark:border-strokedark dark:bg-blacksection">
+          <span className="text-sectiontitle font-medium text-white dark:text-white">
             {title}
           </span>
         </div>
