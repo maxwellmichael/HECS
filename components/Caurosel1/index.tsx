@@ -45,7 +45,7 @@ const slides = [
 export default function Component() {
   return (
     <section className="pb-8 md:pb-20 pt-[90px] md:pt-[102px]">
-      <div className="h-[368px] md:h-[700px] ">
+      <div className="h-[368px] md:h-[700px] mx-auto max-w-c-1390">
         <Carousel
           theme={customTheme}
           onSlideChange={(index) => {}}
