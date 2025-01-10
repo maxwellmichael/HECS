@@ -129,47 +129,47 @@ export const brandData = [
       },
     ],
   },
-  {
-    name: "Ge Speedtronics",
-    logoImagepath: "",
-    products: [
-      {
-        name: "Mark II",
-        imagePath: "",
-      },
+  // {
+  //   name: "Ge Speedtronics",
+  //   logoImagepath: "",
+  //   products: [
+  //     {
+  //       name: "Mark II",
+  //       imagePath: "",
+  //     },
 
-      {
-        name: "Mark IV",
-        imagePath: "",
-      },
-      {
-        name: "Mark V",
-        imagePath: "",
-      },
-      {
-        name: "Mark VI",
-        imagePath: "",
-      },
-      {
-        name: "Mark Vie/s",
-        imagePath: "",
-      },
-    ],
-  },
-  {
-    name: "Bently Nevada",
-    logoImagepath: "",
-    products: [
-      {
-        name: "3300",
-        imagePath: "",
-      },
-      {
-        name: "3500",
-        imagePath: "",
-      },
-    ],
-  },
+  //     {
+  //       name: "Mark IV",
+  //       imagePath: "",
+  //     },
+  //     {
+  //       name: "Mark V",
+  //       imagePath: "",
+  //     },
+  //     {
+  //       name: "Mark VI",
+  //       imagePath: "",
+  //     },
+  //     {
+  //       name: "Mark Vie/s",
+  //       imagePath: "",
+  //     },
+  //   ],
+  // },
+  // {
+  //   name: "Bently Nevada",
+  //   logoImagepath: "",
+  //   products: [
+  //     {
+  //       name: "3300",
+  //       imagePath: "",
+  //     },
+  //     {
+  //       name: "3500",
+  //       imagePath: "",
+  //     },
+  //   ],
+  // },
   {
     name: "Parker",
     logoImagepath: "",
@@ -287,26 +287,26 @@ export const brandData = [
     ],
   },
 
-  {
-    name: "Ge Excitations",
-    logoImagepath: "",
-    products: [
-      {
-        name: "Ex2000",
-        imagePath: "",
-      },
+  // {
+  //   name: "Ge Excitations",
+  //   logoImagepath: "",
+  //   products: [
+  //     {
+  //       name: "Ex2000",
+  //       imagePath: "",
+  //     },
 
-      {
-        name: "Ex2100",
-        imagePath: "",
-      },
+  //     {
+  //       name: "Ex2100",
+  //       imagePath: "",
+  //     },
 
-      {
-        name: "EX2100e",
-        imagePath: "",
-      },
-    ],
-  },
+  //     {
+  //       name: "EX2100e",
+  //       imagePath: "",
+  //     },
+  //   ],
+  // },
   {
     name: "ABB",
     logoImagepath: "",
