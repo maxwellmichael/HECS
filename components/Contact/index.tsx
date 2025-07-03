@@ -53,7 +53,7 @@ const Contact = () => {
       )
       .then(
         () => {
-          router.push('/')
+          router.push("/");
           // reset();
           toast.success(
             `Thank you! Your message has been sent successfully. We'll get back to you shortly.`,
@@ -323,18 +323,37 @@ const Contact = () => {
                 Find us
               </h2>
 
-              <div className="w-4/5 mb-7">
+              <div className="mb-7 w-4/5">
                 <h3 className="mb-4 text-metatitle3 font-medium text-black dark:text-white">
-                  Our Location
+                  Our Locations
                 </h3>
-                <p>
-                  Heliac Energii Controls Solutions,<br />
-                  H.No.184,<br/>
-                  Opposite Miracles School,<br/>
-                  Pangulna,<br />
-                  Sanguem Goa - 403704,<br />
-                  India.
-                </p>
+                <div className="w-full flex flex-col items-start justify-start gap-y-4">
+                  <p>
+                    Heliac Energii Controls Solutions,
+                    <br />
+                    H.No.184,
+                    <br />
+                    Opposite Miracles School,
+                    <br />
+                    Pangulna,
+                    <br />
+                    Sanguem Goa - 403704,
+                    <br />
+                    India.
+                  </p>
+
+                  <p>
+                   <span className="whitespace-nowrap">Heliac Energii Controls Solutions <span className="text-xs">LLC</span>,</span>
+                    <br />
+                    1001 S MAIN ST,
+                    <br />
+                    STE 500,
+                    <br />
+                    Kalispell, MT 59901-5635,
+                    <br />
+                    USA.
+                  </p>
+                </div>
               </div>
               <div className="mb-7 w-4/5">
                 <h3 className="mb-4 text-metatitle3 font-medium text-black dark:text-white">
