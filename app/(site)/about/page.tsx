@@ -10,7 +10,7 @@ export const metadata = {
 export default function About() {
   return (
     <>
-      <main className="flex w-full flex-col pt-[90px] md:pt-[102px] mx-auto max-w-c-1390">
+      <main className="mx-auto flex w-full max-w-c-1390 flex-col pt-[90px] md:pt-[102px]">
         <section className="w-full">
           <div className="relative h-[360px] w-full md:h-[720px]">
             <Image
@@ -27,7 +27,7 @@ export default function About() {
               className="absolute inset-0 bg-transparent bg-gradient-to-b from-primary/100 to-primary/80"
             ></div>
             <div className="absolute bottom-0 flex h-2/4 w-full flex-col justify-center align-middle">
-              <h1 className="relative text-end pr-[20%] md:pr-[30%] text-3xl font-extrabold text-white before:-z-1 before:bg-black dark:before:bg-titlebgdark sm:text-5xl">
+              <h1 className="relative pr-[20%] text-end text-3xl font-extrabold text-white before:-z-1 before:bg-black dark:before:bg-titlebgdark sm:text-5xl md:pr-[30%]">
                 About Us
               </h1>
             </div>
