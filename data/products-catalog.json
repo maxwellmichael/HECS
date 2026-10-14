@@ -1,0 +1,788 @@
+{
+  "products": [
+    {
+      "id": "gas-turbine-parts",
+      "name": "Gas Turbine Parts",
+      "source_title": "Gas Turbine Parts",
+      "summary": "Reliable, high-quality gas turbine components for efficient performance, maintenance, and replacement needs.",
+      "subcategories": {
+        "mechanical": [
+          {
+            "name": "Turbine rotor",
+            "summary": "Primary rotating assembly that transfers turbine power through the shaft train."
+          },
+          {
+            "name": "Turbine blades (buckets)",
+            "summary": "Rotating airfoil components that extract energy from hot turbine gas."
+          },
+          {
+            "name": "Stator blades (nozzles)",
+            "summary": "Stationary nozzle vanes that direct and accelerate gas onto turbine blades."
+          },
+          {
+            "name": "Shrouds",
+            "summary": "Protective turbine components that help control tip clearance and gas-path leakage."
+          },
+          {
+            "name": "Transition pieces",
+            "summary": "Combustion-to-turbine gas-path components that guide hot gases into the first stage."
+          },
+          {
+            "name": "Combustion liners",
+            "summary": "Heat-resistant combustion chamber liners that contain and shape the combustion process."
+          },
+          {
+            "name": "Crossfire tubes",
+            "summary": "Combustion-system tubes that transfer ignition between adjacent combustion chambers."
+          },
+          {
+            "name": "Flow sleeves",
+            "summary": "Components that guide cooling or combustion airflow around the combustion liner."
+          },
+          {
+            "name": "Turbine casing",
+            "summary": "Structural enclosure that contains turbine stages and maintains the gas path."
+          },
+          {
+            "name": "Compressor rotor",
+            "summary": "Rotating compressor assembly that carries and drives multiple compressor stages."
+          },
+          {
+            "name": "Compressor blades (multiple stages)",
+            "summary": "Airfoil blades that progressively compress incoming air through compressor stages."
+          },
+          {
+            "name": "Diaphragms",
+            "summary": "Stationary gas-path assemblies supporting vanes and controlling flow between stages."
+          },
+          {
+            "name": "IGVs (Inlet Guide Vanes)",
+            "summary": "Adjustable inlet vanes that regulate airflow entering the compressor."
+          },
+          {
+            "name": "VSV actuators",
+            "summary": "Actuators that position variable stator vanes for compressor airflow control."
+          },
+          {
+            "name": "Bearings (journal, thrust)",
+            "summary": "Load-bearing components supporting rotating shafts and controlling axial movement."
+          },
+          {
+            "name": "Bearing housings",
+            "summary": "Precision housings that locate, support, and protect turbine shaft bearings."
+          },
+          {
+            "name": "Accessory gearbox",
+            "summary": "Gear-driven unit that powers auxiliary systems from the turbine shaft."
+          },
+          {
+            "name": "Liquid fuel pumps",
+            "summary": "Pumps that deliver liquid fuel to the turbine combustion system at controlled flow."
+          },
+          {
+            "name": "Lube oil pumps",
+            "summary": "Pumps that circulate lubricating oil to bearings and other rotating equipment."
+          },
+          {
+            "name": "Hydraulic pumps",
+            "summary": "Pumps supplying hydraulic pressure for turbine actuators and control systems."
+          },
+          {
+            "name": "Heat exchangers",
+            "summary": "Thermal transfer units used to cool or heat turbine auxiliary fluids."
+          },
+          {
+            "name": "Air inlet filters",
+            "summary": "Filters that remove airborne contaminants before compressor air intake."
+          },
+          {
+            "name": "Oil filters",
+            "summary": "Filtration components that remove contaminants from turbine lubrication oil."
+          },
+          {
+            "name": "Flex hoses & piping",
+            "summary": "Flexible and rigid flow connections for fuel, oil, air, and hydraulic services."
+          }
+        ],
+        "electrical": [
+          {
+            "name": "Ignition transformers",
+            "summary": "High-voltage transformers supplying ignition energy to turbine igniters."
+          },
+          {
+            "name": "High-temp cabling",
+            "summary": "Heat-resistant electrical cabling designed for demanding turbine environments."
+          },
+          {
+            "name": "Solenoids",
+            "summary": "Electromagnetic valves or actuators used to control turbine auxiliary circuits."
+          },
+          {
+            "name": "Motors (pump, fan)",
+            "summary": "Electric motors driving turbine pumps, fans, and auxiliary equipment."
+          },
+          {
+            "name": "Transformers",
+            "summary": "Electrical transformers used to adapt voltage for turbine power systems."
+          },
+          {
+            "name": "Switchgear",
+            "summary": "Electrical switching and protection equipment for turbine power distribution."
+          },
+          {
+            "name": "Protection relays",
+            "summary": "Protective devices that detect electrical faults and initiate system isolation."
+          },
+          {
+            "name": "MCC components",
+            "summary": "Motor-control-center components for switching and protecting auxiliary motors."
+          }
+        ],
+        "electronics_control": [
+          {
+            "name": "Mark VIe / Mark V control cards",
+            "summary": "Control-system cards used for turbine monitoring, sequencing, and control."
+          },
+          {
+            "name": "I/O packs",
+            "summary": "Interface modules connecting field signals with the turbine control system."
+          },
+          {
+            "name": "Termination boards",
+            "summary": "Interface boards that organize and terminate field wiring to control equipment."
+          },
+          {
+            "name": "Power supplies",
+            "summary": "Power-conversion modules providing regulated power to control electronics."
+          },
+          {
+            "name": "HMI modules",
+            "summary": "Operator interface modules for turbine monitoring, control, and diagnostics."
+          },
+          {
+            "name": "Excitation system cards",
+            "summary": "Electronic cards supporting generator excitation and voltage-control functions."
+          }
+        ],
+        "instrumentation": [
+          {
+            "name": "Thermocouples",
+            "summary": "Temperature sensors designed for measuring high-temperature turbine environments."
+          },
+          {
+            "name": "RTDs",
+            "summary": "Precision resistance sensors used for accurate equipment temperature monitoring."
+          },
+          {
+            "name": "Pressure transmitters",
+            "summary": "Transmitters that convert process pressure into control-system signals."
+          },
+          {
+            "name": "Temperature transmitters",
+            "summary": "Transmitters that convert measured temperature into standardized control signals."
+          },
+          {
+            "name": "Vibration probes",
+            "summary": "Sensors used to monitor shaft or machinery vibration for condition monitoring."
+          },
+          {
+            "name": "Speed sensors",
+            "summary": "Sensors that measure rotating shaft speed for monitoring and control."
+          },
+          {
+            "name": "Flame detectors",
+            "summary": "Sensors that verify flame presence and combustion status."
+          },
+          {
+            "name": "Igniters",
+            "summary": "Ignition devices used to initiate combustion during turbine startup."
+          },
+          {
+            "name": "Fuel nozzles",
+            "summary": "Precision nozzles that meter and atomize fuel into the combustion system."
+          },
+          {
+            "name": "Flow sensors",
+            "summary": "Sensors that measure process or utility flow for monitoring and control."
+          }
+        ]
+      },
+      "item_count": 48,
+      "subcategory_count": 4
+    },
+    {
+      "id": "steam-turbine-parts",
+      "name": "Steam Turbine Parts",
+      "source_title": "Steam Turbine Parts",
+      "summary": "High-quality steam turbine components designed for reliable performance, maintenance, and replacement needs.",
+      "subcategories": {
+        "mechanical": [
+          {
+            "name": "Turbine rotor",
+            "summary": "Rotating steam-turbine assembly that transfers steam energy into mechanical power."
+          },
+          {
+            "name": "Moving & stationary blades",
+            "summary": "Turbine airfoils that extract steam energy and guide flow between stages."
+          },
+          {
+            "name": "Nozzle blocks",
+            "summary": "Stationary nozzle assemblies that accelerate and direct steam into turbine stages."
+          },
+          {
+            "name": "Diaphragms",
+            "summary": "Stationary stage assemblies supporting nozzles and separating steam-path stages."
+          },
+          {
+            "name": "Inner & outer casing",
+            "summary": "Turbine casings that contain steam flow and provide structural support."
+          },
+          {
+            "name": "Bearings",
+            "summary": "Components that support the turbine shaft and manage radial or axial loads."
+          },
+          {
+            "name": "Couplings",
+            "summary": "Mechanical connections that transmit torque between the turbine and driven equipment."
+          },
+          {
+            "name": "Glands & seals",
+            "summary": "Sealing components that limit steam leakage around rotating shafts."
+          },
+          {
+            "name": "Steam chest",
+            "summary": "Valve-chamber assembly that distributes and controls incoming steam."
+          },
+          {
+            "name": "Control valves",
+            "summary": "Valves that regulate steam flow to control turbine output and speed."
+          },
+          {
+            "name": "Stop valves",
+            "summary": "Rapid-shutoff valves that isolate steam supply during trips or maintenance."
+          },
+          {
+            "name": "Governor valves",
+            "summary": "Control valves that modulate steam admission in response to speed or load."
+          },
+          {
+            "name": "Exhaust hood",
+            "summary": "Casing section that collects and directs exhaust steam from the turbine."
+          },
+          {
+            "name": "Turning gear",
+            "summary": "Low-speed drive that rotates the turbine shaft during startup and cooldown."
+          },
+          {
+            "name": "Lube oil system",
+            "summary": "Lubrication system supplying filtered oil to turbine bearings and related components."
+          }
+        ],
+        "electrical": [
+          {
+            "name": "Pump motors",
+            "summary": "Electric motors that drive pumps within turbine auxiliary systems."
+          },
+          {
+            "name": "Turning gear motors",
+            "summary": "Motors that drive the turbine turning gear during low-speed rotation."
+          },
+          {
+            "name": "Excitation system parts",
+            "summary": "Components supporting generator excitation and electrical output regulation."
+          },
+          {
+            "name": "Switchgear",
+            "summary": "Electrical equipment used to switch, isolate, and protect turbine-generator circuits."
+          },
+          {
+            "name": "Relays",
+            "summary": "Electrical control and protection devices used within turbine systems."
+          }
+        ],
+        "electronics_control": [
+          {
+            "name": "Turbine control cards",
+            "summary": "Electronic control modules responsible for turbine operation and monitoring."
+          },
+          {
+            "name": "PLC modules",
+            "summary": "Programmable controller modules used for auxiliary and process automation."
+          },
+          {
+            "name": "Speed control electronics",
+            "summary": "Electronic hardware that regulates turbine speed and operating response."
+          },
+          {
+            "name": "Trip system electronics",
+            "summary": "Protection electronics that initiate turbine shutdown when unsafe conditions occur."
+          }
+        ],
+        "instrumentation": [
+          {
+            "name": "Pressure transmitters",
+            "summary": "Devices that measure steam or system pressure and provide control signals."
+          },
+          {
+            "name": "Temperature transmitters",
+            "summary": "Devices that measure process temperature and transmit standardized signals."
+          },
+          {
+            "name": "Steam flow transmitters",
+            "summary": "Transmitters used to measure and monitor steam flow through the system."
+          },
+          {
+            "name": "Vibration sensors",
+            "summary": "Sensors that detect mechanical vibration for turbine condition monitoring."
+          },
+          {
+            "name": "Speed pickups",
+            "summary": "Sensors that provide shaft-speed feedback to turbine control systems."
+          },
+          {
+            "name": "Thermocouples",
+            "summary": "Temperature sensors suited to high-temperature steam turbine measurements."
+          },
+          {
+            "name": "Bearing metal temperature sensors",
+            "summary": "Sensors monitoring bearing metal temperature to detect overheating conditions."
+          }
+        ]
+      },
+      "item_count": 31,
+      "subcategory_count": 4
+    },
+    {
+      "id": "compressor-parts",
+      "name": "Compressor Parts",
+      "source_title": "Compressor Parts",
+      "summary": "High-quality compressor components for efficient performance, maintenance, and replacement needs.",
+      "subcategories": {
+        "mechanical": [
+          {
+            "name": "Crankshaft",
+            "summary": "Rotating shaft that converts reciprocating drive motion into compressor piston motion."
+          },
+          {
+            "name": "Connecting rods",
+            "summary": "Mechanical links transmitting crankshaft motion to compressor pistons or crossheads."
+          },
+          {
+            "name": "Pistons",
+            "summary": "Reciprocating components that compress gas within compressor cylinders."
+          },
+          {
+            "name": "Piston rings",
+            "summary": "Sealing rings that control gas leakage and oil movement around pistons."
+          },
+          {
+            "name": "Cylinder liners",
+            "summary": "Replaceable cylinder surfaces providing a durable bore for piston operation."
+          },
+          {
+            "name": "Crossheads",
+            "summary": "Guided mechanisms that transfer motion while keeping piston rods aligned."
+          },
+          {
+            "name": "Suction/discharge valves",
+            "summary": "Automatic valves controlling gas entry and discharge from compressor cylinders."
+          },
+          {
+            "name": "Valve plates",
+            "summary": "Valve assemblies that support and position compressor suction or discharge valve elements."
+          },
+          {
+            "name": "Springs",
+            "summary": "Resilient components used to return or preload compressor valves and mechanisms."
+          },
+          {
+            "name": "Gaskets",
+            "summary": "Sealing elements preventing fluid or gas leakage between mating surfaces."
+          },
+          {
+            "name": "Bearings",
+            "summary": "Components supporting rotating shafts and managing compressor operating loads."
+          },
+          {
+            "name": "Mechanical seals",
+            "summary": "Shaft seals designed to limit leakage around rotating compressor equipment."
+          },
+          {
+            "name": "Couplings",
+            "summary": "Torque-transmission components connecting compressor shafts or drive equipment."
+          },
+          {
+            "name": "Gearbox",
+            "summary": "Gear assembly that changes speed or torque between the driver and compressor."
+          },
+          {
+            "name": "Shafts",
+            "summary": "Rotating mechanical members transmitting torque through compressor assemblies."
+          },
+          {
+            "name": "Impellers",
+            "summary": "Rotating compressor elements that impart energy to gas in dynamic stages."
+          },
+          {
+            "name": "Diffusers",
+            "summary": "Stationary passages that convert gas velocity into pressure after an impeller."
+          },
+          {
+            "name": "IGVs",
+            "summary": "Inlet guide vanes regulating gas entry angle and compressor airflow."
+          },
+          {
+            "name": "Oil pumps",
+            "summary": "Pumps circulating lubricating oil through compressor bearings and components."
+          },
+          {
+            "name": "Air filters",
+            "summary": "Filters protecting compressor intake systems from airborne contaminants."
+          }
+        ],
+        "electrical": [
+          {
+            "name": "Motors",
+            "summary": "Electric drives supplying mechanical power to compressor equipment."
+          },
+          {
+            "name": "Starters",
+            "summary": "Electrical starting devices used to bring compressor motors into operation."
+          },
+          {
+            "name": "Contactors",
+            "summary": "Electrically controlled switches for starting and isolating compressor motors."
+          },
+          {
+            "name": "Relays",
+            "summary": "Electrical switching and protection devices used in compressor control circuits."
+          },
+          {
+            "name": "Switchgear",
+            "summary": "Equipment for switching, isolating, and protecting compressor electrical systems."
+          },
+          {
+            "name": "Transformers",
+            "summary": "Devices that adapt electrical voltage for compressor auxiliary systems."
+          }
+        ],
+        "electronics_control": [
+          {
+            "name": "PLC modules",
+            "summary": "Programmable automation modules used to control compressor processes and auxiliaries."
+          },
+          {
+            "name": "VFD drives",
+            "summary": "Variable-frequency drives that regulate compressor motor speed and power."
+          },
+          {
+            "name": "Motor controllers",
+            "summary": "Control units managing compressor motor starting, operation, and protection."
+          }
+        ],
+        "instrumentation": [
+          {
+            "name": "Pressure transmitters",
+            "summary": "Sensors that measure compressor pressure and provide control-system feedback."
+          },
+          {
+            "name": "Temperature transmitters",
+            "summary": "Transmitters that monitor compressor process and equipment temperatures."
+          },
+          {
+            "name": "Flow sensors",
+            "summary": "Sensors that measure gas or utility flow through compressor systems."
+          },
+          {
+            "name": "Vibration sensors",
+            "summary": "Condition-monitoring sensors used to detect abnormal compressor vibration."
+          },
+          {
+            "name": "Speed sensors",
+            "summary": "Sensors providing rotating-speed feedback for compressor monitoring and control."
+          },
+          {
+            "name": "Oil level switches",
+            "summary": "Switches that detect lubricant level conditions in compressor systems."
+          },
+          {
+            "name": "Differential pressure switches",
+            "summary": "Switches that detect pressure differences across filters or process components."
+          }
+        ]
+      },
+      "item_count": 36,
+      "subcategory_count": 4
+    },
+    {
+      "id": "generator-parts",
+      "name": "Generator Parts",
+      "source_title": "Generator Parts",
+      "summary": "Premium generator components designed for dependable operation, maintenance, and replacement requirements.",
+      "subcategories": {
+        "mechanical": [
+          {
+            "name": "Rotor",
+            "summary": "Rotating generator assembly that carries the field system and produces magnetic flux."
+          },
+          {
+            "name": "Stator",
+            "summary": "Stationary generator assembly containing the windings where electrical power is produced."
+          },
+          {
+            "name": "Bearings",
+            "summary": "Supports that carry the generator shaft and maintain precise rotor alignment."
+          },
+          {
+            "name": "Couplings",
+            "summary": "Mechanical interfaces transmitting torque between the generator and its prime mover."
+          },
+          {
+            "name": "Cooling fans",
+            "summary": "Fans that circulate cooling air to control generator operating temperature."
+          },
+          {
+            "name": "Air filters",
+            "summary": "Filters that clean cooling or ventilation air entering the generator."
+          },
+          {
+            "name": "Shaft seals",
+            "summary": "Sealing components that limit leakage around rotating generator shafts."
+          }
+        ],
+        "electrical": [
+          {
+            "name": "Excitation system",
+            "summary": "System that supplies and regulates field current for generator voltage production."
+          },
+          {
+            "name": "AVR",
+            "summary": "Automatic Voltage Regulator that maintains generator terminal voltage within its control range."
+          },
+          {
+            "name": "Stator windings",
+            "summary": "Conductive windings in the stator where generated electrical power is delivered."
+          },
+          {
+            "name": "Rotor windings",
+            "summary": "Field windings on the rotor that establish the generator magnetic field."
+          },
+          {
+            "name": "Bus bars",
+            "summary": "Conductive assemblies used to carry and distribute high-current generator power."
+          },
+          {
+            "name": "Transformers",
+            "summary": "Electrical devices used to transform voltage within generator power systems."
+          },
+          {
+            "name": "Switchgear",
+            "summary": "Switching and protection equipment for generator electrical connections."
+          },
+          {
+            "name": "Protection relays",
+            "summary": "Relays that detect abnormal electrical conditions and protect generator equipment."
+          }
+        ],
+        "electronics_control": [
+          {
+            "name": "Control cards",
+            "summary": "Electronic modules supporting generator monitoring, control, and automation."
+          },
+          {
+            "name": "Power supplies",
+            "summary": "Modules providing regulated electrical power to generator control electronics."
+          },
+          {
+            "name": "Monitoring modules",
+            "summary": "Electronic units collecting and processing generator operating measurements."
+          },
+          {
+            "name": "HMI panels",
+            "summary": "Operator panels for viewing generator status, alarms, and control functions."
+          },
+          {
+            "name": "Synchronization modules",
+            "summary": "Control modules that coordinate generator voltage, frequency, and phase before connection."
+          }
+        ],
+        "instrumentation": [
+          {
+            "name": "Winding temperature sensors",
+            "summary": "Sensors monitoring generator winding temperatures to prevent overheating."
+          },
+          {
+            "name": "Bearing temperature sensors",
+            "summary": "Sensors monitoring bearing temperature for early fault detection."
+          },
+          {
+            "name": "Vibration sensors",
+            "summary": "Sensors used to track generator mechanical vibration and shaft-condition changes."
+          },
+          {
+            "name": "Speed sensors",
+            "summary": "Sensors measuring generator shaft speed for control and protection."
+          },
+          {
+            "name": "CTs (Current Transformers)",
+            "summary": "Transformers that measure high generator currents for metering and protection."
+          },
+          {
+            "name": "PTs (Potential Transformers)",
+            "summary": "Transformers that provide scaled voltage signals for measurement and protection."
+          }
+        ]
+      },
+      "item_count": 26,
+      "subcategory_count": 4
+    },
+    {
+      "id": "mud-pump-parts",
+      "name": "Mud Pump Parts",
+      "source_title": "Mud Pumb Parts",
+      "summary": "Quality mud pump components for efficient drilling operations, maintenance, and replacement needs.",
+      "subcategories": {
+        "mechanical": [
+          {
+            "name": "Fluid end modules",
+            "summary": "High-pressure pump assemblies containing the fluid-handling and valve components."
+          },
+          {
+            "name": "Liners",
+            "summary": "Replaceable wear sleeves that provide the working cylinder surface for pump pistons."
+          },
+          {
+            "name": "Pistons",
+            "summary": "Reciprocating sealing elements that generate drilling-fluid pressure and flow."
+          },
+          {
+            "name": "Piston rods",
+            "summary": "Mechanical rods connecting mud-pump pistons to the drive mechanism."
+          },
+          {
+            "name": "Crossheads",
+            "summary": "Guided drive components that transfer reciprocating motion to piston rods."
+          },
+          {
+            "name": "Crankshaft",
+            "summary": "Rotating drive shaft that converts rotary power into reciprocating pump motion."
+          },
+          {
+            "name": "Connecting rods",
+            "summary": "Links transmitting crankshaft motion to the mud-pump crossheads."
+          },
+          {
+            "name": "Bearings",
+            "summary": "Load-supporting components that maintain smooth rotation and shaft alignment."
+          },
+          {
+            "name": "Gearbox",
+            "summary": "Drive assembly that transfers and adjusts power to the mud pump."
+          },
+          {
+            "name": "Suction/discharge valves",
+            "summary": "Valves controlling drilling-fluid intake and high-pressure discharge."
+          },
+          {
+            "name": "Valve seats",
+            "summary": "Seating surfaces that provide a tight seal for mud-pump valves."
+          },
+          {
+            "name": "Springs",
+            "summary": "Preloaded components supporting reliable valve opening and closing."
+          },
+          {
+            "name": "Gaskets",
+            "summary": "Sealing components preventing drilling-fluid leakage between mating parts."
+          },
+          {
+            "name": "Pulsation dampeners",
+            "summary": "Pressure-smoothing devices that reduce flow and pressure pulsations."
+          },
+          {
+            "name": "Lube oil system",
+            "summary": "Lubrication system supplying oil to bearings, gears, and moving components."
+          }
+        ],
+        "electrical": [
+          {
+            "name": "Motors",
+            "summary": "Electric drives supplying mechanical power to mud-pump systems."
+          },
+          {
+            "name": "Starters",
+            "summary": "Electrical devices used to start and control mud-pump motors."
+          },
+          {
+            "name": "Contactors",
+            "summary": "Switching devices used to connect and disconnect mud-pump motor power."
+          },
+          {
+            "name": "Relays",
+            "summary": "Electrical switching and protection components for pump control circuits."
+          },
+          {
+            "name": "Switchgear",
+            "summary": "Electrical equipment for switching, isolation, and protection of pump systems."
+          }
+        ],
+        "electronics_control": [
+          {
+            "name": "Pump control cards",
+            "summary": "Electronic modules used to control and monitor mud-pump operation."
+          },
+          {
+            "name": "PLC modules",
+            "summary": "Programmable automation modules used for mud-pump process control."
+          },
+          {
+            "name": "Motor controllers",
+            "summary": "Control devices managing mud-pump motor operation and protection."
+          },
+          {
+            "name": "VFD drives",
+            "summary": "Variable-frequency drives used to adjust mud-pump motor speed and output."
+          }
+        ],
+        "instrumentation": [
+          {
+            "name": "Pressure transmitters",
+            "summary": "Sensors measuring mud-pump discharge or system pressure for monitoring."
+          },
+          {
+            "name": "Stroke counters",
+            "summary": "Devices that count pump strokes to track operating rate and performance."
+          },
+          {
+            "name": "Flow sensors",
+            "summary": "Sensors measuring drilling-fluid flow through the mud-pump system."
+          },
+          {
+            "name": "Temperature sensors",
+            "summary": "Sensors monitoring pump, fluid, or component temperatures."
+          },
+          {
+            "name": "Vibration sensors",
+            "summary": "Sensors used to identify abnormal mechanical vibration in the pump."
+          },
+          {
+            "name": "Level switches",
+            "summary": "Switches detecting fluid or lubricant level conditions in pump systems."
+          }
+        ]
+      },
+      "item_count": 30,
+      "subcategory_count": 4
+    }
+  ],
+  "summary": {
+    "product_categories": 5,
+    "total_listed_items": 171,
+    "subcategories": [
+      "mechanical",
+      "electrical",
+      "electronics_control",
+      "instrumentation"
+    ]
+  }
+}

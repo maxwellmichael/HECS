@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { FaArrowUp } from "react-icons/fa";
+import Button from "../Common/Button";
 
 export default function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
@@ -30,14 +32,15 @@ export default function ScrollToTop() {
   return (
     <div className="fixed bottom-8 right-8 z-[99]">
       {isVisible && (
-        <div
+        <Button
+          variant="icon"
+          size="sm"
           onClick={scrollToTop}
-          aria-label="scroll to top"
-          className="hover:shadow-signUp flex h-10 w-10 cursor-pointer items-center justify-center rounded-sm bg-primary text-white shadow-md transition duration-300 ease-in-out hover:bg-opacity-80"
+          ariaLabel="Scroll to top"
+          className="h-10 w-10 !rounded-full bg-primary text-white shadow-solid-5 hover:bg-primaryho dark:bg-primaryho dark:hover:bg-primary"
         >
-          <span className="mt-[6px] h-3 w-3 rotate-45 border-l border-t border-white"></span>
-          <span className="sr-only">scroll to top</span>
-        </div>
+          <FaArrowUp />
+        </Button>
       )}
     </div>
   );

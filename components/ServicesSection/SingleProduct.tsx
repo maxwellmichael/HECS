@@ -1,45 +1,46 @@
+"use client";
+
 import React from "react";
-import { Service } from "@/types/feature";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import type { Service } from "@/types/feature";
+import GlassCard from "@/components/Common/GlassCard";
 
-const SingleFeature = ({ feature }: { feature: Service }) => {
-  const { image, title, description } = feature;
+interface SingleProductProps {
+  product: Service;
+  index?: number;
+}
 
+const SingleProduct = ({ product, index = 0 }: SingleProductProps) => {
   return (
-    <>
-      <motion.div
-        variants={{
-          hidden: {
-            opacity: 0,
-            y: -10,
-          },
+    <GlassCard index={index} density="float" hover={false} className="p-0">
+      {/* Photo — flush to the glass frame */}
+      <div className="relative aspect-[4/3] w-full overflow-hidden">
+        <Image
+          src={product.image}
+          alt={product.title}
+          fill
+          sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 25vw"
+          className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+        />
+        {/* Soft blend: photo fades into the frosted footer instead of a hard edge */}
+        <div
+          aria-hidden
+          className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white/50 to-transparent dark:from-blacksection/50"
+        />
+      </div>
 
-          visible: {
-            opacity: 1,
-            y: 0,
-          },
-        }}
-        initial="hidden"
-        whileInView="visible"
-        transition={{ duration: 0.5 }}
-        viewport={{ once: true }}
-        className="animate_top z-40 rounded-2xl border border-white bg-white shadow-solid-3  dark:border-strokedark dark:bg-blacksection dark:hover:bg-hoverdark relative cursor-pointer sm:overflow-hidden md:overflow-visible"
-      >
-        <article className="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl px-8 pb-8 pt-40 max-w-sm transition-all duration-300 hover:shadow-solid-4 md:hover:scale-110 sm:hover:scale-0">
-        <img src={image} alt="University of Southern California" className="absolute inset-0 h-full w-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 filter grayscale opacity-90 transition-all duration-300 hover:opacity-20 hover:filter-none"></div>
-        {/* <div className="relative flex h-16 w-16 items-center justify-center rounded-[4px] bg-primary">
-          <Image src={icon} width={36} height={36} alt="title" />
-        </div> */}
-        <h3 className="mb-5 mt-7.5 text-metatitle2 font-semibold text-white z-10 relative">
-          {title}
+      {/* Subtle title resting on the glass */}
+      <div className="flex items-center gap-2.5 border-t border-white/40 px-5 py-4 dark:border-white/10">
+        <span
+          aria-hidden
+          className="h-1.5 w-1.5 shrink-0 rounded-full bg-primary dark:bg-primaryho"
+        />
+        <h3 className="truncate text-regular font-medium text-blackho dark:text-white">
+          {product.title}
         </h3>
-        {/* <p className="z-10 relative text-zumthor">{description}</p> */}
-        </article>
-      </motion.div>
-    </>
+      </div>
+    </GlassCard>
   );
 };
 
-export default SingleFeature;
+export default SingleProduct;

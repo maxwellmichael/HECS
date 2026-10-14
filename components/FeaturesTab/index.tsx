@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useState } from "react";
 import FeaturesTabItem from "./FeaturesTabItem";
 import featuresTabData from "./featuresTabData";
+import Button from "../Common/Button";
 
 import { motion } from "framer-motion";
 
@@ -62,9 +63,9 @@ const FeaturesTab = () => {
                 </p>
               </div>
               <div className="md:w-3/5 lg:w-auto">
-                <button className="text-sm font-medium text-black dark:text-white xl:text-regular">
+                <span className="text-sm font-medium text-black dark:text-white xl:text-regular">
                   Clean User Interface
-                </button>
+                </span>
               </div>
             </div>
             <div
@@ -81,9 +82,9 @@ const FeaturesTab = () => {
                 </p>
               </div>
               <div className="md:w-3/5 lg:w-auto">
-                <button className="text-sm font-medium text-black dark:text-white xl:text-regular">
+                <span className="text-sm font-medium text-black dark:text-white xl:text-regular">
                   Essential Business Pages
-                </button>
+                </span>
               </div>
             </div>
             <div
@@ -100,9 +101,9 @@ const FeaturesTab = () => {
                 </p>
               </div>
               <div className="md:w-3/5 lg:w-auto">
-                <button className="text-sm font-medium text-black dark:text-white xl:text-regular">
+                <span className="text-sm font-medium text-black dark:text-white xl:text-regular">
                   Fully Functional Integrations
-                </button>
+                </span>
               </div>
             </div>
           </motion.div>

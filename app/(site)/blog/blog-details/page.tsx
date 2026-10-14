@@ -29,7 +29,7 @@ const SingleBlogPage = async () => {
                     />
 
                     <button
-                      className="absolute right-0 top-0 p-5"
+                      className="absolute right-0 top-0 p-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primaryho"
                       aria-label="search-icon"
                     >
                       <svg

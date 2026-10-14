@@ -6,6 +6,7 @@ import Contact from "@/components/Contact";
 import Caurosel1 from "@/components/Caurosel1";
 import ServicesSection from "@/components/ServicesSection";
 import BrandsSection from "@/components/BrandsSection";
+import CertificationsSection from "@/components/Certifications";
 
 export const metadata: Metadata = {
   title: "Heliac Energii | Controls Solutions",
@@ -17,6 +18,7 @@ export default function Home() {
     <main>
       <Caurosel1 />
       <Hero />
+      <CertificationsSection/>
       {/* <Brands /> */}
       <BrandsSection/>
       {/* <NewProductsSection /> */}

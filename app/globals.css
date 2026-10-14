@@ -157,3 +157,81 @@ pre {
     transform: rotate(360deg);
   }
 }
+
+/* ===== Floating celebration icons inside glass (FunFact panel) ===== */
+@keyframes float-rise {
+  0% {
+    top: 104%;
+    opacity: 0;
+  }
+  12% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    top: -14%;
+    opacity: 0;
+  }
+}
+
+@keyframes float-sway {
+  from {
+    transform: translateX(calc(var(--sway, 20px) * -1));
+  }
+  to {
+    transform: translateX(var(--sway, 20px));
+  }
+}
+
+@keyframes clap-pulse {
+  0%,
+  100% {
+    transform: scale(1) rotate(-8deg);
+  }
+  50% {
+    transform: scale(1.15) rotate(8deg);
+  }
+}
+
+@keyframes heart-beat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.25);
+  }
+  40% {
+    transform: scale(1.05);
+  }
+  55% {
+    transform: scale(1.2);
+  }
+}
+
+/* ===== react-phone-number-input internals (glass box lives on the component) ===== */
+.PhoneInput {
+  @apply flex w-full items-center;
+}
+
+.PhoneInputCountry {
+  @apply ml-11 mr-2 flex shrink-0 items-center;
+}
+
+.PhoneInputCountryIcon {
+  @apply rounded-sm bg-stroke dark:bg-hoverdark;
+}
+
+.PhoneInputCountrySelectArrow {
+  @apply ml-2 text-waterloo opacity-100 dark:text-manatee;
+}
+
+.PhoneInputInput {
+  @apply w-full border-none bg-transparent py-3.5 pr-4 text-regular text-black focus:border-none focus:outline-none focus:ring-0 dark:text-white;
+}
+
+.PhoneInputInput::placeholder {
+  @apply text-waterloo dark:text-manatee;
+}

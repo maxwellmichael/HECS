@@ -1,40 +1,41 @@
+"use client";
+
 import React from "react";
-import { Feature } from "@/types/feature";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import type { Feature } from "@/types/feature";
+import GlassCard from "@/components/Common/GlassCard";
 
-const SingleFeature = ({ feature }: { feature: Feature }) => {
-  const { icon, title, description } = feature;
+interface SingleFeatureProps {
+  feature: Feature;
+  index?: number;
+}
 
+const SingleFeature = ({ feature, index = 0 }: SingleFeatureProps) => {
   return (
-    <>
-      <motion.div
-        variants={{
-          hidden: {
-            opacity: 0,
-            y: -10,
-          },
+    <GlassCard
+      index={index}
+      density="read"
+      glow
+      className="p-6 text-center md:p-7.5"
+    >
+      {/* Centred glass icon badge — mx-auto keeps it aligned with the centred text */}
+      <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-xl border border-white/60 bg-white/60 shadow-solid-12 dark:border-white/10 dark:bg-white/10">
+        <Image
+          src={feature.icon}
+          alt={feature.title}
+          width={54}
+          height={54}
+          className="h-8 w-8 object-contain md:h-9 md:w-9"
+        />
+      </span>
 
-          visible: {
-            opacity: 1,
-            y: 0,
-          },
-        }}
-        initial="hidden"
-        whileInView="visible"
-        transition={{ duration: 0.5 }}
-        viewport={{ once: true }}
-        className="animate_top z-40 rounded-lg border border-white bg-white p-7.5 shadow-solid-3 transition-all hover:shadow-solid-4 dark:border-strokedark dark:bg-blacksection dark:hover:bg-hoverdark xl:p-12.5 flex flex-col items-center md:items-start justify-start"
-      >
-        <div className="relative flex h-16 w-16 items-center justify-center rounded-[4px] bg-primaryLight">
-          <Image src={icon} width={36} height={36} alt="title" />
-        </div>
-        <h3 className="mb-5 mt-7.5 text-xl font-semibold text-black dark:text-white xl:text-itemtitle text-center md:text-start">
-          {title}
-        </h3>
-        <p className="text-center md:text-start">{description}</p>
-      </motion.div>
-    </>
+      <h3 className="mt-6 text-itemtitle font-bold text-black dark:text-white">
+        {feature.title}
+      </h3>
+      <p className="mt-3 text-regular text-waterloo dark:text-manatee">
+        {feature.description}
+      </p>
+    </GlassCard>
   );
 };
 

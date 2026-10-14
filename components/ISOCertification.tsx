@@ -1,6 +1,7 @@
 'use client'
 
 import Image from "next/image";
+import Button from "./Common/Button";
 
 export default function ISOCertification() {
   const handleClick = () => {
@@ -19,9 +20,14 @@ export default function ISOCertification() {
         <p className="text-center md:text-start">
           We are <strong>ISO 9001:2015</strong> certified for Quality
           Management, certified by KSR Certification.{" "}
-          <span onClick={handleClick} className="text-blue-600 underline cursor-pointer">
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={handleClick}
+            className="underline"
+          >
             View Certificate
-          </span>
+          </Button>
         </p>
       </div>
     </div>

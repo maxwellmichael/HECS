@@ -1,15 +1,11 @@
 "use client";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
+import Button from "../Common/Button";
 
 const Hero = () => {
-  const [email, setEmail] = useState("");
-
   const handleSubmit = (e) => {
     e.preventDefault();
   };
-  const router = useRouter()
 
   return (
     <>
@@ -21,7 +17,7 @@ const Hero = () => {
                 🔥 Solid - A Complete SaaS Web Template
               </h4> */}
               <h1 className="mb-5 pr-16 text-3xl font-bold text-black dark:text-white xl:text-hero ">
-                Powering the Future of Electric Innovation
+                Powering the Future of Industrial Innovation
               </h1>
               <p>
                 At HECS, we excel in acquiring essential, hard-to-find
@@ -40,13 +36,13 @@ const Hero = () => {
                       placeholder="Enter your email address"
                       className="rounded-full border border-stroke px-6 py-2.5 shadow-solid-2 focus:border-primary focus:outline-none dark:border-strokedark dark:bg-black dark:shadow-none dark:focus:border-primary"
                     /> */}
-                    <button
-                    onClick={()=>{router.push('/contact')}}
-                      aria-label="get started button"
-                      className="flex rounded-full border-2 bg-primary px-7.5 py-2.5 text-white duration-300 ease-in-out hover:border-primary hover:bg-white hover:text-primary"
+                    <Button
+                      href="/contact"
+                      variant="outline"
+                      size="lg"
                     >
                       Get Started
-                    </button>
+                    </Button>
                   </div>
                 </form>
 

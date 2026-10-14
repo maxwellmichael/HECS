@@ -10,6 +10,7 @@ import "../globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 import ToasterContext from "../context/ToastContext";
+import CookieConsent from "@/components/Common/CookieConsent";
 
 export default function RootLayout({
   children,
@@ -30,6 +31,7 @@ export default function RootLayout({
           {children}
           <Footer />
           <ScrollToTop />
+          <CookieConsent />
         </ThemeProvider>
       </body>
     </html>

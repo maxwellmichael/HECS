@@ -29,7 +29,7 @@ const NewProductsSection = () => {
                 {productsData.map((feature, key) => (
                   <li className="w-64 flex-col text-center lg:w-auto">
                     <div className="group relative">
-                      <SingleProduct feature={feature} key={key} />
+                      <SingleProduct index={key} feature={feature} key={key} />
                     </div>
                   </li>
                 ))}
@@ -69,7 +69,7 @@ const NewProductsSection = () => {
 
           {/* <div className="mt-6.5 flex w-full flex-nowrap lg:mt-8 xl:mt-10">
             {productsData.map((feature, key) => (
-              <SingleProduct feature={feature} key={key} />
+              <SingleProduct index={key} feature={feature} key={key} />
             ))}
           </div> */}
         </div>

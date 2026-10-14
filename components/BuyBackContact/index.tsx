@@ -9,8 +9,8 @@ import "react-phone-number-input/style.css";
 import toast from "react-hot-toast";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Button } from "flowbite-react";
-import { FaFileDownload } from "react-icons/fa";
+import Button from "../Common/Button";
+import ArrowIcon from "../Common/ArrowIcon";
 
 const BuyBackContact = () => {
   /**
@@ -25,22 +25,6 @@ const BuyBackContact = () => {
   //   return null;
   // }
 
-  const handleDownload = () => {
-    // Path to the file in the public folder
-    const fileUrl = "/downloads/sample.xlsx";
-
-    // Create a temporary <a> element and trigger the download
-    const link = document.createElement("a");
-    link.href = fileUrl;
-    link.download = "sample.xlsx"; // Suggested file name
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    toast.success(`File Downloaded Successfully.`);
-  };
-
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
-
   const {
     register,
     handleSubmit,
@@ -54,9 +38,7 @@ const BuyBackContact = () => {
 
   const handleFormSubmit = (formData: any, event: any) => {
     setLoading(true);
-    const newData = { ...formData, current_year: new Date().getFullYear() };
-    console.log(newData);
-
+    // const newData = { ...formData, current_year: new Date().getFullYear() };
     emailjs
       .sendForm(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID as string,
@@ -89,8 +71,8 @@ const BuyBackContact = () => {
   return (
     <>
       {/* <!-- ===== BuyBackContact Start ===== --> */}
-      <section id="support" className="px-4 md:px-8 2xl:px-0 w-full">
-        <div className="relative mx-auto max-w-c-1390 px-1.5 md:px-7.5 pt-10 lg:px-15 lg:pt-15 xl:px-20 xl:pt-20">
+      <section id="support" className="w-full px-4 md:px-8 2xl:px-0">
+        <div className="relative mx-auto max-w-c-1390 px-1.5 pt-10 md:px-7.5 lg:px-15 lg:pt-15 xl:px-20 xl:pt-20">
           <div className="absolute left-0 top-0 -z-1 h-2/3 w-full rounded-lg bg-gradient-to-t from-transparent to-[#dee7ff47] dark:bg-gradient-to-t dark:to-[#252A42]"></div>
           <div className="absolute bottom-[-255px] left-0 -z-1 h-full w-full">
             <Image
@@ -134,7 +116,11 @@ const BuyBackContact = () => {
                 streamlined buyback solutions.
               </p>
 
-              <form onSubmit={handleSubmit(handleFormSubmit)}>
+              <form
+                onSubmit={handleSubmit(handleFormSubmit, () =>
+                  toast.error("Please fill in all required fields."),
+                )}
+              >
                 <div className="mb-7.5 flex flex-col gap-7.5 lg:flex-row lg:justify-between lg:gap-14">
                   <div className="w-full lg:w-1/2">
                     <input
@@ -359,33 +345,6 @@ const BuyBackContact = () => {
                       </p>
                     )}
                   </div>
-                </div>
-
-                <div className="mb-7.5 flex h-auto w-full flex-col md:flex-row items-center justify-between rounded bg-zumthor p-5">
-                  <div className="flex w-[70%] flex-col items-start justify-start">
-                    <div className="flex w-full items-center justify-start">
-                      <Image
-                        src="/images/logo/excel.png"
-                        width={34}
-                        height={34}
-                        alt="Picture of the Excel"
-                      />
-                      <h5 className="text-md pl-5 font-bold text-black">
-                        Example File
-                      </h5>
-                    </div>
-                    <p className="py-1.5 text-center md:text-start">
-                      You can download the attached example and use that as a
-                      starting point for your own file.
-                    </p>
-                  </div>
-
-                  <div className="w-auto">
-                    <Button color="light" onClick={handleDownload}>
-                      <FaFileDownload className="mr-2 h-5 w-5" />
-                      Download
-                    </Button>
-                  </div>
                 </div> */}
 
                 <div className="flex flex-wrap xl:justify-between ">
@@ -416,30 +375,16 @@ const BuyBackContact = () => {
                     )}
                   </div>
 
-                  <button
-                    aria-label="send message"
-                    className="inline-flex items-center gap-2.5 rounded-full bg-primary px-6 py-3 font-medium text-white duration-300 ease-in-out hover:bg-primaryho dark:bg-btndark"
+                  <Button
+                    type="submit"
+                    variant="primary"
+                    size="md"
+                    disabled={isLoading}
+                    icon={<ArrowIcon className="fill-white" />}
+                    iconPosition="right"
                   >
-                    {!isLoading ? "Send Message" : "Please wait..."}
-
-                    {!isLoading ? (
-                      <svg
-                        className="fill-white"
-                        width="14"
-                        height="14"
-                        viewBox="0 0 14 14"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M10.4767 6.16664L6.00668 1.69664L7.18501 0.518311L13.6667 6.99998L7.18501 13.4816L6.00668 12.3033L10.4767 7.83331H0.333344V6.16664H10.4767Z"
-                          fill=""
-                        />
-                      </svg>
-                    ) : (
-                      <span className="loader"></span>
-                    )}
-                  </button>
+                    {isLoading ? "Please wait..." : "Send Message"}
+                  </Button>
                 </div>
               </form>
             </motion.div>

@@ -24,7 +24,7 @@ const Feature = () => {
             {/* <!-- Features item Start --> */}
 
             {featuresData.map((feature, key) => (
-              <SingleFeature feature={feature} key={key} />
+              <SingleFeature index={key} product={feature} key={key} />
             ))}
             {/* <!-- Features item End --> */}
           </div>
