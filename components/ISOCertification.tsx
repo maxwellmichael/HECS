@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import Image from "next/image";
 import Button from "./Common/Button";
@@ -9,7 +9,7 @@ export default function ISOCertification() {
   };
 
   return (
-    <div className="flex flex-col md:flex-row items-center gap-4 rounded p-4 mx-auto">
+    <div className="mx-auto flex flex-col items-center gap-4 rounded p-4 md:flex-row">
       <Image
         src="/iso/badge.jpg"
         alt="ISO 9001 Certified"

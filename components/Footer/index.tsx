@@ -22,10 +22,30 @@ const EASE: [number, number, number, number] = [0.23, 1, 0.32, 1];
 
 /* Social/contact tiles — top row */
 const tiles = [
-  { label: "LinkedIn", href: "#", aria: "Heliac Energii on LinkedIn", icon: <FaLinkedinIn aria-hidden /> },
-  { label: "Facebook", href: "#", aria: "Heliac Energii on Facebook", icon: <FaFacebookF aria-hidden /> },
-  { label: "Twitter", href: "#", aria: "Heliac Energii on Twitter", icon: <FaTwitter aria-hidden /> },
-  { label: "Email Us", href: "mailto:inquiry@heliacenergii.com", aria: "Email Heliac Energii", icon: <FaEnvelope aria-hidden /> },
+  {
+    label: "LinkedIn",
+    href: "#",
+    aria: "Heliac Energii on LinkedIn",
+    icon: <FaLinkedinIn aria-hidden />,
+  },
+  {
+    label: "Facebook",
+    href: "#",
+    aria: "Heliac Energii on Facebook",
+    icon: <FaFacebookF aria-hidden />,
+  },
+  {
+    label: "Twitter",
+    href: "#",
+    aria: "Heliac Energii on Twitter",
+    icon: <FaTwitter aria-hidden />,
+  },
+  {
+    label: "Email Us",
+    href: "mailto:inquiry@heliacenergii.com",
+    aria: "Email Heliac Energii",
+    icon: <FaEnvelope aria-hidden />,
+  },
 ];
 
 const exploreLinks = [
@@ -43,7 +63,10 @@ const supportLinks = [
 ];
 
 const contactLinks = [
-  { label: "inquiry@heliacenergii.com", href: "mailto:inquiry@heliacenergii.com" },
+  {
+    label: "inquiry@heliacenergii.com",
+    href: "mailto:inquiry@heliacenergii.com",
+  },
   { label: "0091 - 8411981840", href: "tel://+00918411981840" },
   { label: "0091 - 8793823181", href: "tel://+00918793823181" },
 ];
@@ -87,19 +110,29 @@ const Footer = () => {
       <motion.div
         aria-hidden
         className="pointer-events-none absolute -left-24 top-10 h-72 w-72 rounded-full bg-primaryho/20 blur-3xl dark:bg-primaryho/25"
-        animate={reduce ? undefined : { x: [0, 80, 0], y: [0, 50, 0], scale: [1, 1.15, 1] }}
+        animate={
+          reduce
+            ? undefined
+            : { x: [0, 80, 0], y: [0, 50, 0], scale: [1, 1.15, 1] }
+        }
         transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
         aria-hidden
-        className="pointer-events-none absolute -right-28 bottom-0 h-80 w-80 rounded-full bg-primary/15 blur-3xl dark:bg-primaryho/20"
-        animate={reduce ? undefined : { x: [0, -90, 0], y: [0, -40, 0], scale: [1.1, 1, 1.1] }}
+        className="bg-primary/15 pointer-events-none absolute -right-28 bottom-0 h-80 w-80 rounded-full blur-3xl dark:bg-primaryho/20"
+        animate={
+          reduce
+            ? undefined
+            : { x: [0, -90, 0], y: [0, -40, 0], scale: [1.1, 1, 1.1] }
+        }
         transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
         aria-hidden
         className="pointer-events-none absolute left-1/2 top-1/3 h-56 w-56 rounded-full bg-meta/10 blur-3xl"
-        animate={reduce ? undefined : { x: [0, 60, -40, 0], y: [0, -30, 40, 0] }}
+        animate={
+          reduce ? undefined : { x: [0, 60, -40, 0], y: [0, -30, 40, 0] }
+        }
         transition={{ duration: 26, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
@@ -107,7 +140,12 @@ const Footer = () => {
         className="pointer-events-none absolute inset-y-0 left-0 w-1/3 -skew-x-12 bg-gradient-to-r from-transparent via-white/10 to-transparent dark:via-white/5"
         initial={{ x: "-60%" }}
         animate={reduce ? { x: "-60%" } : { x: ["-60%", "360%"] }}
-        transition={{ duration: 6, repeat: Infinity, repeatDelay: 5, ease: "easeInOut" }}
+        transition={{
+          duration: 6,
+          repeat: Infinity,
+          repeatDelay: 5,
+          ease: "easeInOut",
+        }}
       />
       <motion.div
         aria-hidden
@@ -207,7 +245,7 @@ const Footer = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.15 }}
               transition={{ duration: 0.3, delay: 0.05 + i * 0.05, ease: EASE }}
-              className="group flex items-center justify-between gap-2.5 border-t border-stroke px-3 py-4 transition-colors duration-300 hover:bg-white/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primaryho odd:border-r odd:border-stroke dark:border-white/10 dark:hover:bg-white/5 dark:odd:border-white/10 sm:gap-3 sm:px-4 sm:py-5 lg:odd:border-r-0 lg:px-8"
+              className="group flex items-center justify-between gap-2.5 border-t border-stroke px-3 py-4 transition-colors duration-300 odd:border-r odd:border-stroke hover:bg-white/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primaryho dark:border-white/10 dark:odd:border-white/10 dark:hover:bg-white/5 sm:gap-3 sm:px-4 sm:py-5 lg:px-8 lg:odd:border-r-0"
             >
               <span className="flex min-w-0 items-center gap-2.5 sm:gap-3">
                 <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-stroke bg-white/60 text-sectiontitle text-blackho transition-colors duration-300 group-hover:border-primary group-hover:bg-primary group-hover:text-white dark:border-white/10 dark:bg-white/5 dark:text-white dark:group-hover:border-primaryho dark:group-hover:bg-primaryho sm:h-10 sm:w-10 sm:text-regular">

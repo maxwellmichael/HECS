@@ -770,8 +770,8 @@ const TermsAndConditions = () => {
             Website Use Restrictions
           </h3>
           <p className="mb-4 text-black last:mb-0 dark:text-manatee">
-            You may not reproduce, distribute, or modify the website's content
-            without permission. You are also prohibited from attempting
+            You may not reproduce, distribute, or modify the website&apos;s
+            content without permission. You are also prohibited from attempting
             unauthorized access to the website or using automated systems to
             copy content, monitor activity, or interfere with the website’s
             functionality.
@@ -790,11 +790,11 @@ const TermsAndConditions = () => {
           <p className="mb-4 text-black last:mb-0 dark:text-manatee">
             While Heliac Energii Controls Solutions strives to provide accurate
             content, there may be changes, errors, or omissions. The website
-            content is provided "as is," and Heliac Energii Controls Solutions
-            makes no representations or warranties regarding its accuracy,
-            completeness, or timeliness. Heliac Energii Controls Solutions and
-            its representatives disclaim all implied warranties, including
-            fitness for a particular purpose or non-infringement.
+            content is provided &quot;as is,&quot; and Heliac Energii Controls
+            Solutions makes no representations or warranties regarding its
+            accuracy, completeness, or timeliness. Heliac Energii Controls
+            Solutions and its representatives disclaim all implied warranties,
+            including fitness for a particular purpose or non-infringement.
           </p>
           <h3 className="mb-1 text-lg font-semibold">
             Limitation of Liability
@@ -902,7 +902,7 @@ const TermsAndConditions = () => {
             the jurisdiction of the District Court of Goa , India
           </p>
         </section>
-        <div className="mt-4 w-full flex items-center justify-center">
+        <div className="mt-4 flex w-full items-center justify-center">
           <small className="text-center font-bold">
             Terms & Conditions are subject to change.
           </small>

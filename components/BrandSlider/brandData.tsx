@@ -779,7 +779,6 @@
 
 import { Brand } from "@/types/brand";
 
-
 const brandData: Brand[] = [
   {
     id: 1,

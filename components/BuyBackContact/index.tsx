@@ -185,10 +185,10 @@ const BuyBackContact = () => {
     setLoading(true);
     emailjs
       .sendForm(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
-        process.env.NEXT_PUBLIC_EMAILJS_BUYBACK_TEMPLATE_ID,
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID as string,
+        process.env.NEXT_PUBLIC_EMAILJS_BUYBACK_TEMPLATE_ID as string,
         event?.currentTarget as HTMLFormElement,
-        { publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY },
+        { publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY as string },
       )
       .then(
         () => {
@@ -611,7 +611,7 @@ const BuyBackContact = () => {
 
                           <div>
                             <label htmlFor="message" className={labelClasses}>
-                              Message 
+                              Message
                             </label>
                             <div className="relative">
                               <FaComment

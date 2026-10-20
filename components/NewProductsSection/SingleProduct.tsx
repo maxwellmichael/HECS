@@ -3,7 +3,13 @@ import { Product, Service } from "@/types/feature";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-const SingleProduct = ({ feature, index = 0 }: { feature: Product; index?: number }) => {
+const SingleProduct = ({
+  feature,
+  index = 0,
+}: {
+  feature: Product;
+  index?: number;
+}) => {
   const { image, title, description, category, price } = feature;
 
   return (
@@ -24,7 +30,7 @@ const SingleProduct = ({ feature, index = 0 }: { feature: Product; index?: numbe
         whileInView="visible"
         transition={{ duration: 0.5, delay: index * 0.1 }}
         viewport={{ once: true }}
-        className="animate_top relative z-40 cursor-pointer rounded-2xl sm:overflow-hidden md:overflow-visible h-auto w-full"
+        className="animate_top relative z-40 h-auto w-full cursor-pointer rounded-2xl sm:overflow-hidden md:overflow-visible"
       >
         <article className="relative m-5 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
           <a
@@ -38,9 +44,7 @@ const SingleProduct = ({ feature, index = 0 }: { feature: Product; index?: numbe
           </a>
           <div className="mt-4 px-5 pb-5">
             <a href="#">
-              <h5 className="sectiontitle4 text-black truncate">
-               {title}
-              </h5>
+              <h5 className="sectiontitle4 truncate text-black">{title}</h5>
             </a>
             <div className="mb-5 mt-2 flex items-center justify-between">
               <p>
@@ -98,7 +102,6 @@ const SingleProduct = ({ feature, index = 0 }: { feature: Product; index?: numbe
                 </span> */}
               </div>
             </div>
-
           </div>
         </article>
       </motion.div>

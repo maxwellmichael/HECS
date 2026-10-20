@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function PrivacyPolicy() {
   return (
-    <section className="flex mx-auto max-w-c-1390 flex-col items-center justify-start pb-16 pt-24 md:pb-20 md:pt-28 lg:pb-24 lg:pt-32">
+    <section className="mx-auto flex max-w-c-1390 flex-col items-center justify-start pb-16 pt-24 md:pb-20 md:pt-28 lg:pb-24 lg:pt-32">
       <div className="w-full px-4 text-black lg:w-3/4">
         <h1 className="mb-4 text-3xl font-bold">Privacy Policy</h1>
         <p className="mb-2">Last updated: December 22, 2024</p>
@@ -106,7 +106,8 @@ export default function PrivacyPolicy() {
           <li className="mb-2">Using a secure server.</li>
           <li className="mb-2">
             Encrypting all sensitive information through Secure Sockets Layer
-            (SSL) technology to protect the transmission of personal data and other confidential content.
+            (SSL) technology to protect the transmission of personal data and
+            other confidential content.
           </li>
           <li className="mb-2">
             Ensuring that only authorized personnel can access your personal

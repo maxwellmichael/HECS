@@ -8,7 +8,6 @@ import Button from "@/components/Common/Button";
 import ArrowIcon from "@/components/Common/ArrowIcon";
 
 const ErrorSection = () => {
-  
   return (
     <section className="relative overflow-hidden pb-25 pt-45 lg:pb-32.5 lg:pt-50 xl:pb-37.5 xl:pt-55">
       <div className="absolute left-0 top-0 -z-1 h-64 w-64 opacity-60 dark:opacity-20">

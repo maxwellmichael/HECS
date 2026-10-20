@@ -18,9 +18,9 @@ export default function Home() {
     <main>
       <Caurosel1 />
       <Hero />
-      <CertificationsSection/>
+      <CertificationsSection />
       {/* <Brands /> */}
-      <BrandsSection/>
+      <BrandsSection />
       {/* <NewProductsSection /> */}
       <Feature />
       <ServicesSection />

@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 interface SingleBrandProps {
   name: string;
-  logoImagepath: string;
+  logoImagepath?: string;
   selected: boolean;
   index: number;
   onClick: () => void;
@@ -48,18 +48,24 @@ const SingleBrand = ({
       />
 
       {/* Fixed-height logo zone — keeps every name on the same baseline */}
-      <span className="relative h-10 w-full">
-        <Image
-          src={logoImagepath}
-          alt={`${name} logo`}
-          fill
-          sizes="144px"
-          className={`object-contain transition-all duration-300 ${
-            selected
-              ? ""
-              : "opacity-80 grayscale group-hover:opacity-100 group-hover:grayscale-0"
-          }`}
-        />
+      <span className="relative flex h-10 w-full items-center justify-center">
+        {logoImagepath ? (
+          <Image
+            src={logoImagepath}
+            alt={`${name} logo`}
+            fill
+            sizes="144px"
+            className={`object-contain transition-all duration-300 ${
+              selected
+                ? ""
+                : "opacity-80 grayscale group-hover:opacity-100 group-hover:grayscale-0"
+            }`}
+          />
+        ) : (
+          <span className="text-metatitle2 font-bold text-waterloo dark:text-manatee">
+            {name.charAt(0)}
+          </span>
+        )}
       </span>
 
       {/* Brand name */}

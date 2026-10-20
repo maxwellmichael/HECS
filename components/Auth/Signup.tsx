@@ -62,7 +62,7 @@ const Signup = () => {
               <Button
                 variant="social"
                 size="md"
-                className="w-full rounded-sm mb-6"
+                className="mb-6 w-full rounded-sm"
                 icon={<FaGoogle className="h-5 w-5" />}
               >
                 Signup with Google
@@ -71,7 +71,7 @@ const Signup = () => {
               <Button
                 variant="social"
                 size="md"
-                className="w-full rounded-sm mb-6"
+                className="mb-6 w-full rounded-sm"
                 icon={<FaGithub className="h-5 w-5" />}
               >
                 Signup with Github
@@ -142,7 +142,7 @@ const Signup = () => {
                     type="checkbox"
                     className="peer sr-only"
                   />
-                  <span className="border-gray-300 bg-gray-100 text-blue-600 dark:border-gray-600 dark:bg-gray-700 group mt-1 flex h-5 min-w-[20px] items-center justify-center rounded peer-checked:bg-primary">
+                  <span className="group mt-1 flex h-5 min-w-[20px] items-center justify-center rounded border-gray-300 bg-gray-100 text-blue-600 peer-checked:bg-primary dark:border-gray-600 dark:bg-gray-700">
                     <svg
                       className="opacity-0 peer-checked:group-[]:opacity-100"
                       width="10"

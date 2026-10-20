@@ -74,7 +74,7 @@ const ContactHero = () => {
                     {...itemAnim(0.25)}
                     className="mt-4 text-itemtitle2 font-bold leading-tight text-white drop-shadow-md md:text-hero"
                   >
-                    Let's Source Your{" "}
+                    Let&apos;s Source Your{" "}
                     <span className="bg-gradient-to-r from-white via-white to-primaryLight bg-clip-text text-transparent">
                       Next Component
                     </span>

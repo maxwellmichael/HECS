@@ -240,8 +240,8 @@ const ProductDetail = ({ product }: { product: CatalogProduct }) => {
               No components found
             </h4>
             <p className="mb-6 max-w-md text-regular text-waterloo dark:text-manatee">
-              No components match "{query}". Try a different search term or
-              group.
+              No components match &quot;{query}&quot;. Try a different search
+              term or group.
             </p>
             <Button variant="primary" size="md" onClick={() => setQuery("")}>
               Clear Search
@@ -259,12 +259,12 @@ const ProductDetail = ({ product }: { product: CatalogProduct }) => {
         <div className="flex flex-col items-start gap-6 p-7.5 md:p-10 lg:flex-row lg:items-center lg:justify-between">
           <div>
             <h2 className="text-itemtitle font-bold text-black dark:text-white">
-              Need a component that isn't listed?
+              Need a component that isn&apos;t listed?
             </h2>
             <p className="mt-2 max-w-xl text-regular text-waterloo dark:text-manatee">
               Our sourcing team tracks down hard-to-find mechanical, electrical,
               instrumentation and automation spares. Send us your requirement
-              and we'll quote it.
+              and we&apos;ll quote it.
             </p>
           </div>
           <Button href="/contact" variant="primary" size="lg">

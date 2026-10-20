@@ -36,11 +36,7 @@ const Hero = () => {
                       placeholder="Enter your email address"
                       className="rounded-full border border-stroke px-6 py-2.5 shadow-solid-2 focus:border-primary focus:outline-none dark:border-strokedark dark:bg-black dark:shadow-none dark:focus:border-primary"
                     /> */}
-                    <Button
-                      href="/contact"
-                      variant="outline"
-                      size="lg"
-                    >
+                    <Button href="/contact" variant="outline" size="lg">
                       Get Started
                     </Button>
                   </div>

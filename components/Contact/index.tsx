@@ -112,10 +112,10 @@ const Contact = () => {
     const newData = { ...formData, current_year: new Date().getFullYear() };
     emailjs
       .send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
-        process.env.NEXT_PUBLIC_EMAILJS_CONTACT_TEMPLATE_ID,
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID as string,
+        process.env.NEXT_PUBLIC_EMAILJS_CONTACT_TEMPLATE_ID as string,
         newData,
-        { publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY },
+        { publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY as string },
       )
       .then(
         () => {
@@ -160,7 +160,7 @@ const Contact = () => {
               transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
             />
             <motion.div
-              className="absolute -bottom-24 -right-20 h-80 w-80 rounded-full bg-primary/15 blur-3xl dark:bg-primaryho/20"
+              className="bg-primary/15 absolute -bottom-24 -right-20 h-80 w-80 rounded-full blur-3xl dark:bg-primaryho/20"
               animate={
                 reduce
                   ? undefined
@@ -217,7 +217,7 @@ const Contact = () => {
               {/* Desktop: subtle vertical gradient hairline at the 3/5 seam */}
               <div
                 aria-hidden
-                className="pointer-events-none absolute inset-y-10 left-[60%] hidden w-px bg-gradient-to-b from-transparent via-waterloo/30 to-transparent dark:via-white/15 lg:block"
+                className="dark:via-white/15 pointer-events-none absolute inset-y-10 left-[60%] hidden w-px bg-gradient-to-b from-transparent via-waterloo/30 to-transparent lg:block"
               />
 
               {/* ---- Form zone ---- */}
@@ -280,7 +280,8 @@ const Contact = () => {
                                 required: "Email is required.",
                                 pattern: {
                                   value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                                  message: "Please enter a valid email address.",
+                                  message:
+                                    "Please enter a valid email address.",
                                 },
                               })}
                               className={`${inputClasses} ${
@@ -471,7 +472,7 @@ const Contact = () => {
               >
                 {/* Zone header */}
                 <div className="flex items-start gap-3.5">
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primaryho/10 text-regular text-primaryho dark:bg-primaryho/15 dark:text-primaryLight">
+                  <span className="dark:bg-primaryho/15 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primaryho/10 text-regular text-primaryho dark:text-primaryLight">
                     <FaAddressBook aria-hidden />
                   </span>
                   <div className="min-w-0">
@@ -479,8 +480,8 @@ const Contact = () => {
                       Contact Information
                     </h3>
                     <p className="mt-1.5 text-sectiontitle text-waterloo dark:text-manatee">
-                      Reach us through any of the channels below — we're happy
-                      to help.
+                      Reach us through any of the channels below — we&apos;re
+                      happy to help.
                     </p>
                   </div>
                 </div>
@@ -502,7 +503,7 @@ const Contact = () => {
                         }}
                         className="group/loc flex items-start gap-3 py-4 first:pt-0 last:pb-0"
                       >
-                        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primaryho/10 text-sectiontitle text-primaryho dark:bg-primaryho/15 dark:text-primaryLight">
+                        <span className="dark:bg-primaryho/15 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primaryho/10 text-sectiontitle text-primaryho dark:text-primaryLight">
                           <FaMapMarkerAlt aria-hidden />
                         </span>
                         <div className="min-w-0 flex-1">
@@ -548,7 +549,7 @@ const Contact = () => {
                         }}
                         className="group/ch flex items-center gap-3 rounded-xl px-3 py-3 transition-colors duration-300 hover:bg-white/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primaryho dark:hover:bg-white/5"
                       >
-                        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primaryho/10 text-sectiontitle text-primaryho dark:bg-primaryho/15 dark:text-primaryLight">
+                        <span className="dark:bg-primaryho/15 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primaryho/10 text-sectiontitle text-primaryho dark:text-primaryLight">
                           {channel.icon}
                         </span>
                         <span className="min-w-0 flex-1">

@@ -53,7 +53,8 @@ const showCustomToast = (
 export const useToast = (): ToastHelpers =>
   useMemo(
     () => ({
-      success: (message, options) => showCustomToast("success", message, options),
+      success: (message, options) =>
+        showCustomToast("success", message, options),
       error: (message, options) => showCustomToast("error", message, options),
       info: (message, options) => showCustomToast("info", message, options),
       loading: (message, options) =>
