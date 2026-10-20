@@ -21,7 +21,7 @@ const ITEMS_PER_PAGE = 12;
 type Filter = SubcategoryKey | "all";
 
 const navButtonClasses =
-  "flex h-10 w-10 items-center justify-center rounded-full border border-white/60 bg-white/60 text-black shadow-solid-12 backdrop-blur-xl transition-all duration-300 hover:border-primary hover:bg-primary hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primaryho disabled:pointer-events-none disabled:opacity-40 dark:border-white/10 dark:bg-white/10 dark:text-white dark:hover:border-primaryho dark:hover:bg-primaryho";
+  "flex h-10 w-10 items-center justify-center rounded-full border border-stroke bg-white/60 text-black shadow-solid-12 backdrop-blur-xl transition-all duration-300 hover:border-primary hover:bg-primary hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primaryho disabled:pointer-events-none disabled:opacity-40 dark:border-white/10 dark:bg-white/10 dark:text-white dark:hover:border-primaryho dark:hover:bg-primaryho";
 
 const ProductDetail = ({ product }: { product: CatalogProduct }) => {
   const [filter, setFilter] = useState<Filter>("all");
@@ -52,16 +52,11 @@ const ProductDetail = ({ product }: { product: CatalogProduct }) => {
 
   useEffect(() => setCurrentPage(1), [filter, query]);
 
-  const rangeStart =
-    filteredItems.length === 0 ? 0 : (safePage - 1) * ITEMS_PER_PAGE + 1;
-  const rangeEnd = Math.min(safePage * ITEMS_PER_PAGE, filteredItems.length);
-
-  const tabs: { key: Filter; label: string; count: number }[] = [
-    { key: "all", label: "All Components", count: product.item_count },
+  const tabs: { key: Filter; label: string }[] = [
+    { key: "all", label: "All Components" },
     ...SUBCATEGORY_ORDER.map((sub) => ({
       key: sub.key as Filter,
       label: sub.label,
-      count: (product.subcategories[sub.key] ?? []).length,
     })),
   ];
 
@@ -101,38 +96,17 @@ const ProductDetail = ({ product }: { product: CatalogProduct }) => {
             </span>
           </nav>
 
-          <div className="mt-6 flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
-            <div className="flex items-start gap-4">
-              <span className="bg-primaryho/15 flex h-14 w-14 shrink-0 items-center justify-center rounded-xl text-metatitle2 text-primaryho dark:bg-primaryho/20 dark:text-primaryLight">
-                {CATEGORY_ICONS[product.id]}
-              </span>
-              <div>
-                <h1 className="text-sectiontitle4 font-bold text-black dark:text-white md:text-sectiontitle3">
-                  {product.name}
-                </h1>
-                <p className="mt-3 max-w-2xl text-regular text-waterloo dark:text-manatee">
-                  {product.summary}
-                </p>
-              </div>
-            </div>
-
-            <div className="flex shrink-0 gap-3">
-              <div className="rounded-xl border border-white/60 bg-white/50 px-4 py-3 text-center dark:border-white/10 dark:bg-white/5">
-                <p className="text-metatitle2 font-bold text-primary dark:text-primaryLight">
-                  {product.item_count}
-                </p>
-                <p className="text-metatitle text-waterloo dark:text-manatee">
-                  Components
-                </p>
-              </div>
-              <div className="rounded-xl border border-white/60 bg-white/50 px-4 py-3 text-center dark:border-white/10 dark:bg-white/5">
-                <p className="text-metatitle2 font-bold text-primary dark:text-primaryLight">
-                  {product.subcategory_count}
-                </p>
-                <p className="text-metatitle text-waterloo dark:text-manatee">
-                  Groups
-                </p>
-              </div>
+          <div className="mt-6 flex items-start gap-4">
+            <span className="bg-primaryho/15 flex h-14 w-14 shrink-0 items-center justify-center rounded-xl text-metatitle2 text-primaryho dark:bg-primaryho/20 dark:text-primaryLight">
+              {CATEGORY_ICONS[product.id]}
+            </span>
+            <div>
+              <h1 className="text-sectiontitle4 font-bold text-black dark:text-white md:text-sectiontitle3">
+                {product.name}
+              </h1>
+              <p className="mt-3 max-w-2xl text-regular text-waterloo dark:text-manatee">
+                {product.summary}
+              </p>
             </div>
           </div>
         </div>
@@ -150,38 +124,32 @@ const ProductDetail = ({ product }: { product: CatalogProduct }) => {
               className={`shrink-0 rounded-full px-4.5 py-2 text-sectiontitle font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primaryho ${
                 filter === tab.key
                   ? "bg-primary text-white shadow-solid-5 dark:bg-primaryho"
-                  : "border border-white/60 bg-white/50 text-blackho hover:border-primary/40 hover:text-primary dark:border-white/10 dark:bg-white/5 dark:text-manatee dark:hover:border-primaryho/40 dark:hover:text-primaryLight"
+                  : "border border-stroke bg-white/50 text-blackho hover:border-primary/40 hover:text-primary dark:border-white/10 dark:bg-white/5 dark:text-manatee dark:hover:border-primaryho/40 dark:hover:text-primaryLight"
               }`}
             >
               {tab.label}
-              <span
-                className={`ml-1.5 text-metatitle font-medium ${
-                  filter === tab.key
-                    ? "text-white/80"
-                    : "text-waterloo dark:text-manatee"
-                }`}
-              >
-                {tab.count}
-              </span>
             </button>
           ))}
         </div>
 
         <div className="relative w-full lg:w-72">
-          <FaSearch className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-waterloo dark:text-manatee" />
+          <FaSearch
+            aria-hidden
+            className="absolute left-4 top-1/2 z-10 h-4 w-4 -translate-y-1/2 text-waterloo dark:text-manatee"
+          />
           <input
             type="text"
             placeholder="Search components..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            className="w-full rounded-xl border border-white/60 bg-white/70 py-3 pl-11 pr-10 text-regular text-black backdrop-blur-sm transition-all duration-300 placeholder:text-waterloo focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 dark:border-white/10 dark:bg-blacksection/70 dark:text-white dark:placeholder:text-manatee dark:focus:border-primaryho dark:focus:ring-primaryho/20"
+            className="w-full rounded-xl border border-stroke bg-white/70 py-3 pl-11 pr-10 text-regular text-black backdrop-blur-sm transition-all duration-300 placeholder:text-waterloo focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 dark:border-white/10 dark:bg-blacksection/70 dark:text-white dark:placeholder:text-manatee dark:focus:border-primaryho dark:focus:ring-primaryho/20"
           />
           {query && (
             <button
               type="button"
               onClick={() => setQuery("")}
               aria-label="Clear search"
-              className="absolute right-4 top-1/2 -translate-y-1/2 text-waterloo transition-colors duration-300 hover:text-black dark:text-manatee dark:hover:text-white"
+              className="absolute right-4 top-1/2 z-10 -translate-y-1/2 text-waterloo transition-colors duration-300 hover:text-black dark:text-manatee dark:hover:text-white"
             >
               <FaTimes className="h-4 w-4" />
             </button>
@@ -209,13 +177,9 @@ const ProductDetail = ({ product }: { product: CatalogProduct }) => {
               ))}
             </div>
 
-            {/* Pagination */}
+            {/* Pagination — controls only, no counts */}
             {totalPages > 1 && (
-              <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-between">
-                <p className="text-sectiontitle text-waterloo dark:text-manatee">
-                  Showing {rangeStart}–{rangeEnd} of {filteredItems.length}{" "}
-                  components
-                </p>
+              <div className="mt-8 flex justify-center">
                 <nav
                   aria-label="Component pages"
                   className="flex items-center gap-2"
@@ -240,7 +204,7 @@ const ProductDetail = ({ product }: { product: CatalogProduct }) => {
                         className={`h-10 w-10 rounded-full text-sectiontitle font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primaryho ${
                           page === safePage
                             ? "bg-primary text-white shadow-solid-5 dark:bg-primaryho dark:text-white"
-                            : "border border-white/60 bg-white/60 text-black hover:border-primary hover:text-primary dark:border-white/10 dark:bg-white/10 dark:text-white dark:hover:border-primaryho dark:hover:text-primaryLight"
+                            : "border border-stroke bg-white/60 text-black hover:border-primary hover:text-primary dark:border-white/10 dark:bg-white/10 dark:text-white dark:hover:border-primaryho dark:hover:text-primaryLight"
                         }`}
                       >
                         {page}
@@ -267,7 +231,7 @@ const ProductDetail = ({ product }: { product: CatalogProduct }) => {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.3 }}
-            className="flex flex-col items-center justify-center rounded-2xl border border-white/60 bg-white/50 py-16 text-center backdrop-blur-xl dark:border-white/10 dark:bg-white/5"
+            className="flex flex-col items-center justify-center rounded-2xl border border-stroke bg-white/50 py-16 text-center backdrop-blur-xl dark:border-white/10 dark:bg-white/5"
           >
             <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-stroke dark:bg-hoverdark">
               <FaSearch className="h-6 w-6 text-waterloo dark:text-manatee" />

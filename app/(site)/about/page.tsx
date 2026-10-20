@@ -13,6 +13,7 @@ const AboutPage = () => {
     <>
       <AboutHero />
       <About />
+      {/* <Feature /> */}
     </>
   );
 };

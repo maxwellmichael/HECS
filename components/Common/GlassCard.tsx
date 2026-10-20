@@ -3,38 +3,22 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-export type GlassDensity = "float" | "read";
-
 interface GlassCardProps {
-  /** float = image-led cards · read = text/form-led cards */
-  density?: GlassDensity;
-  /** Left-edge tint stop, e.g. "from-primaryho/25" */
-  tint?: string;
-  /** Brand glow orb revealed on hover (feature/service cards only) */
-  glow?: boolean;
-  /** Grid position → stagger delay (index * 0.05) */
-  index?: number;
-  /** Hover lift + shadow/border shift (default true) */
-  hover?: boolean;
-  /** xl for card grids (mobile GPU budget) · 2xl for hero surfaces */
-  blur?: "xl" | "2xl";
+  density?: "float" | "read"; // float = image-led · read = text/form-led
+  tint?: string; // e.g. "from-primaryho/15"
+  glow?: boolean; // brand glow orb on hover
+  index?: number; // grid position → stagger delay
+  hover?: boolean; // hover lift (default true)
+  blur?: "xl" | "2xl"; // xl for grids · 2xl for hero surfaces
   className?: string;
   children: React.ReactNode;
 }
 
-const densityClasses: Record<GlassDensity, string> = {
-  float: "bg-white/40 dark:bg-blacksection/50",
-  read: "bg-white/70 dark:bg-blacksection/80",
-};
-
-const blurClasses: Record<"xl" | "2xl", string> = {
-  xl: "backdrop-blur-xl",
-  "2xl": "backdrop-blur-2xl",
-};
+const EASE: [number, number, number, number] = [0.23, 1, 0.32, 1];
 
 const GlassCard = ({
-  density = "read",
-  tint = "",
+  density = "float",
+  tint,
   glow = false,
   index = 0,
   hover = true,
@@ -47,45 +31,49 @@ const GlassCard = ({
       initial={{ opacity: 0, y: 12 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.15 }}
-      transition={{
-        duration: 0.3,
-        delay: index * 0.05,
-        ease: [0.23, 1, 0.32, 1],
-      }}
-      // Lift via framer (CSS translate would fight the inline transform)
+      transition={{ duration: 0.3, delay: index * 0.05, ease: EASE }}
       whileHover={hover ? { y: -4 } : undefined}
-      className={`group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/60 shadow-solid-3 backdrop-saturate-150 transition-[border-color,box-shadow] duration-300 dark:border-white/10 dark:shadow-solid-6 ${
-        blurClasses[blur]
-      } ${densityClasses[density]} ${
+      className={`group relative overflow-hidden rounded-2xl border border-stroke shadow-solid-2 transition-[border-color,box-shadow,background-color] duration-300 dark:border-white/10 ${
         hover
-          ? "hover:border-primary/30 hover:shadow-solid-5 dark:hover:border-primaryho/30"
+          ? "hover:border-primary/30 hover:shadow-solid-5 dark:hover:border-primaryho/40 dark:hover:shadow-solid-5"
           : ""
-      } ${className}`}
+      } ${
+        density === "read"
+          ? "bg-white/85 dark:bg-blacksection/90"
+          : "bg-white/55 dark:bg-white/5"
+      } ${
+        blur === "2xl" ? "backdrop-blur-2xl" : "backdrop-blur-xl"
+      } backdrop-saturate-150 ${className}`}
     >
+      {/* Colour tint */}
+      {tint && (
+        <div
+          aria-hidden
+          className={`pointer-events-none absolute inset-0 bg-gradient-to-br ${tint} to-transparent`}
+        />
+      )}
+
       {/* Top gloss */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/40 via-transparent to-transparent dark:from-white/5"
       />
+
       {/* Specular rim light */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/80 to-transparent dark:via-white/25"
       />
-      {/* Type tint */}
-      {tint && (
-        <div
-          aria-hidden
-          className={`pointer-events-none absolute inset-0 bg-gradient-to-r ${tint} via-transparent to-transparent`}
-        />
-      )}
-      {/* Hover glow */}
+
+      {/* Hover glow orb */}
       {glow && (
         <div
           aria-hidden
-          className="pointer-events-none absolute -top-8 right-6 h-16 w-32 rounded-full bg-primary/20 opacity-0 blur-2xl transition-opacity duration-300 group-hover:opacity-100 dark:bg-primaryho/25"
+          className="pointer-events-none absolute -top-10 right-0 h-24 w-24 rounded-full bg-primaryho/20 opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100 dark:bg-primaryho/25"
         />
       )}
+
+      {/* Content */}
       <div className="relative flex h-full flex-col">{children}</div>
     </motion.div>
   );

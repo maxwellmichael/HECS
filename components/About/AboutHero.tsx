@@ -73,13 +73,13 @@ const AboutHero = () => {
               {/* Content */}
               <div className="absolute inset-0 flex items-center px-5 pb-16 md:px-12 md:pb-20 lg:px-16">
                 <div className="w-full max-w-2xl">
-                  <motion.span
+                  {/* <motion.span
                     {...itemAnim(0.15)}
                     className="bg-white/15 inline-flex items-center gap-2 rounded-full border border-white/40 px-3.5 py-1 text-metatitle font-semibold uppercase tracking-widest text-white backdrop-blur-xl dark:border-white/20 dark:bg-blacksection/40"
                   >
                     <span className="h-1.5 w-1.5 rounded-full bg-meta" />
                     About Us
-                  </motion.span>
+                  </motion.span> */}
 
                   <motion.h1
                     {...itemAnim(0.25)}
@@ -101,7 +101,7 @@ const AboutHero = () => {
                     quality, reliability and exceptional expertise.
                   </motion.p>
 
-                  <motion.div
+                  {/* <motion.div
                     {...itemAnim(0.45)}
                     className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4"
                   >
@@ -121,14 +121,14 @@ const AboutHero = () => {
                     >
                       View Products
                     </Button>
-                  </motion.div>
+                  </motion.div> */}
                 </div>
               </div>
             </div>
           </div>
 
           {/* ---- Overlapping frosted stat bar ---- */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5, ease: EASE }}
@@ -160,7 +160,7 @@ const AboutHero = () => {
                 ))}
               </div>
             </GlassPanel>
-          </motion.div>
+          </motion.div> */}
         </div>
       </div>
     </section>

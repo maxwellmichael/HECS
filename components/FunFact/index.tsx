@@ -356,7 +356,7 @@ const FunFact = () => {
                       delay: 0.2 + index * 0.12,
                       ease: [0.23, 1, 0.32, 1],
                     }}
-                    className="group/stat relative overflow-hidden rounded-2xl border border-white/50 bg-white/40 p-6 text-center backdrop-blur-xl transition-[border-color,box-shadow] duration-300 hover:shadow-solid-5 dark:border-white/10 dark:bg-white/5 dark:hover:border-primaryho/40 md:p-7"
+                    className="group/stat relative overflow-hidden rounded-2xl border border-stroke bg-white/40 p-6 text-center backdrop-blur-xl transition-[border-color,box-shadow] duration-300 hover:shadow-solid-5 dark:border-white/10 dark:bg-white/5 dark:hover:border-primaryho/40 md:p-7"
                   >
                     <div
                       aria-hidden

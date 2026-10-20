@@ -13,7 +13,6 @@ import GlassCard from "@/components/Common/GlassCard";
 import { CatalogItemWithGroup, SubcategoryKey } from "@/types/productCatalog";
 import { SUBCATEGORY_LABELS } from "./productsData";
 
-/* Per-group identity: icon + token accent (badge & chip share it) */
 const GROUP_META: Record<
   SubcategoryKey,
   { icon: React.ReactNode; accent: string }
@@ -52,42 +51,42 @@ const SingleCatalogItem = ({ item, index = 0 }: SingleCatalogItemProps) => {
       density="float"
       className="p-5 md:p-6"
     >
-      {/* Header row — icon badge + compact group chip */}
-      <div className="flex items-start justify-between gap-3">
+      {/* Header row — badge and chip share one optical centre line */}
+      <div className="flex items-center justify-between gap-3">
         <span
           className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-regular transition-transform duration-300 group-hover:scale-110 ${meta.accent}`}
         >
           {meta.icon}
         </span>
         <span
-          className={`self-start whitespace-nowrap rounded-full px-2.5 py-1 text-metatitle font-semibold uppercase tracking-widest ${meta.accent}`}
+          className={`whitespace-nowrap rounded-full px-2.5 py-1.5 text-metatitle font-semibold uppercase leading-none tracking-widest ${meta.accent}`}
         >
           {SUBCATEGORY_LABELS[item.group]}
         </span>
       </div>
 
-      {/* Title */}
+      {/* Title + summary — same left edge as the icon badge */}
       <h4 className="mt-4 text-regular font-semibold leading-snug text-black dark:text-white">
         {item.name}
       </h4>
-
-      {/* Summary — flex-1 equalises card heights across each row */}
-      <p className="mt-2 flex-1 text-sectiontitle text-waterloo dark:text-manatee">
+      <p className="mt-2 text-sectiontitle leading-relaxed text-waterloo dark:text-manatee">
         {item.summary}
       </p>
 
-      {/* Footer — conversion path */}
-      <div className="mt-4 border-t border-white/50 pt-3.5 dark:border-white/10">
-        <Link
-          href="/contact"
-          className="inline-flex items-center gap-1.5 rounded-full text-metatitle font-semibold uppercase tracking-widest text-primaryho underline-offset-4 transition-colors duration-300 hover:text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primaryho dark:text-primaryLight dark:hover:text-primaryho"
-        >
-          Request a quote
-          <FaChevronRight
-            aria-hidden
-            className="h-2.5 w-2.5 transition-transform duration-300 group-hover:translate-x-0.5"
-          />
-        </Link>
+      {/* Footer — pinned to a shared baseline across every card in the row */}
+      <div className="mt-auto pt-4">
+        <div className="border-t border-stroke pt-3.5 dark:border-white/10">
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-1.5 rounded-full text-metatitle font-semibold uppercase tracking-widest text-primaryho underline-offset-4 transition-colors duration-300 hover:text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primaryho dark:text-primaryLight dark:hover:text-primaryho"
+          >
+            Request a quote
+            <FaChevronRight
+              aria-hidden
+              className="h-2.5 w-2.5 transition-transform duration-300 group-hover:translate-x-0.5"
+            />
+          </Link>
+        </div>
       </div>
     </GlassCard>
   );

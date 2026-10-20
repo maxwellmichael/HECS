@@ -235,3 +235,13 @@ pre {
 .PhoneInputInput::placeholder {
   @apply text-waterloo dark:text-manatee;
 }
+
+/* ===== Infinite brand marquee (Buy Back brands strip) ===== */
+@keyframes brand-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}

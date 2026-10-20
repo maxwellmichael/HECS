@@ -20,7 +20,7 @@ const SingleProduct = ({ name, index }: SingleProductProps) => {
         ease: [0.23, 1, 0.32, 1],
       }}
       whileHover={{ y: -4 }}
-      className="group relative overflow-hidden rounded-xl border border-white/60 bg-white/70 p-5 shadow-solid-3 backdrop-blur-xl backdrop-saturate-150 transition-all duration-300 hover:border-primary/30 hover:shadow-solid-5 dark:border-white/10 dark:bg-blacksection/70"
+      className="group relative overflow-hidden rounded-xl border border-stroke bg-white/70 p-5 shadow-solid-3 backdrop-blur-xl backdrop-saturate-150 transition-all duration-300 hover:border-primary/30 hover:shadow-solid-5 dark:border-white/10 dark:bg-blacksection/70"
     >
       {/* Glass optics */}
       <div

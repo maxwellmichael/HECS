@@ -6,7 +6,6 @@ import { motion } from "framer-motion";
 interface SingleBrandProps {
   name: string;
   logoImagepath: string;
-  productCount: number;
   selected: boolean;
   index: number;
   onClick: () => void;
@@ -15,7 +14,6 @@ interface SingleBrandProps {
 const SingleBrand = ({
   name,
   logoImagepath,
-  productCount,
   selected,
   index,
   onClick,
@@ -33,10 +31,10 @@ const SingleBrand = ({
       onClick={onClick}
       aria-pressed={selected}
       title={name}
-      className={`group relative flex w-40 shrink-0 snap-start flex-col items-center gap-3 overflow-hidden rounded-2xl border px-4 pb-4 pt-5 transition-[border-color,background-color,box-shadow] duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primaryho sm:w-44 ${
+      className={`group relative flex w-40 shrink-0 snap-start flex-col items-center justify-center gap-3 overflow-hidden rounded-2xl border px-4 py-5 transition-[border-color,background-color,box-shadow] duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primaryho sm:w-44 ${
         selected
-          ? "border-primary bg-primary/10 shadow-solid-5 dark:border-primaryho dark:bg-primaryho/15"
-          : "border-white/60 bg-white/50 hover:border-primary/30 hover:bg-white/70 hover:shadow-solid-4 dark:border-white/10 dark:bg-white/5 dark:hover:border-primaryho/30 dark:hover:bg-white/10"
+          ? "dark:bg-primaryho/15 border-primary bg-primary/10 shadow-solid-5 dark:border-primaryho"
+          : "border-stroke bg-white/50 hover:border-primary/30 hover:bg-white/70 hover:shadow-solid-4 dark:border-white/10 dark:bg-white/5 dark:hover:border-primaryho/30 dark:hover:bg-white/10"
       }`}
     >
       {/* Glass optics */}
@@ -49,7 +47,7 @@ const SingleBrand = ({
         className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/80 to-transparent dark:via-white/25"
       />
 
-      {/* Fixed-height logo zone — every name starts on the same baseline */}
+      {/* Fixed-height logo zone — keeps every name on the same baseline */}
       <span className="relative h-10 w-full">
         <Image
           src={logoImagepath}
@@ -64,7 +62,7 @@ const SingleBrand = ({
         />
       </span>
 
-      {/* Brand name — single line, truncated, centred */}
+      {/* Brand name */}
       <span
         className={`w-full truncate text-center text-metatitle font-semibold transition-colors duration-300 ${
           selected
@@ -73,17 +71,6 @@ const SingleBrand = ({
         }`}
       >
         {name}
-      </span>
-
-      {/* Product pill — mt-auto pins it to a shared bottom edge across the row */}
-      <span
-        className={`mt-auto whitespace-nowrap rounded-full px-2.5 py-1 text-metatitle font-medium transition-colors duration-300 ${
-          selected
-            ? "bg-primary/20 text-primary dark:bg-primaryho/20 dark:text-primaryLight"
-            : "bg-stroke text-waterloo dark:bg-hoverdark dark:text-manatee"
-        }`}
-      >
-        {productCount} products
       </span>
     </motion.button>
   );

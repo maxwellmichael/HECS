@@ -40,7 +40,6 @@ const BrandSlider = () => {
     );
   }, [currentBrand, searchQuery]);
 
-  /* ---- Pagination ---- */
   const totalPages = Math.max(
     1,
     Math.ceil(filteredProducts.length / PRODUCTS_PER_PAGE),
@@ -52,21 +51,12 @@ const BrandSlider = () => {
     return filteredProducts.slice(start, start + PRODUCTS_PER_PAGE);
   }, [filteredProducts, safePage]);
 
-  const rangeStart =
-    filteredProducts.length === 0 ? 0 : (safePage - 1) * PRODUCTS_PER_PAGE + 1;
-  const rangeEnd = Math.min(
-    safePage * PRODUCTS_PER_PAGE,
-    filteredProducts.length,
-  );
-
-  // Reset to page 1 whenever brand or search changes
   useEffect(() => {
     setCurrentPage(1);
   }, [selectedBrand, searchQuery]);
 
   const goToPage = (page: number) => {
     setCurrentPage(page);
-    // On small screens jump back to the top of the product panel
     if (typeof window !== "undefined" && window.innerWidth < 640) {
       productsRef.current?.scrollIntoView({
         behavior: "smooth",
@@ -110,12 +100,12 @@ const BrandSlider = () => {
   };
 
   const navButtonClasses =
-    "flex h-10 w-10 items-center justify-center rounded-full border border-white/60 bg-white/60 text-black shadow-solid-12 backdrop-blur-xl transition-all duration-300 hover:border-primary hover:bg-primary hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primaryho disabled:pointer-events-none disabled:opacity-40 dark:border-white/10 dark:bg-white/10 dark:text-white dark:hover:border-primaryho dark:hover:bg-primaryho";
+    "flex h-10 w-10 items-center justify-center rounded-full border border-stroke bg-white/60 text-black shadow-solid-12 backdrop-blur-xl transition-all duration-300 hover:border-primary hover:bg-primary hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primaryho disabled:pointer-events-none disabled:opacity-40 dark:border-white/10 dark:bg-white/10 dark:text-white dark:hover:border-primaryho dark:hover:bg-primaryho";
 
   return (
     <div className="relative space-y-8">
       {/* Brand selector */}
-      <div className="relative overflow-hidden rounded-2xl border border-white/60 bg-white/50 p-6 shadow-solid-3 backdrop-blur-xl backdrop-saturate-150 dark:border-white/10 dark:bg-blacksection/60">
+      <div className="relative overflow-hidden rounded-2xl border border-stroke bg-white/50 p-6 shadow-solid-3 backdrop-blur-xl backdrop-saturate-150 dark:border-white/10 dark:bg-blacksection/60">
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/40 via-transparent to-transparent dark:from-white/5"
@@ -165,7 +155,6 @@ const BrandSlider = () => {
                 key={brand.id}
                 name={brand.name}
                 logoImagepath={brand.logoImagepath}
-                productCount={brand.products.length}
                 selected={selectedBrand === index}
                 index={index}
                 onClick={() => handleBrandSelect(index)}
@@ -182,7 +171,7 @@ const BrandSlider = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
         ref={productsRef}
-        className="relative scroll-mt-28 overflow-hidden rounded-2xl border border-white/60 bg-white/40 p-6 shadow-solid-3 backdrop-blur-xl backdrop-saturate-150 dark:border-white/10 dark:bg-blacksection/50 md:p-8"
+        className="relative scroll-mt-28 overflow-hidden rounded-2xl border border-stroke bg-white/40 p-6 shadow-solid-3 backdrop-blur-xl backdrop-saturate-150 dark:border-white/10 dark:bg-blacksection/50 md:p-8"
       >
         <div
           aria-hidden
@@ -199,30 +188,28 @@ const BrandSlider = () => {
 
         <div className="relative">
           <div className="mb-6 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-            <div>
-              <h3 className="text-itemtitle font-bold text-black dark:text-white">
-                {currentBrand.name} Products
-              </h3>
-              <p className="mt-1 text-sectiontitle text-waterloo dark:text-manatee">
-                {filteredProducts.length} of {currentBrand.products.length}{" "}
-                products
-              </p>
-            </div>
+            <h3 className="text-itemtitle font-bold text-black dark:text-white">
+              {currentBrand.name} Products
+            </h3>
 
             <div className="relative w-full md:w-80">
-              <FaSearch className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-waterloo dark:text-manatee" />
+              <FaSearch
+                aria-hidden
+                className="absolute left-4 top-1/2 z-10 h-4 w-4 -translate-y-1/2 text-waterloo dark:text-manatee"
+              />
               <input
                 type="text"
                 placeholder="Search products..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full rounded-xl border border-white/60 bg-white/70 py-3 pl-11 pr-10 text-regular text-black backdrop-blur-sm transition-all duration-300 placeholder:text-waterloo focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 dark:border-white/10 dark:bg-blacksection/70 dark:text-white dark:placeholder:text-manatee dark:focus:border-primaryho dark:focus:ring-primaryho/20"
+                className="w-full rounded-xl border border-stroke bg-white/70 py-3 pl-11 pr-10 text-regular text-black backdrop-blur-sm transition-all duration-300 placeholder:text-waterloo focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 dark:border-white/10 dark:bg-blacksection/70 dark:text-white dark:placeholder:text-manatee dark:focus:border-primaryho dark:focus:ring-primaryho/20"
               />
               {searchQuery && (
                 <button
+                  type="button"
                   onClick={() => setSearchQuery("")}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 text-waterloo transition-colors duration-300 hover:text-black dark:text-manatee dark:hover:text-white"
                   aria-label="Clear search"
+                  className="absolute right-4 top-1/2 z-10 -translate-y-1/2 text-waterloo transition-colors duration-300 hover:text-black dark:text-manatee dark:hover:text-white"
                 >
                   <FaTimes className="h-4 w-4" />
                 </button>
@@ -249,14 +236,9 @@ const BrandSlider = () => {
                   ))}
                 </div>
 
-                {/* Pagination controls */}
+                {/* Pagination — controls only, no counts */}
                 {totalPages > 1 && (
-                  <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-between">
-                    <p className="text-sectiontitle text-waterloo dark:text-manatee">
-                      Showing {rangeStart}–{rangeEnd} of{" "}
-                      {filteredProducts.length} products
-                    </p>
-
+                  <div className="mt-8 flex justify-center">
                     <nav
                       aria-label="Product pages"
                       className="flex items-center gap-2"
@@ -270,7 +252,6 @@ const BrandSlider = () => {
                       >
                         <FaChevronLeft aria-hidden className="h-3.5 w-3.5" />
                       </button>
-
                       {Array.from({ length: totalPages }, (_, i) => i + 1).map(
                         (page) => (
                           <button
@@ -284,14 +265,13 @@ const BrandSlider = () => {
                             className={`h-10 w-10 rounded-full text-sectiontitle font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primaryho ${
                               page === safePage
                                 ? "bg-primary text-white shadow-solid-5 dark:bg-primaryho dark:text-white"
-                                : "border border-white/60 bg-white/60 text-black hover:border-primary hover:text-primary dark:border-white/10 dark:bg-white/10 dark:text-white dark:hover:border-primaryho dark:hover:text-primaryLight"
+                                : "border border-stroke bg-white/60 text-black hover:border-primary hover:text-primary dark:border-white/10 dark:bg-white/10 dark:text-white dark:hover:border-primaryho dark:hover:text-primaryLight"
                             }`}
                           >
                             {page}
                           </button>
                         ),
                       )}
-
                       <button
                         type="button"
                         onClick={() => goToPage(safePage + 1)}

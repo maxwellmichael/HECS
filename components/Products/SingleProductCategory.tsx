@@ -45,29 +45,24 @@ const SingleProductCategory = ({
           </div>
         )}
 
-        {/* Dark-mode-only veil — stops light-grey studio shots flaring on blacksection */}
+        {/* Dark-mode-only veil */}
         <div
           aria-hidden
           className="absolute inset-0 hidden bg-gradient-to-b from-black/10 via-black/5 to-black/25 dark:block"
         />
 
-        {/* Bottom scrim for overlay legibility */}
+        {/* Bottom scrim */}
         <div
           aria-hidden
           className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent"
         />
 
-        {/* Index numeral — frosted glass pill (readable on light photo areas) */}
+        {/* Editorial index numeral — frosted pill */}
         <span
           aria-hidden
           className="bg-black/15 absolute left-3 top-3 inline-flex h-8 min-w-[3rem] items-center justify-center rounded-full border border-white/10 px-2.5 text-metatitle font-bold tracking-widest text-white/90 backdrop-blur"
         >
           {String(index + 1).padStart(2, "0")}
-        </span>
-
-        {/* Frosted count chip */}
-        <span className="absolute right-3 top-3 rounded-full border border-white/40 bg-white/20 px-2.5 py-1 text-metatitle font-semibold text-white backdrop-blur-xl dark:border-white/20 dark:bg-blacksection/40">
-          {product.item_count} items
         </span>
       </div>
 

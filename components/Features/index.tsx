@@ -17,15 +17,18 @@ const Feature = () => {
             }}
           />
 
-          <div className="mt-12.5 lg:mt-15 xl:mt-20 grid grid-cols-1 gap-7.5 md:grid-cols-2 lg:grid-cols-3 xl:gap-12.5">
-
+          <div className="mt-12.5 flex flex-wrap justify-center gap-7.5 lg:mt-15 xl:mt-20 xl:gap-12.5">
             {featuresData.map((feature, key) => (
-              <SingleFeature index={key} feature={feature} key={key} />
+              <div
+                key={key}
+                className="w-full md:w-[calc(50%-15px)] lg:w-[calc(33.333%-20px)] xl:w-[calc(33.333%-33.333px)]"
+              >
+                <SingleFeature index={key} feature={feature} />
+              </div>
             ))}
           </div>
         </div>
       </section>
-
     </>
   );
 };

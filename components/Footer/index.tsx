@@ -136,7 +136,7 @@ const Footer = () => {
       {/* ==== Glass surface ==== */}
       <div
         aria-hidden
-        className="absolute inset-0 border-t border-white/60 bg-white/40 backdrop-blur-2xl backdrop-saturate-150 dark:border-white/10 dark:bg-blacksection/50"
+        className="absolute inset-0 border-t border-stroke bg-white/40 backdrop-blur-2xl backdrop-saturate-150 dark:border-white/10 dark:bg-blacksection/50"
       >
         <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-transparent to-transparent dark:from-white/5" />
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/80 to-transparent dark:via-white/25" />

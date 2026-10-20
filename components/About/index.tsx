@@ -13,6 +13,7 @@ import {
 import Button from "@/components/Common/Button";
 import GlassCard from "@/components/Common/GlassCard";
 import SectionHeader from "@/components/Common/SectionHeader";
+import Feature from "../Features";
 
 const EASE: [number, number, number, number] = [0.23, 1, 0.32, 1];
 
@@ -123,7 +124,7 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 0.4, ease: EASE }}
-              className="relative overflow-hidden rounded-2xl border border-white/60 bg-white/40 shadow-solid-l backdrop-blur-2xl backdrop-saturate-150 dark:border-white/10 dark:bg-blacksection/50"
+              className="relative overflow-hidden rounded-2xl border border-stroke bg-white/40 shadow-solid-l backdrop-blur-2xl backdrop-saturate-150 dark:border-white/10 dark:bg-blacksection/50"
             >
               {/* Glass optics */}
               <div
@@ -154,10 +155,10 @@ const About = () => {
                   transition={{ duration: 0.45, delay: 0.1, ease: EASE }}
                   className="p-6 md:p-10 lg:p-12"
                 >
-                  <span className="inline-flex items-center gap-2 rounded-full border border-white/60 bg-white/50 px-4 py-1.5 text-metatitle font-semibold uppercase tracking-widest text-primaryho backdrop-blur-xl dark:border-white/10 dark:bg-white/5 dark:text-primaryLight">
+                  {/* <span className="inline-flex items-center gap-2 rounded-full border border-stroke bg-white/50 px-4 py-1.5 text-metatitle font-semibold uppercase tracking-widest text-primaryho backdrop-blur-xl dark:border-white/10 dark:bg-white/5 dark:text-primaryLight">
                     <span className="h-1.5 w-1.5 rounded-full bg-meta" />
                     About Heliac Energii
-                  </span>
+                  </span> */}
 
                   <h2 className="mt-5 text-sectiontitle4 font-bold leading-tight text-black dark:text-white md:text-sectiontitle3">
                     Powering the Future of{" "}
@@ -169,9 +170,7 @@ const About = () => {
                   <p className="mt-5 text-regular text-waterloo dark:text-manatee">
                     Heliac Energii Controls Solutions specializes in procuring
                     premium hydraulics, instrumentation, automation, electrical
-                    and mechanical spares from industry-leading brands such as
-                    Allen Bradley, Siemens, Mitsubishi, ABB, Schneider, Eaton,
-                    Parker, Weidmüller and Beckhoff.
+                    and mechanical spares from industry-leading brands.
                   </p>
                   <p className="mt-4 text-regular text-waterloo dark:text-manatee">
                     From troubleshooting and servicing hydraulic & pneumatic
@@ -195,7 +194,7 @@ const About = () => {
                         }}
                         className="flex items-start gap-4"
                       >
-                        <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-white/60 bg-white/50 text-metatitle2 font-bold text-primaryho backdrop-blur-xl dark:border-white/10 dark:bg-white/5 dark:text-primaryLight">
+                        <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-stroke bg-white/50 text-metatitle2 font-bold text-primaryho backdrop-blur-xl dark:border-white/10 dark:bg-white/5 dark:text-primaryLight">
                           {cap.number}
                         </span>
                         <div className="min-w-0">
@@ -235,7 +234,7 @@ const About = () => {
                       <Image
                         fill
                         sizes="(max-width: 1023px) 100vw, 50vw"
-                        src="/images/caurousel/slide_2.jpg"
+                        src="/images/about/routemap.jpg"
                         alt="Industrial automation components supplied by Heliac Energii Controls Solutions"
                         className="object-cover"
                       />
@@ -273,6 +272,7 @@ const About = () => {
         </div>
       </section>
       {/* <!-- ===== Story widget End ===== */}
+      <Feature />
 
       {/* <!-- ===== Process Start ===== */}
       <section className="pb-12 lg:pb-16 xl:pb-20">

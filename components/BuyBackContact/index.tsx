@@ -1,59 +1,200 @@
 "use client";
-import { motion } from "framer-motion";
-import Image from "next/image";
+
 import React, { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import emailjs from "@emailjs/browser";
-import { useForm, Controller } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 import toast from "react-hot-toast";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
-import Button from "../Common/Button";
-import ArrowIcon from "../Common/ArrowIcon";
+import { motion, useReducedMotion } from "framer-motion";
+import {
+  FaBalanceScale,
+  FaBolt,
+  FaBoxes,
+  FaBuilding,
+  FaCheck,
+  FaClipboardList,
+  FaClock,
+  FaComment,
+  FaEnvelope,
+  FaGem,
+  FaHandshake,
+  FaMicrochip,
+  FaMobileAlt,
+  FaOilCan,
+  FaTag,
+  FaTachometerAlt,
+  FaTruck,
+  FaUser,
+  FaWind,
+} from "react-icons/fa";
+import ArrowIcon from "@/components/Common/ArrowIcon";
+import Button from "@/components/Common/Button";
+import GlassCard from "@/components/Common/GlassCard";
+import GlassPanel from "@/components/Common/GlassPanel";
+import SectionHeader from "@/components/Common/SectionHeader";
+
+const EASE: [number, number, number, number] = [0.23, 1, 0.32, 1];
+
+const inputClasses =
+  "w-full rounded-xl border border-stroke bg-white/60 py-3.5 pl-11 pr-4 text-regular text-black placeholder:text-waterloo transition-all duration-300 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 dark:border-strokedark dark:bg-white/5 dark:text-white dark:placeholder:text-manatee dark:focus:border-primaryho dark:focus:ring-primaryho/20";
+
+const fieldIconClasses =
+  "pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-waterloo dark:text-manatee";
+
+const labelClasses =
+  "mb-2 block text-metatitle font-semibold uppercase tracking-widest text-waterloo dark:text-manatee";
+
+const errorClasses = "mt-1.5 text-metatitle text-red-600 dark:text-red-500";
+
+const steps = [
+  {
+    step: "Step 01",
+    icon: <FaClipboardList aria-hidden />,
+    title: "Submit Your List",
+    description:
+      "Send brands, part numbers, quantities and condition through the form — stock sheets welcome.",
+  },
+  {
+    step: "Step 02",
+    icon: <FaBalanceScale aria-hidden />,
+    title: "Get a Valuation",
+    description:
+      "We benchmark each line against live market demand and grade condition.",
+  },
+  {
+    step: "Step 03",
+    icon: <FaHandshake aria-hidden />,
+    title: "Agree a Price",
+    description:
+      "You receive a transparent offer — accept, negotiate or decline, no obligation.",
+  },
+  {
+    step: "Step 04",
+    icon: <FaTruck aria-hidden />,
+    title: "Ship & Get Paid",
+    description:
+      "We collect or receive your shipment and release payment on check-in.",
+  },
+];
+
+const categories = [
+  {
+    icon: <FaOilCan aria-hidden />,
+    title: "Hydraulics",
+    description: "Pumps, valves, cylinders and power units.",
+  },
+  {
+    icon: <FaWind aria-hidden />,
+    title: "Pneumatics",
+    description: "Actuators, FRL units, valves and fittings.",
+  },
+  {
+    icon: <FaBolt aria-hidden />,
+    title: "Electrical",
+    description: "Motors, drives, switchgear and cabling.",
+  },
+  {
+    icon: <FaTachometerAlt aria-hidden />,
+    title: "Instrumentation",
+    description: "Transmitters, sensors and analyzers.",
+  },
+  {
+    icon: <FaMicrochip aria-hidden />,
+    title: "Automation",
+    description: "PLCs, HMIs, I/O and control cards.",
+  },
+  {
+    icon: <FaBoxes aria-hidden />,
+    title: "Industrial Spares",
+    description: "Rotating equipment and mechanical spares.",
+  },
+];
+
+const brandLogos = [
+  { name: "Allen Bradley", path: "/images/brand/brand-01.svg" },
+  { name: "Parker", path: "/images/brand/brand-02.svg" },
+  { name: "Siemens", path: "/images/brand/brand-03.svg" },
+  { name: "ABB", path: "/images/brand/brand-04.svg" },
+  { name: "Omron", path: "/images/brand/brand-05.svg" },
+  { name: "Schneider", path: "/images/brand/brand-06.svg" },
+  { name: "Mitsubishi", path: "/images/brand/brand-07.svg" },
+  { name: "Weidmuller", path: "/images/brand/brand-08.svg" },
+  { name: "Beckhoff", path: "/images/brand/brand-09.svg" },
+  { name: "Emerson", path: "/images/brand/brand-10.svg" },
+  { name: "Woodward", path: "/images/brand/brand-11.svg" },
+  { name: "Yokogawa", path: "/images/brand/brand-12.svg" },
+];
+
+const whyUs = [
+  {
+    icon: <FaBalanceScale aria-hidden />,
+    title: "Fair Market Valuation",
+    description:
+      "Offers benchmarked against live market demand — not book value.",
+  },
+  {
+    icon: <FaClock aria-hidden />,
+    title: "Response Within 24 Hours",
+    description:
+      "A first valuation or clarifying question within one business day.",
+  },
+  {
+    icon: <FaTruck aria-hidden />,
+    title: "Flexible Logistics",
+    description:
+      "We arrange collection or accept your shipment — whichever suits your site.",
+  },
+  {
+    icon: <FaHandshake aria-hidden />,
+    title: "No Obligation",
+    description: "Every quote is free to request and free to decline.",
+  },
+];
+
+const GroupLabel = ({ children }: { children: React.ReactNode }) => (
+  <div className="flex items-center gap-3">
+    <span className="h-1.5 w-1.5 rounded-full bg-primaryho dark:bg-primaryLight" />
+    <span className="text-metatitle font-semibold uppercase tracking-widest text-waterloo dark:text-manatee">
+      {children}
+    </span>
+    <span aria-hidden className="h-px flex-1 bg-stroke dark:bg-white/10" />
+  </div>
+);
 
 const BuyBackContact = () => {
-  /**
-   * Source: https://www.joshwcomeau.com/react/the-perils-of-rehydration/
-   * Reason: To fix rehydration error
-   */
-  // const [hasMounted, setHasMounted] = React.useState(false);
-  // React.useEffect(() => {
-  //   setHasMounted(true);
-  // }, []);
-  // if (!hasMounted) {
-  //   return null;
-  // }
-
+  const router = useRouter();
   const {
     register,
     handleSubmit,
-    watch,
     control,
     reset,
-    formState: { errors, isDirty, isValid },
+    formState: { errors },
   } = useForm();
-
   const [isLoading, setLoading] = useState(false);
+  const reduce = useReducedMotion() === true;
 
-  const handleFormSubmit = (formData: any, event: any) => {
+  /* ---- FORM LOGIC — UNCHANGED (sendForm coupling preserved) ---- */
+  const handleFormSubmit = (
+    formData: any,
+    event?: React.BaseSyntheticEvent,
+  ) => {
     setLoading(true);
-    // const newData = { ...formData, current_year: new Date().getFullYear() };
     emailjs
       .sendForm(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID as string,
-        process.env.NEXT_PUBLIC_EMAILJS_BUYBACK_TEMPLATE_ID as string,
-        event.target,
-        {
-          publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY as string,
-        },
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+        process.env.NEXT_PUBLIC_EMAILJS_BUYBACK_TEMPLATE_ID,
+        event?.currentTarget as HTMLFormElement,
+        { publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY },
       )
       .then(
         () => {
           router.push("/");
-          // reset();
           toast.success(
-            `Thank you! Your message has been sent successfully. We'll get back to you shortly.`,
+            "Thank you! Your message has been sent successfully. We'll get back to you shortly.",
           );
         },
         (error) => {
@@ -61,337 +202,571 @@ const BuyBackContact = () => {
           toast.error("Oops! Something went wrong. Please try again later.");
         },
       )
-      .finally(() => {
-        setLoading(false);
-      });
+      .finally(() => setLoading(false));
   };
-
-  const router = useRouter();
 
   return (
     <>
-      {/* <!-- ===== BuyBackContact Start ===== --> */}
-      <section id="support" className="w-full px-4 md:px-8 2xl:px-0">
-        <div className="relative mx-auto max-w-c-1390 px-1.5 pt-10 md:px-7.5 lg:px-15 lg:pt-15 xl:px-20 xl:pt-20">
-          <div className="absolute left-0 top-0 -z-1 h-2/3 w-full rounded-lg bg-gradient-to-t from-transparent to-[#dee7ff47] dark:bg-gradient-to-t dark:to-[#252A42]"></div>
-          <div className="absolute bottom-[-255px] left-0 -z-1 h-full w-full">
-            <Image
-              src="./images/shape/shape-dotted-light.svg"
-              alt="Dotted"
-              className="dark:hidden"
-              fill
-            />
-            <Image
-              src="./images/shape/shape-dotted-dark.svg"
-              alt="Dotted"
-              className="hidden dark:block"
-              fill
-            />
-          </div>
+      {/* <!-- ===== How it works Start ===== */}
+      {/* <section className="py-12 lg:py-16 xl:py-20">
+        <div className="mx-auto max-w-c-1315 px-4 md:px-8 xl:px-0">
+          <SectionHeader
+            headerInfo={{
+              title: "How It Works",
+              subtitle: "From Surplus to Settlement",
+              description:
+                "A simple four-step process that turns idle inventory into recovered value — with no obligation at any stage.",
+            }}
+          />
 
-          <div className="flex flex-col-reverse flex-wrap gap-8 md:flex-row md:flex-nowrap md:justify-between xl:gap-20">
-            <motion.div
-              variants={{
-                hidden: {
-                  opacity: 0,
-                  y: -20,
-                },
-
-                visible: {
-                  opacity: 1,
-                  y: 0,
-                },
-              }}
-              initial="hidden"
-              whileInView="visible"
-              transition={{ duration: 1, delay: 0.1 }}
-              viewport={{ once: true }}
-              className="animate_top mx-auto w-full rounded-lg bg-white p-7.5 shadow-solid-8 dark:border dark:border-strokedark dark:bg-black md:w-3/5 lg:w-3/4 xl:p-15"
-            >
-              <h2 className="mb-2 text-3xl font-semibold text-black dark:text-white xl:text-sectiontitle2">
-                Buy Back
-              </h2>
-              <p className="mb-15">
-                Transform your industrial surplus into value with our
-                streamlined buyback solutions.
-              </p>
-
-              <form
-                onSubmit={handleSubmit(handleFormSubmit, () =>
-                  toast.error("Please fill in all required fields."),
-                )}
+          <div className="mt-12.5 grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 lg:grid-cols-4">
+            {steps.map((step, index) => (
+              <GlassCard
+                key={step.title}
+                index={index}
+                density="read"
+                className="p-6 md:p-7.5"
               >
-                <div className="mb-7.5 flex flex-col gap-7.5 lg:flex-row lg:justify-between lg:gap-14">
-                  <div className="w-full lg:w-1/2">
-                    <input
-                      type="text"
-                      disabled={isLoading}
-                      placeholder="Full name"
-                      className={`w-full border bg-transparent pb-3.5  ${
-                        errors.fullName
-                          ? "focus:placeholder:text-red border-red-500 text-red-900 placeholder-red-700 focus:border-red-500 focus:ring-red-500"
-                          : "border-stroke focus:placeholder:text-black"
-                      }`}
-                      {...register("fullName", { required: true })}
-                    />
-                    {errors.fullName && (
-                      <p className="mt-1 text-sm text-red-600 dark:text-red-500">
-                        Full name is required.
-                      </p>
-                    )}
-                  </div>
-
-                  <div className="w-full lg:w-1/2">
-                    <input
-                      type="email"
-                      disabled={isLoading}
-                      placeholder="Email"
-                      className={`w-full border-b bg-transparent pb-3.5 ${
-                        errors.email
-                          ? "focus:placeholder:text-red border-red-500 text-red-900 placeholder-red-700 focus:border-red-500 focus:ring-red-500"
-                          : "border-stroke focus:placeholder:text-black"
-                      }`}
-                      {...register("email", { required: true })}
-                    />
-                    {errors.email && (
-                      <p className="mt-1 text-sm text-red-600 dark:text-red-500">
-                        Email is required.
-                      </p>
-                    )}
-                  </div>
+                <div className="flex items-center justify-between gap-4">
+                  <span className="bg-primaryho/15 flex h-12 w-12 items-center justify-center rounded-xl text-regular text-primaryho dark:bg-primaryho/20 dark:text-primaryLight">
+                    {step.icon}
+                  </span>
+                  <span className="text-metatitle font-semibold uppercase tracking-widest text-waterloo dark:text-manatee">
+                    {step.step}
+                  </span>
                 </div>
+                <h3 className="mt-5 text-itemtitle2 font-bold text-black dark:text-white">
+                  {step.title}
+                </h3>
+                <p className="mt-2.5 text-sectiontitle text-waterloo dark:text-manatee">
+                  {step.description}
+                </p>
+              </GlassCard>
+            ))}
+          </div>
+        </div>
+      </section> */}
+      {/* <!-- ===== How it works End ===== */}
 
-                <div className="mb-7.5 flex flex-col gap-7.5 lg:flex-row lg:justify-between lg:gap-14">
-                  <div className="w-full lg:w-1/2">
-                    <input
-                      type="text"
-                      disabled={isLoading}
-                      placeholder="Company name"
-                      className={`w-full border-b bg-transparent pb-3.5 ${
-                        errors.companyName
-                          ? "focus:placeholder:text-red border-red-500 text-red-900 placeholder-red-700 focus:border-red-500 focus:ring-red-500"
-                          : "border-stroke focus:placeholder:text-black"
-                      }`}
-                      {...register("companyName", { required: true })}
-                    />
-                    {errors.companyName && (
-                      <p className="mt-1 text-sm text-red-600 dark:text-red-500">
-                        Company name is required.
-                      </p>
-                    )}
-                  </div>
+      {/* <!-- ===== What we buy Start ===== */}
+      {/* <section className="pb-12 lg:pb-16 xl:pb-20">
+        <div className="mx-auto max-w-c-1315 px-4 md:px-8 xl:px-0">
+          <SectionHeader
+            headerInfo={{
+              title: "What We Buy",
+              subtitle: "Surplus Categories",
+              description:
+                "Unused, excess or obsolete stock across every major industrial system — original packaging preferred but not required.",
+            }}
+          />
 
-                  <div className="w-full lg:w-1/2">
-                    <Controller
-                      name="phoneNumber"
-                      control={control}
-                      rules={{
-                        validate: (value: any) => isValidPhoneNumber(value),
-                        required: true,
-                      }}
-                      render={({ field: { onChange, value } }) => (
-                        <PhoneInput
-                          disabled={isLoading}
-                          value={value}
-                          onChange={onChange}
-                          autoFormat
-                          defaultCountry="IN"
-                          id="phoneNumber"
-                          placeholder="Phone number"
-                          className={`w-full border border-stroke bg-transparent px-2 focus:placeholder:text-black ${
-                            errors["phoneNumber"]
-                              ? "focus:placeholder:text-red border-red-500 text-red-900 placeholder-red-700 focus:border-red-500 focus:ring-red-500"
-                              : "border-stroke focus:placeholder:text-black"
-                          }`}
-                          inputClassName="bg-transparent w-full focus:outline-none" // Additional styling for input
-                        />
-                      )}
-                    />
-                    {errors["phoneNumber"] && (
-                      <p className="mt-1 text-sm text-red-600 dark:text-red-500">
-                        Phone number is invalid.
-                      </p>
-                    )}
-
-                    {/* <input
-                      type="text"
-                      placeholder="Phone number"
-                      className={`w-full border bg-transparent pb-3.5  ${
-                        errors.mobile
-                          ? "focus:placeholder:text-red border-red-500 text-red-900 placeholder-red-700 focus:border-red-500 focus:ring-red-500"
-                          : "border-stroke focus:placeholder:text-black"
-                      }`}
-                      {...register("mobile", { required: true })}
-                    />
-                    {errors.mobile && (
-                      <p className="mt-1 text-sm text-red-600 dark:text-red-500">
-                        Mobile is required.
-                      </p>
-                    )} */}
-                  </div>
-                </div>
-
-                <div className="mb-7.5 w-full">
-                  <input
-                    type="text"
-                    disabled={isLoading}
-                    placeholder="Brand name"
-                    className={`w-full border-b bg-transparent pb-3.5 ${
-                      errors.brandName
-                        ? "focus:placeholder:text-red border-red-500 text-red-900 placeholder-red-700 focus:border-red-500 focus:ring-red-500"
-                        : "border-stroke focus:placeholder:text-black"
-                    }`}
-                    {...register("brandName", { required: true })}
-                  />
-                  {errors.brandName && (
-                    <p className="mt-1 text-sm text-red-600 dark:text-red-500">
-                      Company name is required.
+          <div className="mt-12.5 grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-3">
+            {categories.map((category, index) => (
+              <GlassCard
+                key={category.title}
+                index={index}
+                density="read"
+                hover={false}
+                className="p-5 md:p-6"
+              >
+                <div className="flex items-start gap-4">
+                  <span className="dark:bg-primaryho/15 flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primaryho/10 text-regular text-primaryho dark:text-primaryLight">
+                    {category.icon}
+                  </span>
+                  <div className="min-w-0">
+                    <h3 className="text-regular font-semibold text-black dark:text-white">
+                      {category.title}
+                    </h3>
+                    <p className="mt-1 text-sectiontitle text-waterloo dark:text-manatee">
+                      {category.description}
                     </p>
-                  )}
-                </div>
-
-                <div className="mb-7.5 flex">
-                  <textarea
-                    placeholder="Message"
-                    disabled={isLoading}
-                    rows={4}
-                    className="w-full border-b border-stroke bg-transparent focus:border-waterloo focus:placeholder:text-black focus-visible:outline-none dark:border-strokedark dark:focus:border-manatee dark:focus:placeholder:text-white"
-                    {...register("message")}
-                  ></textarea>
-                </div>
-
-                {/* <div className="mb-3.5 flex w-full flex-col items-start items-center justify-start justify-center">
-                  <div className="flex w-full justify-between">
-                    <label
-                      className="text-md mb-2 block text-start font-medium text-gray-900 dark:text-white"
-                      aria-label="fileUpload"
-                    >
-                      Upload Stock Details (Part No, Quantities...)
-                    </label>
-
-                    <div></div>
                   </div>
-                  <label
-                    aria-label="fileUpload"
-                    className={`flex h-44 w-full cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed bg-gray-100 hover:bg-zumthor ${
-                      errors["fileUpload"]
-                        ? "border-red-500"
-                        : "border-primaryho"
-                    }`}
-                  >
-                    <div className="flex flex-col items-center justify-center pb-6 pt-5">
-                      <svg
-                        className="mb-4 h-8 w-8 text-gray-500"
-                        aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 20 16"
-                      >
-                        <path
-                          stroke="currentColor"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"
-                        />
-                      </svg>
-                      {selectedFile && selectedFile != null ? (
-                        <p className="text-md text-black">
-                          <div className="me-2 flex items-center justify-center rounded-full bg-primaryho px-2.5 py-1 text-sm font-semibold text-white">
-                            <span className="mr-2.5 rounded-full bg-white p-1">
-                              <Image
-                                src="/images/logo/excel.png"
-                                width={15}
-                                height={15}
-                                alt="Picture of the Excel"
-                              />
-                            </span>
-                            {selectedFile.name}
+                </div>
+              </GlassCard>
+            ))}
+          </div>
+        </div>
+      </section> */}
+      {/* <!-- ===== What we buy End ===== */}
+
+      {/* <!-- ===== Brands strip Start ===== */}
+      <section className="py-12 lg:py-16 xl:py-20">
+        <div className="mx-auto max-w-c-1315 px-4 md:px-8 xl:px-0">
+          <GlassPanel
+            density="float"
+            tint="from-primaryho/10"
+            className="rounded-2xl"
+          >
+            <div className="p-6 md:p-8">
+              {/* ---- Infinite marquee ---- */}
+              <div className="relative overflow-hidden [-webkit-mask-image:linear-gradient(to_right,transparent,black_12%,black_88%,transparent)] [mask-image:linear-gradient(to_right,transparent,black_12%,black_88%,transparent)]">
+                <div
+                  className={`flex w-max ${
+                    reduce
+                      ? ""
+                      : "animate-[brand-marquee_45s_linear_infinite] hover:[animation-play-state:paused]"
+                  }`}
+                >
+                  {[0, 1].map((copy) => (
+                    <div key={copy} aria-hidden={copy === 1} className="flex">
+                      {brandLogos.map((brand) => (
+                        <div
+                          key={`${copy}-${brand.name}`}
+                          className="mr-4 md:mr-6"
+                        >
+                          <div className="group/logo flex h-16 w-40 items-center justify-center rounded-xl border border-stroke bg-white/50 px-4 transition-colors duration-300 hover:border-primary/40 hover:bg-white/70 dark:border-white/10 dark:bg-white/5 dark:hover:border-primaryho/40 dark:hover:bg-white/10 md:w-44">
+                            <Image
+                              width={120}
+                              height={48}
+                              src={brand.path}
+                              alt={copy === 0 ? brand.name : ""}
+                              className="object-contain opacity-70 grayscale transition-all duration-300 group-hover/logo:opacity-100 group-hover/logo:grayscale-0"
+                            />
                           </div>
-                        </p>
-                      ) : (
-                        <>
-                          <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
-                            <span className="font-semibold">
-                              Click to upload
-                            </span>
-                          </p>
-                          <p className="text-xs text-gray-500 dark:text-gray-400">
-                            CSV, XLSX or XLS (MAX. 25MB)
-                          </p>
-                        </>
-                      )}
+                        </div>
+                      ))}
                     </div>
-                    <input
-                      id="fileUpload"
-                      type="file"
-                      accept=".xlsx,.xls,.csv"
-                      className="hidden"
-                      {...register("fileUpload", {
-                        required: "Please select a file.",
-                        onChange: (
-                          event: React.ChangeEvent<HTMLInputElement>,
-                        ) => {
-                          const file = event.target.files?.[0];
-                          setSelectedFile(file ? file : null);
-                        },
-                      })}
-                    />
-                  </label>
-                  <div className="w-full">
-                    {errors["fileUpload"] && (
-                      <p className="mt-1 text-start text-sm text-red-600 dark:text-red-500">
-                        Please select a file to continue.
-                      </p>
-                    )}
-                  </div>
-                </div> */}
-
-                <div className="flex flex-wrap xl:justify-between ">
-                  <div className="mb-0 flex w-full items-start md:mb-0">
-                    <input
-                      id="default-checkbox"
-                      type="checkbox"
-                      className="mt-1.5 h-5 w-5 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
-                      {...register("agree", { required: true })}
-                    />
-
-                    <label
-                      htmlFor="default-checkbox"
-                      className="flex max-w-[425px] cursor-pointer select-none items-start pl-3 pt-1"
-                    >
-                      I agree to&nbsp;
-                      <span className="font-medium text-blue-600 underline hover:no-underline dark:text-blue-500">
-                        <Link href={"/privacy-policy"}>Privacy Policy</Link>
-                      </span>
-                      .
-                    </label>
-                  </div>
-                  <div className="mb-7.5 mt-1 w-full">
-                    {errors.agree && (
-                      <p className="mt-0 text-sm text-red-600 dark:text-red-500">
-                        Please agree to continue.
-                      </p>
-                    )}
-                  </div>
-
-                  <Button
-                    type="submit"
-                    variant="primary"
-                    size="md"
-                    disabled={isLoading}
-                    icon={<ArrowIcon className="fill-white" />}
-                    iconPosition="right"
-                  >
-                    {isLoading ? "Please wait..." : "Send Message"}
-                  </Button>
+                  ))}
                 </div>
-              </form>
+              </div>
+            </div>
+          </GlassPanel>
+        </div>
+      </section>
+      {/* <!-- ===== Brands strip End ===== */}
+
+      {/* <!-- ===== Form widget Start ===== */}
+      <section
+        id="buy-back-form"
+        className="scroll-mt-28 pb-20 lg:pb-25 xl:pb-30"
+      >
+        <div className="mx-auto max-w-c-1315 px-4 md:px-8 xl:px-0">
+          <SectionHeader
+            headerInfo={{
+              title: "Sell Your Surplus",
+              subtitle: "Request a Buy-Back Valuation",
+              description:
+                "Transform your industrial surplus into value with our streamlined buyback solutions.",
+            }}
+          />
+
+          <div className="relative mt-12.5">
+            {/* Contained decor — what the frost refracts */}
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-0 overflow-hidden rounded-2xl"
+            >
+              <motion.div
+                className="absolute -left-20 -top-24 h-72 w-72 rounded-full bg-primaryho/20 blur-3xl dark:bg-primaryho/25"
+                animate={
+                  reduce
+                    ? undefined
+                    : { x: [0, 60, 0], y: [0, 40, 0], scale: [1, 1.12, 1] }
+                }
+                transition={{
+                  duration: 18,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              />
+              <motion.div
+                className="bg-primary/15 absolute -bottom-24 -right-20 h-80 w-80 rounded-full blur-3xl dark:bg-primaryho/20"
+                animate={
+                  reduce
+                    ? undefined
+                    : { x: [0, -70, 0], y: [0, -40, 0], scale: [1.1, 1, 1.1] }
+                }
+                transition={{
+                  duration: 22,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              />
+              <Image
+                fill
+                sizes="100vw"
+                src="/images/shape/shape-dotted-light.svg"
+                alt=""
+                className="absolute inset-0 opacity-40 dark:hidden"
+              />
+              <Image
+                fill
+                sizes="100vw"
+                src="/images/shape/shape-dotted-dark.svg"
+                alt=""
+                className="absolute inset-0 hidden opacity-20 dark:block"
+              />
+            </div>
+
+            {/* Glass surface */}
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.1 }}
+              transition={{ duration: 0.4, ease: EASE }}
+              className="relative overflow-hidden rounded-2xl border border-stroke bg-white/40 shadow-solid-l backdrop-blur-2xl backdrop-saturate-150 dark:border-white/10 dark:bg-blacksection/50"
+            >
+              {/* Glass optics */}
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/40 via-transparent to-transparent dark:from-white/5"
+              />
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/80 to-transparent dark:via-white/25"
+              />
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/20 dark:ring-white/5"
+              />
+
+              <div className="relative grid grid-cols-1 lg:grid-cols-5">
+                {/* Desktop vertical hairline at the 3/5 seam */}
+                <div
+                  aria-hidden
+                  className="dark:via-white/15 pointer-events-none absolute inset-y-10 left-[60%] hidden w-px bg-gradient-to-b from-transparent via-waterloo/30 to-transparent lg:block"
+                />
+
+                {/* ---- Form zone ---- */}
+                <motion.div
+                  initial={{ opacity: 0, x: -16 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, amount: 0.1 }}
+                  transition={{ duration: 0.45, delay: 0.1, ease: EASE }}
+                  className="p-6 md:p-10 lg:col-span-3"
+                >
+                  <form
+                    onSubmit={handleSubmit(handleFormSubmit, () =>
+                      toast.error("Please fill in all required fields."),
+                    )}
+                  >
+                    <fieldset disabled={isLoading} className="space-y-8">
+                      {/* Group 1 — Your Details */}
+                      <div>
+                        <GroupLabel>Your Details</GroupLabel>
+                        <div className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2">
+                          <div>
+                            <label htmlFor="fullName" className={labelClasses}>
+                              Full Name *
+                            </label>
+                            <div className="relative">
+                              <FaUser
+                                aria-hidden
+                                className={fieldIconClasses}
+                              />
+                              <input
+                                id="fullName"
+                                type="text"
+                                placeholder="John Doe"
+                                {...register("fullName", {
+                                  required: "Full name is required.",
+                                })}
+                                className={`${inputClasses} ${
+                                  errors.fullName ? "border-red-500" : ""
+                                }`}
+                              />
+                            </div>
+                            {errors.fullName && (
+                              <p className={errorClasses}>
+                                {String(errors.fullName.message)}
+                              </p>
+                            )}
+                          </div>
+
+                          <div>
+                            <label htmlFor="email" className={labelClasses}>
+                              Email *
+                            </label>
+                            <div className="relative">
+                              <FaEnvelope
+                                aria-hidden
+                                className={fieldIconClasses}
+                              />
+                              <input
+                                id="email"
+                                type="email"
+                                placeholder="you@company.com"
+                                {...register("email", {
+                                  required: "Email is required.",
+                                  pattern: {
+                                    value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                                    message:
+                                      "Please enter a valid email address.",
+                                  },
+                                })}
+                                className={`${inputClasses} ${
+                                  errors.email ? "border-red-500" : ""
+                                }`}
+                              />
+                            </div>
+                            {errors.email && (
+                              <p className={errorClasses}>
+                                {String(errors.email.message)}
+                              </p>
+                            )}
+                          </div>
+
+                          <div>
+                            <label
+                              htmlFor="companyName"
+                              className={labelClasses}
+                            >
+                              Company Name *
+                            </label>
+                            <div className="relative">
+                              <FaBuilding
+                                aria-hidden
+                                className={fieldIconClasses}
+                              />
+                              <input
+                                id="companyName"
+                                type="text"
+                                placeholder="Your company"
+                                {...register("companyName", {
+                                  required: "Company name is required.",
+                                })}
+                                className={`${inputClasses} ${
+                                  errors.companyName ? "border-red-500" : ""
+                                }`}
+                              />
+                            </div>
+                            {errors.companyName && (
+                              <p className={errorClasses}>
+                                {String(errors.companyName.message)}
+                              </p>
+                            )}
+                          </div>
+
+                          <div>
+                            <label
+                              htmlFor="phoneNumber"
+                              className={labelClasses}
+                            >
+                              Phone Number *
+                            </label>
+                            <div className="relative">
+                              <FaMobileAlt
+                                aria-hidden
+                                className={fieldIconClasses}
+                              />
+                              <Controller
+                                name="phoneNumber"
+                                control={control}
+                                rules={{
+                                  required: "Phone number is required.",
+                                  validate: (value) =>
+                                    isValidPhoneNumber(String(value)) ||
+                                    "Please enter a valid phone number.",
+                                }}
+                                render={({ field }) => (
+                                  <PhoneInput
+                                    international
+                                    defaultCountry="IN"
+                                    autoFormat
+                                    placeholder="Enter phone number"
+                                    value={field.value}
+                                    onChange={field.onChange}
+                                    className="w-full rounded-xl border border-stroke bg-white/60 transition-all duration-300 focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/20 dark:border-strokedark dark:bg-white/5 dark:focus-within:border-primaryho dark:focus-within:ring-primaryho/20"
+                                  />
+                                )}
+                              />
+                            </div>
+                            {errors.phoneNumber && (
+                              <p className={errorClasses}>
+                                {String(errors.phoneNumber.message)}
+                              </p>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Group 2 — Your Inventory */}
+                      <div>
+                        <GroupLabel>Your Inventory</GroupLabel>
+                        <div className="mt-5 space-y-5">
+                          <div>
+                            <label htmlFor="brandName" className={labelClasses}>
+                              Brand Name *
+                            </label>
+                            <div className="relative">
+                              <FaTag aria-hidden className={fieldIconClasses} />
+                              <input
+                                id="brandName"
+                                type="text"
+                                placeholder="e.g. Allen Bradley, Siemens, Parker"
+                                {...register("brandName", {
+                                  required: "Brand name is required.",
+                                })}
+                                className={`${inputClasses} ${
+                                  errors.brandName ? "border-red-500" : ""
+                                }`}
+                              />
+                            </div>
+                            {errors.brandName && (
+                              <p className={errorClasses}>
+                                {String(errors.brandName.message)}
+                              </p>
+                            )}
+                          </div>
+
+                          <div>
+                            <label htmlFor="message" className={labelClasses}>
+                              Message 
+                            </label>
+                            <div className="relative">
+                              <FaComment
+                                aria-hidden
+                                className="pointer-events-none absolute left-4 top-4 h-4 w-4 text-waterloo dark:text-manatee"
+                              />
+                              <textarea
+                                id="message"
+                                rows={4}
+                                placeholder="Stock details, Part numbers, quantities — anything that helps us value your stock."
+                                {...register("message")}
+                                className={`${inputClasses} resize-none`}
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Consent */}
+                      <div>
+                        <label className="flex cursor-pointer items-start gap-3">
+                          <input
+                            type="checkbox"
+                            {...register("agree", {
+                              required: "You must agree to the privacy policy.",
+                            })}
+                            className="peer sr-only"
+                          />
+                          <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-stroke bg-white/60 text-transparent transition-all duration-300 peer-checked:border-primary peer-checked:bg-primary peer-checked:text-white peer-focus-visible:ring-2 peer-focus-visible:ring-primaryho dark:border-strokedark dark:bg-white/5 dark:peer-checked:border-primaryho dark:peer-checked:bg-primaryho">
+                            <FaCheck aria-hidden className="h-2.5 w-2.5" />
+                          </span>
+                          <span className="text-sectiontitle text-waterloo dark:text-manatee">
+                            I agree to the{" "}
+                            <Link
+                              href="/privacy-policy"
+                              className="font-medium text-primary underline underline-offset-4 transition-colors duration-300 hover:text-primaryho dark:text-primaryLight"
+                            >
+                              Privacy Policy
+                            </Link>{" "}
+                            and consent to being contacted. *
+                          </span>
+                        </label>
+                        {errors.agree && (
+                          <p className={errorClasses}>
+                            {String(errors.agree.message)}
+                          </p>
+                        )}
+                      </div>
+
+                      {/* Submit */}
+                      <Button
+                        type="submit"
+                        variant="primary"
+                        size="lg"
+                        className="w-full sm:w-auto"
+                        iconPosition="right"
+                        icon={
+                          isLoading ? (
+                            <span className="animate-spin">
+                              <ArrowIcon className="fill-white" />
+                            </span>
+                          ) : (
+                            <ArrowIcon className="fill-white" />
+                          )
+                        }
+                      >
+                        {isLoading ? "Please wait..." : "Send Message"}
+                      </Button>
+                    </fieldset>
+                  </form>
+                </motion.div>
+
+                {/* Mobile: centred vertical hairline between zones */}
+                <div aria-hidden className="flex justify-center py-4 lg:hidden">
+                  <span className="h-16 w-px bg-gradient-to-b from-transparent via-waterloo/40 to-transparent dark:via-white/20" />
+                </div>
+
+                {/* ---- Info zone ---- */}
+                <motion.div
+                  initial={{ opacity: 0, x: 16 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, amount: 0.1 }}
+                  transition={{ duration: 0.45, delay: 0.2, ease: EASE }}
+                  className="p-6 md:p-8 lg:col-span-2"
+                >
+                  <div className="flex items-start gap-3.5">
+                    <span className="dark:bg-primaryho/15 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primaryho/10 text-regular text-primaryho dark:text-primaryLight">
+                      <FaGem aria-hidden />
+                    </span>
+                    <div className="min-w-0">
+                      <h3 className="text-itemtitle font-bold text-black dark:text-white">
+                        Why Sell to Us
+                      </h3>
+                      <p className="mt-1.5 text-sectiontitle text-waterloo dark:text-manatee">
+                        A buy-back partner that treats your surplus like an
+                        asset, not a liability.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="mt-7 divide-y divide-stroke dark:divide-white/10">
+                    {whyUs.map((item, i) => (
+                      <motion.div
+                        key={item.title}
+                        initial={{ opacity: 0, y: 8 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{
+                          duration: 0.3,
+                          delay: 0.25 + i * 0.08,
+                          ease: EASE,
+                        }}
+                        className="flex items-start gap-3 py-4 first:pt-0 last:pb-0"
+                      >
+                        <span className="dark:bg-primaryho/15 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primaryho/10 text-sectiontitle text-primaryho dark:text-primaryLight">
+                          {item.icon}
+                        </span>
+                        <div className="min-w-0">
+                          <p className="text-regular font-semibold text-black dark:text-white">
+                            {item.title}
+                          </p>
+                          <p className="mt-1 text-sectiontitle text-waterloo dark:text-manatee">
+                            {item.description}
+                          </p>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+
+                  <div className="mt-7 border-t border-stroke pt-5 dark:border-strokedark">
+                    <Button
+                      href="/brands"
+                      variant="outline"
+                      size="md"
+                      className="w-full"
+                    >
+                      Browse Our Brands
+                    </Button>
+                    <p className="mt-4 text-center text-sectiontitle text-waterloo dark:text-manatee">
+                      Questions first?{" "}
+                      <Link
+                        href="/contact"
+                        className="font-medium text-primary underline underline-offset-4 transition-colors duration-300 hover:text-primaryho dark:text-primaryLight"
+                      >
+                        Contact the team
+                      </Link>
+                    </p>
+                  </div>
+                </motion.div>
+              </div>
             </motion.div>
           </div>
         </div>
       </section>
-      {/* <!-- ===== BuyBackContact End ===== --> */}
+      {/* <!-- ===== Form widget End ===== */}
     </>
   );
 };

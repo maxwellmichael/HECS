@@ -197,7 +197,7 @@ const Contact = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.4, ease: EASE }}
-            className="relative overflow-hidden rounded-2xl border border-white/60 bg-white/40 shadow-solid-l backdrop-blur-2xl backdrop-saturate-150 dark:border-white/10 dark:bg-blacksection/50"
+            className="relative overflow-hidden rounded-2xl border border-stroke bg-white/40 shadow-solid-l backdrop-blur-2xl backdrop-saturate-150 dark:border-white/10 dark:bg-blacksection/50"
           >
             {/* Glass optics */}
             <div
@@ -569,7 +569,7 @@ const Contact = () => {
                 </div>
 
                 {/* Social footer */}
-                <div className="mt-7 flex items-center justify-between gap-4 border-t border-stroke pt-5 dark:border-strokedark">
+                {/* <div className="mt-7 flex items-center justify-between gap-4 border-t border-stroke pt-5 dark:border-strokedark">
                   <span className="text-metatitle font-semibold uppercase tracking-widest text-waterloo dark:text-manatee">
                     Follow Us
                   </span>
@@ -585,7 +585,7 @@ const Contact = () => {
                       </a>
                     ))}
                   </div>
-                </div>
+                </div> */}
               </motion.div>
             </div>
           </motion.div>
