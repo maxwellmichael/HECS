@@ -1,89 +1,47 @@
-# Solid - Free Next.js Web Template and Starter Kit for SaaS
+# Heliac Energii Controls Solutions
 
-Solid is a free Next.js template specifically crafted for startups, SaaS, and software websites. It provides an extensive array of necessary sections, elements, and pages required to build a fully-equipped website for any SaaS, software, or startup site. Comes with all cutting edge React and Next.js features - **Built with Next.js 13, React 18 and TypeScript.**
+A modern, high-performance B2B industrial platform for **Heliac Energii Controls Solutions**. The application serves as a comprehensive catalog for automation, instrumentation, electrical, and mechanical spares, alongside a streamlined asset recovery (Buy Back) portal. 
 
-This Next.js template's homepage comes with an awesome hero area, logos of associated brands, a features section, an about section, another features section with tabs, counters, and star ratings, integration options, clear call-to-actions, an FAQ section with accordions, a testimonials section, pricing tables, a contact page, a blog, and a distinctive footer.
+Built with **Next.js 13 (App Router)** and a custom **Glassmorphism Design System**, the platform delivers a premium, accessible, and fully responsive experience across light and dark modes.
 
-**Solid Next.js template packed with all necessary external pages** - such as login, registration, blog grids, and single blog pages, among others. This broad collection of pages provides all the necessary tools to create a feature-packed, comprehensive, and visually appealing website or landing page for software, a web application, or SaaS.
+---
 
-### [🔥 Get Solid Pro - Next.js SaaS Boilerplate and Starter Kit](https://nextjstemplates.com/templates/solid)
+## ✨ Key Features
 
-![Startup Pro](https://uideck.com/wp-content/uploads/edd/2023/07/solid-saas.png)
+- **Custom Glass Design System**: Proprietary `GlassCard` and `GlassPanel` primitives featuring backdrop blur, specular rim lighting, staggered entrance animations, and hover-lift micro-interactions.
+- **Dynamic Product Catalog**: Categorized industrial spares (Gas Turbine, Steam Turbine, Compressor, Generator, Mud Pump) with subcategory filtering, search, and pagination.
+- **Brand Showcase**: Infinite marquee logo slider and interactive brand-specific product grids.
+- **Asset Recovery (Buy Back)**: A dedicated portal for surplus stock valuation, featuring a 4-step process breakdown and a secure EmailJS-backed submission form.
+- **Cinematic Hero Slider**: Custom Framer Motion carousel with Ken Burns zoom effects, parallax, and staggered glass text panels.
+- **Smart Navigation**: Sticky glass header with a measured, gliding active-state pill, and a fully animated mobile drawer.
+- **Accessibility & UX**: Full keyboard navigation, `prefers-reduced-motion` support, semantic HTML, and `react-hot-toast` feedback loops.
 
-### [🚀 Solid PRO Live Demo](https://solid.nextjstemplates.com/)
+---
 
-### [🚀 Solid FREE Live Demo](https://solid-free.nextjstemplates.com/)
+## 🛠 Tech Stack
 
-### TailAdmin React PRO vs TailAdmin React FREE Comparison 📊
+| Category | Technologies |
+| :--- | :--- |
+| **Framework** | Next.js 13 (App Router), React 18 |
+| **Language** | TypeScript |
+| **Styling** | Tailwind CSS (Custom Tokenized Palette) |
+| **Animation** | Framer Motion (Custom spring & layout animations) |
+| **Forms** | `react-hook-form`, `react-phone-number-input` |
+| **Services** | EmailJS (Client-side transactional emails) |
+| **Theming** | `next-themes` (System/Light/Dark mode) |
+| **UI/Icons** | `react-icons` (FA, MD, HI sets) |
 
-#### [Solid PRO](https://solid.nextjstemplates.com/)
-- SaaS Boilerplate + Starter Kit with Essential Integrations and Functionalities
-- Essential Integrations: Auth, DB, Stripe, MDX and More ...
-- Fully Functional, Ready to Use Sanity Blog Support
-- Premium Email Support
-- Functional External Pages
-- Free Lifetime Future Updates
-___
-#### [Solid FREE](https://solid-free.nextjstemplates.com/)
-- Only UI - Coded for Next.js
-- No Integrations
-- No Functional Blogging System
-- External Pages without Functions/Integrations
-- Community Support
-- Free Lifetime Future Updates
-___
+---
 
-### [📦 Download](https://nextjstemplates.com/templates/solid)
+## 🚀 Getting Started
 
-### [🔥 Get Pro](https://nextjstemplates.com/templates/solid)
+### Prerequisites
+- Node.js `>= 18.x`
+- npm or yarn
 
-### [🔌 Documentation](https://nextjstemplates.com/docs)
+### Installation
 
-### ⚡ Deploy Now
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FNextJSTemplates%2Fsolid-nextjs)
-
-[![Deploy with Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/NextJSTemplates/solid-nextjs)
-
-
-## Installation
-
-Here are the steps you need to follow to install the dependencies.
-
-1.Download and extract the template from **Next.js Templates.**
-
-2.**cd** into the template directory then run this command to install all the dependencies
-    
-```bash
-    npm install
-```
-    
-or
-    
-```bash
-    yarn install
- ```
-
-
-You can start the project on the local server
-    
-```bash
-    npm run dev
- ```
-
-It’ll start the template on [localhost:3000](http://localhost:3000). 
-
-The documentation includes all the guides you need for the integrations. 
-
-
-### Deploying on PaaS
-
-If you are using a GitHub repo then you can go with free-of-cost and easy-to-use options like [Vercel](https://vercel.com/), or [Netlify](https://netlify.com/) they offer decent-free tiers for Next.js hosting.
-
-### 📄 License
-Solid Free is 100% free and open-source, feel free to use with your personal and commercial projects.
-
-### 💜 Support
-If you like the template, please star this repository to inspire the team to create more stuff like this and reach more users like you!
-
-### ✨ Browse and Download - Best Free [Next.js Templates](https://nextjstemplates.com/templates)
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd Heliacenergii
