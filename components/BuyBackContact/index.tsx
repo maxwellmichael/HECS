@@ -572,7 +572,6 @@ const BuyBackContact = () => {
                                   <PhoneInput
                                     international
                                     defaultCountry="IN"
-                                    autoFormat
                                     placeholder="Enter phone number"
                                     value={field.value}
                                     onChange={field.onChange}

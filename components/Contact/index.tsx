@@ -336,7 +336,6 @@ const Contact = () => {
                             <PhoneInput
                               international
                               defaultCountry="IN"
-                              autoFormat
                               placeholder="Enter phone number"
                               value={watch("phoneNumber") || undefined}
                               onChange={(value) =>
