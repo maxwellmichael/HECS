@@ -97,16 +97,26 @@ const Contact = () => {
   const [isLoading, setLoading] = useState(false);
   const reduce = useReducedMotion() === true;
 
-  /* ---- FORM LOGIC — UNCHANGED ---- */
   const handleFormSubmit = (formData: any) => {
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_CONTACT_TEMPLATE_ID;
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+
+    if (!serviceId || !templateId || !publicKey) {
+      toast.error(
+        "Unable to send your message right now. Please try again later.",
+      );
+      return;
+    }
+
     setLoading(true);
     const newData = { ...formData, current_year: new Date().getFullYear() };
     emailjs
       .send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
-        process.env.NEXT_PUBLIC_EMAILJS_CONTACT_TEMPLATE_ID,
+        serviceId,
+        templateId,
         newData,
-        { publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY },
+        { publicKey },
       )
       .then(
         () => {

@@ -177,18 +177,28 @@ const BuyBackContact = () => {
   const [isLoading, setLoading] = useState(false);
   const reduce = useReducedMotion() === true;
 
-  /* ---- FORM LOGIC — UNCHANGED (sendForm coupling preserved) ---- */
   const handleFormSubmit = (
     formData: any,
     event?: React.BaseSyntheticEvent,
   ) => {
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_BUYBACK_TEMPLATE_ID;
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+
+    if (!serviceId || !templateId || !publicKey) {
+      toast.error(
+        "Unable to send your message right now. Please try again later.",
+      );
+      return;
+    }
+
     setLoading(true);
     emailjs
       .sendForm(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
-        process.env.NEXT_PUBLIC_EMAILJS_BUYBACK_TEMPLATE_ID,
+        serviceId,
+        templateId,
         event?.currentTarget as HTMLFormElement,
-        { publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY },
+        { publicKey },
       )
       .then(
         () => {
