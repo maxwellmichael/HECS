@@ -12,9 +12,7 @@ import {
 import {
   FaArrowRight,
   FaEnvelope,
-  FaFacebookF,
   FaLinkedinIn,
-  FaTwitter,
 } from "react-icons/fa";
 import Button from "@/components/Common/Button";
 
@@ -22,10 +20,18 @@ const EASE: [number, number, number, number] = [0.23, 1, 0.32, 1];
 
 /* Social/contact tiles — top row */
 const tiles = [
-  { label: "LinkedIn", href: "#", aria: "Heliac Energii on LinkedIn", icon: <FaLinkedinIn aria-hidden /> },
-  { label: "Facebook", href: "#", aria: "Heliac Energii on Facebook", icon: <FaFacebookF aria-hidden /> },
-  { label: "Twitter", href: "#", aria: "Heliac Energii on Twitter", icon: <FaTwitter aria-hidden /> },
-  { label: "Email Us", href: "mailto:inquiry@heliacenergii.com", aria: "Email Heliac Energii", icon: <FaEnvelope aria-hidden /> },
+  {
+    label: "LinkedIn",
+    href: "#",
+    aria: "Heliac Energii on LinkedIn",
+    icon: <FaLinkedinIn aria-hidden />,
+  },
+  {
+    label: "Email Us",
+    href: "mailto:inquiry@heliacenergii.com",
+    aria: "Email Heliac Energii",
+    icon: <FaEnvelope aria-hidden />,
+  },
 ];
 
 const exploreLinks = [
@@ -50,14 +56,13 @@ const contactLinks = [
 
 const offices = [
   { city: "Goa, India", address: "Sanguem, Goa 403704, India" },
-  { city: "Kalispell, USA", address: "Kalispell, MT, United States" },
 ];
 
 const columnLinkClasses =
   "inline break-words text-regular text-blackho transition-colors duration-300 hover:text-primaryho underline decoration-transparent underline-offset-4 hover:decoration-current focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primaryho dark:text-manatee dark:hover:text-primaryLight";
 
 const columnHeadingClasses =
-  "text-sectiontitle font-semibold uppercase tracking-widest text-waterloo dark:text-manatee";
+  "text-sectiontitle font-bold uppercase tracking-widest text-black dark:text-white";
 
 const Footer = () => {
   const [spotActive, setSpotActive] = useState(false);
@@ -196,8 +201,8 @@ const Footer = () => {
           </Button>
         </motion.div>
 
-        {/* ---- Social / contact tiles — 2×2 from 320px, 4-across at lg ---- */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 lg:divide-x lg:divide-stroke dark:lg:divide-white/10">
+        {/* ---- Social / contact tiles — split evenly, centered ---- */}
+        <div className="grid grid-cols-2 border-t border-stroke dark:border-white/10">
           {tiles.map((tile, i) => (
             <motion.a
               key={tile.label}
@@ -207,7 +212,7 @@ const Footer = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.15 }}
               transition={{ duration: 0.3, delay: 0.05 + i * 0.05, ease: EASE }}
-              className="group flex items-center justify-between gap-2.5 border-t border-stroke px-3 py-4 transition-colors duration-300 hover:bg-white/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primaryho odd:border-r odd:border-stroke dark:border-white/10 dark:hover:bg-white/5 dark:odd:border-white/10 sm:gap-3 sm:px-4 sm:py-5 lg:odd:border-r-0 lg:px-8"
+              className="group flex items-center justify-center gap-3 border-stroke px-3 py-4 transition-colors duration-300 odd:border-r hover:bg-white/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primaryho dark:border-white/10 dark:hover:bg-white/5 sm:gap-4 sm:px-4 sm:py-5 lg:px-8"
             >
               <span className="flex min-w-0 items-center gap-2.5 sm:gap-3">
                 <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-stroke bg-white/60 text-sectiontitle text-blackho transition-colors duration-300 group-hover:border-primary group-hover:bg-primary group-hover:text-white dark:border-white/10 dark:bg-white/5 dark:text-white dark:group-hover:border-primaryho dark:group-hover:bg-primaryho sm:h-10 sm:w-10 sm:text-regular">

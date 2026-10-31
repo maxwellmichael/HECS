@@ -90,7 +90,7 @@ All links: `className="mb-3 inline-block hover:text-primary"`.
 Three motion blocks (each `duration: 1, delay: 0.1`):
 1. **Legal links:** Privacy Policy `/privacy-policy` · Support `#` ⚠️ (English commented out)
 2. **Copyright:** `© {new Date().getFullYear()} Heliac Energii Controls Solutions. All rights reserved`
-3. **Social icons:** 3 inline SVGs (Facebook, Twitter/X, LinkedIn) — all `href="#"` ⚠️ · 4th (Instagram?) commented out.
+3. **Social icons:** 1 inline SVG (LinkedIn) — `href="#"` ⚠️.
    - Styling: `className="fill-[#D1D8E0] transition-all duration-300 hover:fill-primary"` ⚠️ raw hex instead of `fill-socialicon` token.
 
 ### 3.4 Animation used today
@@ -138,7 +138,7 @@ className="animate_top"
 - Support column (Company, Contact Us)
 - Privacy Policy link
 - Copyright with dynamic `new Date().getFullYear()`
-- 3 social icons (Facebook, Twitter/X, LinkedIn)
+- 1 social icon (LinkedIn)
 - Logo swap logic (`logo.svg` light / `logo-dark.svg` dark)
 
 **No backend / no new data sources.** The commented-out newsletter form has **no** email service — do not reintroduce it unless a real endpoint is provided (see Q7).
@@ -249,7 +249,7 @@ transition={{ duration: 0.3, delay: index * 0.05, ease: [0.23, 1, 0.32, 1] }}
 ### Reference components (quality bar)
 - `components/Header/MobileMenu.tsx` — the most polished component: portal + `AnimatePresence`, stagger `index * 0.05`, glass optics, `ease: [0.23, 1, 0.32, 1]`.
 - `components/Header/index.tsx` — header uses `<Button href="/contact" variant="primary" size="lg">`; footer should feel like the same family.
-- `components/Contact/index.tsx` lines 82–84 — already defines a social array: `FaLinkedinIn`, `FaFacebookF`, `FaTwitter` (all `href="#"`). Reuse `react-icons` instead of inline SVG paths if desired.
+- `components/Contact/index.tsx` lines 76–78 — already defines a social array: `FaLinkedinIn` (all `href="#"`). Reuse `react-icons` instead of inline SVG paths if desired.
 
 ---
 

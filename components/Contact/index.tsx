@@ -17,14 +17,12 @@ import {
   FaChevronRight,
   FaComment,
   FaEnvelope,
-  FaFacebookF,
   FaLinkedinIn,
   FaMapMarkerAlt,
   FaMobileAlt,
   FaPaperPlane,
   FaSpinner,
   FaTag,
-  FaTwitter,
   FaUser,
 } from "react-icons/fa";
 import Button from "@/components/Common/Button";
@@ -49,11 +47,6 @@ const locations = [
     address:
       "184, Opposite Miracles School, Pangulna, Sanguem, Goa 403704, India",
     map: "https://www.google.com/maps/search/?api=1&query=Pangulna+Sanguem+Goa+India",
-  },
-  {
-    city: "Kalispell, MT, USA",
-    address: "Kalispell, Montana, United States",
-    map: "https://www.google.com/maps/search/?api=1&query=Kalispell+MT+USA",
   },
 ];
 
@@ -80,8 +73,6 @@ const channels = [
 
 const socials = [
   { icon: <FaLinkedinIn aria-hidden />, label: "LinkedIn", href: "#" },
-  { icon: <FaFacebookF aria-hidden />, label: "Facebook", href: "#" },
-  { icon: <FaTwitter aria-hidden />, label: "Twitter", href: "#" },
 ];
 
 const GroupLabel = ({ children }: { children: React.ReactNode }) => (

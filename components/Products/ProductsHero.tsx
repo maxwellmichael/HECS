@@ -83,9 +83,9 @@ const ProductsHero = () => {
                     {...itemAnim(0.25)}
                     className="mt-4 text-itemtitle2 font-bold leading-tight text-white drop-shadow-md md:text-hero"
                   >
-                    Energy Solutions &{" "}
+                    Driving Industrial Excellence through the{" "}
                     <span className="bg-gradient-to-r from-white via-white to-primaryLight bg-clip-text text-transparent">
-                      Trading Products
+                      Strategic Supply of Critical Components
                     </span>
                   </motion.h1>
 
@@ -93,9 +93,8 @@ const ProductsHero = () => {
                     {...itemAnim(0.35)}
                     className="mt-3 max-w-xl text-sectiontitle text-white/90 drop-shadow md:mt-4 md:text-metatitle2"
                   >
-                    Turbine, compressor, generator and pump components —
-                    sourced, stocked and supplied to keep the industrial world
-                    running.
+                    Gas &amp; Steam Turbines, Compressors, Generators and Pumps,
+                    Ensuring Operational Reliability Worldwide.
                   </motion.p>
 
                   {/* Full-width stacked CTAs on mobile, row from sm up */}

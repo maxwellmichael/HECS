@@ -79,7 +79,7 @@ const handleFormSubmit = (formData: any) => {
 ```
 
 **Info panel content:**
-- **Locations:** Goa, India + Kalispell, MT, USA
+- **Locations:** Goa, India
 - **Email:** inquiry@heliacenergii.com
 - **Phone:** 0091-8411981840, 0091-8793823181
 
@@ -373,7 +373,7 @@ react-icons/hi: HiOutlineMail, HiOutlinePhone, HiOutlineLocationMarker
 
 **Q5 — Info panel structure.** Should locations be cards with map pins? Recommend: yes — each location is a small glass card with a `FaMapMarkerAlt` icon, the address, and a "Get Directions" link (Google Maps).
 
-**Q6 — Social links.** Should social media links be added? Recommend: yes — LinkedIn, Facebook, Twitter/X as small glass icon buttons in the info panel.
+**Q6 — Social links.** Should social media links be added? Recommend: yes — LinkedIn as a small glass icon button in the info panel.
 
 **Q7 — Response time.** Should we add "We typically respond within 24 hours"? Recommend: yes — a small glass badge with `FaClock` icon.
 
